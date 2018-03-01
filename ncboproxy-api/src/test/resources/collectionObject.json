@@ -1,0 +1,49 @@
+{
+  "prefLabel": "Question de grossesse",
+  "synonym": [],
+  "definition": [],
+  "cui": [
+    "C0425965"
+  ],
+  "semanticType": [
+    "http://purl.lirmm.fr/ontology/STY/T033"
+  ],
+  "obsolete": true,
+  "@id": "http://chu-rouen.fr/cismef/CISP-2#W01",
+  "@type": "http://www.w3.org/2002/07/owl#Class",
+  "links": {
+    "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01",
+    "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+    "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/children",
+    "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/parents",
+    "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/descendants",
+    "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/ancestors",
+    "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/instances",
+    "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/tree",
+    "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/notes",
+    "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/mappings",
+    "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01",
+    "@context": {
+      "self": "http://www.w3.org/2002/07/owl#Class",
+      "ontology": "http://data.bioontology.org/metadata/Ontology",
+      "children": "http://www.w3.org/2002/07/owl#Class",
+      "parents": "http://www.w3.org/2002/07/owl#Class",
+      "descendants": "http://www.w3.org/2002/07/owl#Class",
+      "ancestors": "http://www.w3.org/2002/07/owl#Class",
+      "instances": "http://data.bioontology.org/metadata/Instance",
+      "tree": "http://www.w3.org/2002/07/owl#Class",
+      "notes": "http://data.bioontology.org/metadata/Note",
+      "mappings": "http://data.bioontology.org/metadata/Mapping",
+      "ui": "http://www.w3.org/2002/07/owl#Class"
+    }
+  },
+  "@context": {
+    "@vocab": "http://data.bioontology.org/metadata/",
+    "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+    "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+    "definition": "http://www.w3.org/2004/02/skos/core#definition",
+    "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+    "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+    "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+  }
+}

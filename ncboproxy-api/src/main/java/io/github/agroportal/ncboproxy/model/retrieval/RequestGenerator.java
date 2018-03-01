@@ -1,0 +1,25 @@
+package io.github.agroportal.ncboproxy.model.retrieval;
+
+import io.github.agroportal.ncboproxy.model.APIContext;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.util.List;
+import java.util.Map;
+
+@FunctionalInterface
+public interface RequestGenerator {
+    HttpURLConnection createRequest() throws IOException;
+
+    static RequestGenerator createPOSTRequestGenerator(final APIContext apiContext, final Map<String, List<String>> queryParameters,
+                                                       final Map<String, String> queryHeaders,
+                                                       final String queryPath){
+        return new BioportalRestAPIRequestGenerator(apiContext,queryParameters,queryHeaders,queryPath, true);
+    }
+
+    static RequestGenerator createGETRequestGenerator(final APIContext apiContext, final Map<String, List<String>> queryParameters,
+                                                      final Map<String, String> queryHeaders,
+                                                      final String queryPath){
+        return new BioportalRestAPIRequestGenerator(apiContext,queryParameters,queryHeaders,queryPath, false);
+    }
+}

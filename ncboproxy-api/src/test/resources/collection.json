@@ -1,0 +1,2505 @@
+[
+  {
+    "prefLabel": "Trouble anxieux/état anxieux",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497330"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T048"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#P74",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P74",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P74/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P74/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P74/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P74/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P74/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P74/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P74/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P74/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P74",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Saignement de nez, épistaxis",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0014591"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T046"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#R06",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R06",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R06/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R06/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R06/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R06/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R06/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R06/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R06/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R06/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R06",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Autre lésion traumatique du système respiratoire",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497557"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T037"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#R88",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R88",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R88/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R88/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R88/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R88/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R88/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R88/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R88/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R88/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R88",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Autre lésion traumatique de l’oeil",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497541"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T037"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#F79",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F79",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F79/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F79/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F79/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F79/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F79/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F79/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F79/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F79/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F79",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Perte d'appétit",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C1971624"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T033"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#T03",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T03",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T03/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T03/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T03/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T03/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T03/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T03/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T03/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T03/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T03",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Coqueluche",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0043168"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#R71",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R71",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R71/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R71/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R71/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R71/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R71/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R71/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R71/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R71/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R71",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Peur d’une autre maladie digestive",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497185"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#D27",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D27",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D27/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D27/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D27/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D27/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D27/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D27/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D27/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D27/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D27",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Endoscopie",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0810122",
+      "C2029766",
+      "C0711922",
+      "C0011627",
+      "C1548216",
+      "C0600057",
+      "C0677102",
+      "C2362507",
+      "C0307573",
+      "C0711921",
+      "C0228252",
+      "C1169172",
+      "C1254353",
+      "C0237084",
+      "C0694749",
+      "C0026764",
+      "C0688081",
+      "C0711923",
+      "C0009861",
+      "C0938833",
+      "C0711924",
+      "C0037274",
+      "C0796028",
+      "C0841824",
+      "C1169171",
+      "C0752016",
+      "C1554258"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T095",
+      "http://purl.lirmm.fr/ontology/STY/T200",
+      "http://purl.lirmm.fr/ontology/STY/T129",
+      "http://purl.lirmm.fr/ontology/STY/T033",
+      "http://purl.lirmm.fr/ontology/STY/T078",
+      "http://purl.lirmm.fr/ontology/STY/T058",
+      "http://purl.lirmm.fr/ontology/STY/T060",
+      "http://purl.lirmm.fr/ontology/STY/T130",
+      "http://purl.lirmm.fr/ontology/STY/T191",
+      "http://purl.lirmm.fr/ontology/STY/T047",
+      "http://purl.lirmm.fr/ontology/STY/T061",
+      "http://purl.lirmm.fr/ontology/STY/T007",
+      "http://purl.lirmm.fr/ontology/STY/T091",
+      "http://purl.lirmm.fr/ontology/STY/T046",
+      "http://purl.lirmm.fr/ontology/STY/T098",
+      "http://purl.lirmm.fr/ontology/STY/T023",
+      "http://purl.lirmm.fr/ontology/STY/T121"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#40",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%2340",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%2340/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%2340/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%2340/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%2340/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%2340/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%2340/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%2340/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%2340/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%2340",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Hyperthyroïdie/thyréotoxicose",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0494276"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#T85",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T85",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T85/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T85/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T85/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T85/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T85/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T85/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T85/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T85/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T85",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Problème d'alimentation de l'adulte",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497396"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T033"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#T05",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T05",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T05/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T05/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T05/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T05/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T05/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T05/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T05/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T05/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T05",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Furoncle/abcès du nez",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497350"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#R73",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R73",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R73/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R73/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R73/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R73/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R73/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R73/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R73/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R73/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R73",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Autre maladie infectieuse non classée ailleurs",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497442"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#A78",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A78",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A78/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A78/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A78/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A78/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A78/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A78/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A78/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A78/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A78",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Autre symptôme ou plainte du système digestif",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497186"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#D29",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D29",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D29/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D29/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D29/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D29/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D29/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D29/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D29/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D29/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23D29",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Mastite puerpérale",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0269985"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#W94",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W94",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W94/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W94/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W94/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W94/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W94/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W94/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W94/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W94/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W94",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Anémie par déficience en fer",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0162316"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#B80",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B80",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B80/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B80/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B80/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B80/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B80/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B80/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B80/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B80/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B80",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Infection du système endocrinien",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0729775"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#T70",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T70",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T70/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T70/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T70/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T70/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T70/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T70/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T70/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T70/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T70",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Dépression",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0011581"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T048"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#P76",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P76",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P76/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P76/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P76/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P76/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P76/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P76/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P76/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P76/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P76",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Autre symptôme ou plainte du nez",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497340"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#R08",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R08",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R08/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R08/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R08/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R08/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R08/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R08/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R08/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R08/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R08",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Limitation de la fonction/incapacité (l)",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497546"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#L28",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L28",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L28/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L28/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L28/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L28/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L28/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L28/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L28/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L28/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L28",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Diabète gravidique",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0085207",
+      "C2905151",
+      "C0479483"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T037",
+      "http://purl.lirmm.fr/ontology/STY/T046"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#W85",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W85",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W85/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W85/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W85/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W85/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W85/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W85/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W85/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W85/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W85",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Paralysie faciale/paralysie de bell",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0376175"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#N91",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N91",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N91/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N91/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N91/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N91/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N91/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N91/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N91/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N91/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N91",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Symptôme ou plainte du comportement de l'adolescent",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497322"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#P23",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P23",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P23/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P23/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P23/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P23/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P23/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P23/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P23/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P23/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P23",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Autre maladie génitale homme",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497500"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#Y99",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y99",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y99/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y99/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y99/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y99/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y99/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y99/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y99/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y99/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y99",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Symptôme ou plainte de la main et du doigt",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497266"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#L12",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L12",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L12/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L12/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L12/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L12/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L12/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L12/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L12/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L12/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L12",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Hématurie",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0018965"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T033"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#U06",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U06",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U06/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U06/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U06/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U06/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U06/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U06/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U06/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U06/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U06",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Autre complication puerpérale",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0157592"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T046"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#W96",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W96",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W96/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W96/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W96/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W96/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W96/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W96/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W96/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W96/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W96",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Coude du joueur de tennis",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0039516"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#L93",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L93",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L93/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L93/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L93/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L93/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L93/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L93/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L93/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L93/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L93",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Limitation de la fonction/incapacité (y)",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497578"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#Y28",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y28",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y28/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y28/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y28/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y28/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y28/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y28/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y28/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y28/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y28",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Syndrome vertigineux",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0271487"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#H82",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H82",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H82/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H82/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H82/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H82/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H82/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H82/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H82/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H82/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H82",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Sinusite aiguë/chronique",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497352"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#R75",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R75",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R75/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R75/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R75/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R75/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R75/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R75/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R75/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R75/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R75",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Gain de poids",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0043094"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T033"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#T07",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T07",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T07/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T07/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T07/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T07/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T07/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T07/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T07/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T07/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23T07",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Rétention d'urine",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C1549389",
+      "C0080274"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T033",
+      "http://purl.lirmm.fr/ontology/STY/T058"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#U08",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U08",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U08/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U08/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U08/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U08/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U08/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U08/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U08/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U08/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23U08",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Symptôme ou plainte de la jambe et de la cuisse",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497268"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#L14",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L14",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L14/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L14/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L14/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L14/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L14/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L14/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L14/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L14/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L14",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Douleur thoracique non classée ailleurs",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0042890",
+      "C0008031",
+      "C1549126"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T109",
+      "http://purl.lirmm.fr/ontology/STY/T127",
+      "http://purl.lirmm.fr/ontology/STY/T058",
+      "http://purl.lirmm.fr/ontology/STY/T184",
+      "http://purl.lirmm.fr/ontology/STY/T121"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#A11",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A11",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A11/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A11/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A11/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A11/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A11/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A11/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A11/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A11/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A11",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Peur d’une autre maladie neurologique",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497296"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#N27",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N27",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N27/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N27/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N27/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N27/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N27/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N27/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N27/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N27/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23N27",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Ostéoporose",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0029456"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#L95",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L95",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L95/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L95/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L95/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L95/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L95/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L95/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L95/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L95/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L95",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Symptôme ou plainte musculaire non classée ailleurs",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497273"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#L19",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L19",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L19/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L19/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L19/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L19/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L19/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L19/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L19/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L19/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L19",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Presbyacousie",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0033074"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T046"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#H84",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H84",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H84/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H84/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H84/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H84/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H84/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H84/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H84/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H84/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H84",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Peur d'une autre maladie non classée ailleurs",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497138"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#A27",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A27",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A27/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A27/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A27/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A27/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A27/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A27/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A27/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A27/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23A27",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Nausée/vomissement de grossesse",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497431"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#W05",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W05",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W05/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W05/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W05/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W05/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W05/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W05/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W05/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W05/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W05",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Grippe",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497353"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#R80",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R80",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R80/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R80/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R80/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R80/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R80/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R80/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R80/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R80/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23R80",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Problèmes de phase de vie adulte",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497324"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#P25",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P25",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P25/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P25/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P25/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P25/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P25/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P25/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P25/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P25/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23P25",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Peur d’une maladie de l'oreille",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497224"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T041"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#H27",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H27",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H27/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H27/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H27/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H27/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H27/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H27/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H27/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H27/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23H27",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Lésion traumatique génitale homme",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497582"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T037"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#Y80",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y80",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y80/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y80/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y80/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y80/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y80/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y80/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y80/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y80/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23Y80",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Ganglion lymphatique augmenté /douloureux",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497156"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T033"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#B02",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B02",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B02/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B02/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B02/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B02/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B02/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B02/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B02/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B02/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B02",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Symptôme ou plainte du genou",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0497269"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T184"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#L15",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L15",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L15/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L15/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L15/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L15/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L15/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L15/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L15/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L15/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23L15",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Strabisme",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0038379"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T047"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#F95",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F95",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F95/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F95/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F95/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F95/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F95/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F95/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F95/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F95/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23F95",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Fibrillation auriculaire/flutter",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0155709"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T046"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#K78",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23K78",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23K78/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23K78/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23K78/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23K78/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23K78/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23K78/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23K78/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23K78/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23K78",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Globules blancs anormaux",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0152009"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T033"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#B84",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B84",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B84/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B84/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B84/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B84/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B84/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B84/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B84/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B84/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23B84",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  },
+  {
+    "prefLabel": "Question de grossesse",
+    "synonym": [ ],
+    "definition": [ ],
+    "cui": [
+      "C0425965"
+    ],
+    "semanticType": [
+      "http://purl.lirmm.fr/ontology/STY/T033"
+    ],
+    "obsolete": false,
+    "@id": "http://chu-rouen.fr/cismef/CISP-2#W01",
+    "@type": "http://www.w3.org/2002/07/owl#Class",
+    "links": {
+      "self": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01",
+      "ontology": "http://data.bioportal.lirmm.fr/ontologies/CISP-2",
+      "children": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/children",
+      "parents": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/parents",
+      "descendants": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/descendants",
+      "ancestors": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/ancestors",
+      "instances": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/instances",
+      "tree": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/tree",
+      "notes": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/notes",
+      "mappings": "http://data.bioportal.lirmm.fr/ontologies/CISP-2/classes/http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01/mappings",
+      "ui": "http://bioportal.lirmm.fr/ontologies/CISP-2?p=classes&conceptid=http%3A%2F%2Fchu-rouen.fr%2Fcismef%2FCISP-2%23W01",
+      "@context": {
+        "self": "http://www.w3.org/2002/07/owl#Class",
+        "ontology": "http://data.bioontology.org/metadata/Ontology",
+        "children": "http://www.w3.org/2002/07/owl#Class",
+        "parents": "http://www.w3.org/2002/07/owl#Class",
+        "descendants": "http://www.w3.org/2002/07/owl#Class",
+        "ancestors": "http://www.w3.org/2002/07/owl#Class",
+        "instances": "http://data.bioontology.org/metadata/Instance",
+        "tree": "http://www.w3.org/2002/07/owl#Class",
+        "notes": "http://data.bioontology.org/metadata/Note",
+        "mappings": "http://data.bioontology.org/metadata/Mapping",
+        "ui": "http://www.w3.org/2002/07/owl#Class"
+      }
+    },
+    "@context": {
+      "@vocab": "http://data.bioontology.org/metadata/",
+      "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "synonym": "http://www.w3.org/2004/02/skos/core#synonym",
+      "definition": "http://www.w3.org/2004/02/skos/core#definition",
+      "obsolete": "http://www.w3.org/2002/07/owl#obsolete",
+      "semanticType": "http://bioportal.bioontology.org/ontologies/umls/semanticType",
+      "cui": "http://bioportal.bioontology.org/ontologies/umls/cui"
+    }
+  }
+]
