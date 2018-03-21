@@ -37,7 +37,8 @@ public class OmTDShareSingleServletHandler extends AbstractServletHandler {
                 OutputGeneratorDispatcher.create());
         queryStringPattern = new ArrayList<>();
         queryStringPattern.add(String.format("/ontologies/%s/submissions/%s", ACRONYM_PATTERN, SUBMISSION_ID_PATTERN));
-        queryStringPattern.add(String.format("/ontologies/%s/(latest_submission)", ACRONYM_PATTERN, SUBMISSION_ID_PATTERN));
+        queryStringPattern.add(String.format("/ontologies/%s/(latest_submission)", ACRONYM_PATTERN));
+        queryStringPattern.add(String.format("/ontologies/%s", ACRONYM_PATTERN));
 
         OutputGenerator outputGenerator = new OMTDShareOutputGenerator(portalType);
 
@@ -68,7 +69,7 @@ public class OmTDShareSingleServletHandler extends AbstractServletHandler {
         NCBOOutputModel model;
         if (matcher.find()) {
             final String acronym = matcher.group(1);
-            final String number = matcher.group(2);
+            final String number = ((matcher.end() - 1) <= matcher.end(1)) ? "latest_submission" : matcher.group(2);
 
             queryParameters.put("display", Collections.singletonList("all"));
             final String submissionsPath = number.contains("latest") ?
