@@ -85,7 +85,7 @@
 			</xs:element>
 			<xs:element ref="ms:textGenre" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Genre: The conventionalized discourse or text types of the content of the resource, based on extra-linguistic and internal linguistic criteria</xs:documentation>
+					<xs:documentation>Genre: The conventionalized discourse or text types of the stringContent of the resource, based on extra-linguistic and internal linguistic criteria</xs:documentation>
 					<xs:appinfo>
 						<label>Text genre</label>
 					</xs:appinfo>
@@ -146,7 +146,7 @@
 	</xs:element>
 	<xs:element name="textGenre">
 		<xs:annotation>
-			<xs:documentation>Genre: The conventionalized discourse or text types of the content of the resource, based on extra-linguistic and internal linguistic criteria</xs:documentation>
+			<xs:documentation>Genre: The conventionalized discourse or text types of the stringContent of the resource, based on extra-linguistic and internal linguistic criteria</xs:documentation>
 			<xs:appinfo>
 				<label>Text genre</label>
 			</xs:appinfo>

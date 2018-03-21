@@ -6,37 +6,38 @@ import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
 import io.github.agroportal.ncboproxy.output.OutputGenerator;
 import io.github.agroportal.ncboproxy.output.OutputGeneratorDispatcher;
 import io.github.agroportal.ncboproxy.parameters.ParameterHandlerRegistry;
-import io.github.agroportal.ncboproxy.postprocessors.ResponsePostProcessor;
 import io.github.agroportal.ncboproxy.postprocessors.ResponsePostProcessorRegistry;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 public interface ServletHandler {
-    String getQueryStringPattern();
 
-    ServletHandler registerPostProcessor(final ResponsePostProcessor responsePostProcessor);
+    String ACRONYM_PATTERN = "([A-Z_0-9]+)";
+    String SUBMISSION_ID_PATTERN = "([0-9]+)";
 
-    ServletHandler registerOutputGenerator(final String format, final OutputGenerator outputGenerator);
+    List<String> getQueryStringPattern();
 
-    ServletHandler latchToRootParameterHandlerRegistry(ParameterHandlerRegistry parameterHandlerRegistry);
+    void registerOutputGenerator(final String format, final OutputGenerator outputGenerator);
 
-    ServletHandler latchResponsePostProcessorRegistry(ResponsePostProcessorRegistry responsePostProcessorRegistry);
+    ServletHandler latchToParameterHandlerRegistry(ParameterHandlerRegistry parameterHandlerRegistry);
 
-    ServletHandler latchOutputGeneratorDispatcher(OutputGeneratorDispatcher outputGeneratorDispatcher);
+    ServletHandler latchToResponsePostProcessorRegistry(ResponsePostProcessorRegistry responsePostProcessorRegistry);
+
+    ServletHandler latchToOutputGeneratorDispatcher(OutputGeneratorDispatcher outputGeneratorDispatcher);
 
 
     NCBOOutputModel handleRequest(final Map<String, List<String>> queryParameters,
                                   final Map<String, String> queryHeaders,
                                   final String queryPath,
-                                  final ServletHandler servletHandler,
-                                  final APIContext apiContext);
+                                  final APIContext apiContext, Map<String, String> outputProperties);
 
     static ServletHandler defaultHandler() {
-        return new AbstractServletHandler(null, null,null) {
+        return new AbstractServletHandler(null, null, null) {
             @Override
-            public String getQueryStringPattern() {
-                return ".*";
+            public List<String> getQueryStringPattern() {
+                return Collections.singletonList(".*");
             }
         };
     }

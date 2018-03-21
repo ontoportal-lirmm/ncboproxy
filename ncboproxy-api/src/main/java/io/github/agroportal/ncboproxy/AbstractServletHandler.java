@@ -5,15 +5,16 @@ import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
 import io.github.agroportal.ncboproxy.model.parser.NCBOOutputParser;
 import io.github.agroportal.ncboproxy.model.retrieval.BioportalRESTRequest;
 import io.github.agroportal.ncboproxy.model.retrieval.RequestGenerator;
+import io.github.agroportal.ncboproxy.model.retrieval.RequestResult;
 import io.github.agroportal.ncboproxy.output.OutputGenerator;
 import io.github.agroportal.ncboproxy.output.OutputGeneratorDispatcher;
-import io.github.agroportal.ncboproxy.output.ProxyOutput;
 import io.github.agroportal.ncboproxy.parameters.ParameterHandler;
 import io.github.agroportal.ncboproxy.parameters.ParameterHandlerRegistry;
 import io.github.agroportal.ncboproxy.postprocessors.ResponsePostProcessor;
 import io.github.agroportal.ncboproxy.postprocessors.ResponsePostProcessorRegistry;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +25,7 @@ import java.util.Map;
  */
 public abstract class AbstractServletHandler implements ServletHandler {
 
+    private static final int HTTP_OK = 300;
     private final ParameterHandlerRegistry parameterHandlerRegistry;
     private final ResponsePostProcessorRegistry responsePostProcessorRegistry;
     private final OutputGeneratorDispatcher outputGeneratorDispatcher;
@@ -39,7 +41,7 @@ public abstract class AbstractServletHandler implements ServletHandler {
     }
 
     @Override
-    public ServletHandler latchToRootParameterHandlerRegistry(final ParameterHandlerRegistry parameterHandlerRegistry) {
+    public ServletHandler latchToParameterHandlerRegistry(final ParameterHandlerRegistry parameterHandlerRegistry) {
         if (this.parameterHandlerRegistry != null) {
             this.parameterHandlerRegistry.polymorphicOverride(parameterHandlerRegistry);
         }
@@ -47,7 +49,7 @@ public abstract class AbstractServletHandler implements ServletHandler {
     }
 
     @Override
-    public ServletHandler latchResponsePostProcessorRegistry(final ResponsePostProcessorRegistry responsePostProcessorRegistry) {
+    public ServletHandler latchToResponsePostProcessorRegistry(final ResponsePostProcessorRegistry responsePostProcessorRegistry) {
         if (this.responsePostProcessorRegistry != null) {
             this.responsePostProcessorRegistry.polymorphicOverride(responsePostProcessorRegistry);
         }
@@ -55,7 +57,7 @@ public abstract class AbstractServletHandler implements ServletHandler {
     }
 
     @Override
-    public ServletHandler latchOutputGeneratorDispatcher(final OutputGeneratorDispatcher outputGeneratorDispatcher) {
+    public ServletHandler latchToOutputGeneratorDispatcher(final OutputGeneratorDispatcher outputGeneratorDispatcher) {
         if (this.outputGeneratorDispatcher != null) {
             this.outputGeneratorDispatcher.polymorphicOverride(outputGeneratorDispatcher);
         }
@@ -71,8 +73,7 @@ public abstract class AbstractServletHandler implements ServletHandler {
         }
     }
 
-    @Override
-    public ServletHandler registerPostProcessor(final ResponsePostProcessor responsePostProcessor) {
+    protected ServletHandler registerPostProcessor(final ResponsePostProcessor responsePostProcessor) {
         if (responsePostProcessor != null) {
             responsePostProcessorRegistry.registerPostProcessor(responsePostProcessor);
         }
@@ -80,11 +81,10 @@ public abstract class AbstractServletHandler implements ServletHandler {
     }
 
     @Override
-    public ServletHandler registerOutputGenerator(final String format, final OutputGenerator outputGenerator) {
+    public void registerOutputGenerator(final String format, final OutputGenerator outputGenerator) {
         if (outputGeneratorDispatcher != null) {
             outputGeneratorDispatcher.registerGenerator(format, outputGenerator);
         }
-        return this;
     }
 
 
@@ -92,34 +92,47 @@ public abstract class AbstractServletHandler implements ServletHandler {
     public NCBOOutputModel handleRequest(final Map<String, List<String>> queryParameters,
                                          final Map<String, String> queryHeaders,
                                          final String queryPath,
-                                         final ServletHandler servletHandler,
-                                         final APIContext apiContext) {
-        final RequestGenerator requestGenerator = (apiContext
-                .getMethod()
-                .toLowerCase()
-                .equals("POST")) ?
+                                         final APIContext apiContext, final Map<String, String> outputProperties) {
+        final RequestGenerator requestGenerator = isPOSTRequest(apiContext) ?
                 RequestGenerator.createPOSTRequestGenerator(apiContext, queryParameters, queryHeaders, queryPath) :
                 RequestGenerator.createGETRequestGenerator(apiContext, queryParameters, queryHeaders, queryPath);
+
+        RequestResult queryOutput = RequestResult.empty();
         NCBOOutputModel outputModel;
-        String queryOutput = "";
         try {
             queryOutput = BioportalRESTRequest.query(requestGenerator);
-        } catch (final IOException e) {
-            outputModel =
-                    error(MessageFormat.format("Query to REST API failed: {0}", e.getMessage()));
-        }
-
-        try {
-            outputModel = parser.parse(queryOutput, apiContext);
+            outputModel = (isValidJSONOutput(queryOutput)) ? parser.parse(queryOutput, apiContext)
+                    : error(queryOutput);
         } catch (final com.eclipsesource.json.ParseException e) {
             outputModel = error(MessageFormat.format("Parse error ({0}) : {1}", e.getMessage(), queryOutput));
         } catch (final UnsupportedOperationException e) {
             outputModel = error(MessageFormat.format("Parse error ({0}) : {1}", e.getMessage()));
+        } catch (final IOException e) {
+            outputModel =
+                    error(MessageFormat.format("Query to REST API failed: {0}", e.getMessage()));
         }
         return outputModel;
     }
 
     private NCBOOutputModel error(final String message) {
-        return NCBOOutputModel.error(message, ProxyOutput.HTTP_INTERNAL_APPLICATION_ERROR);
+        return NCBOOutputModel.error(message, HttpURLConnection.HTTP_INTERNAL_ERROR);
+    }
+
+    private NCBOOutputModel error(final RequestResult requestResult) {
+        return NCBOOutputModel.error("Error returned by REST API:" + requestResult.getMessage(), requestResult.getCode());
+    }
+
+    private boolean isValidJSONOutput(final RequestResult requestResult) {
+        return (requestResult
+                .getCode() <= HTTP_OK) || requestResult
+                .getMessage()
+                .contains("error");
+    }
+
+    private boolean isPOSTRequest(final APIContext apiContext) {
+        return (apiContext
+                .getMethod()
+                .toLowerCase()
+                .equals("POST"));
     }
 }

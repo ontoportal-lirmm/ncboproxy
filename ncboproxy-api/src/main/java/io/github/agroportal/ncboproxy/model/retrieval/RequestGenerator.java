@@ -14,12 +14,17 @@ public interface RequestGenerator {
     static RequestGenerator createPOSTRequestGenerator(final APIContext apiContext, final Map<String, List<String>> queryParameters,
                                                        final Map<String, String> queryHeaders,
                                                        final String queryPath){
-        return new BioportalRestAPIRequestGenerator(apiContext,queryParameters,queryHeaders,queryPath, true);
+        return new BioportalRestAPIRequestGenerator(apiContext,queryParameters,queryHeaders,queryPath, "POST");
     }
 
     static RequestGenerator createGETRequestGenerator(final APIContext apiContext, final Map<String, List<String>> queryParameters,
                                                       final Map<String, String> queryHeaders,
                                                       final String queryPath){
-        return new BioportalRestAPIRequestGenerator(apiContext,queryParameters,queryHeaders,queryPath, false);
+        return new BioportalRestAPIRequestGenerator(apiContext,queryParameters,queryHeaders,queryPath, "GET");
+    }
+    static RequestGenerator createHEADRequestGenerator(final APIContext apiContext, final Map<String, List<String>> queryParameters,
+                                                      final Map<String, String> queryHeaders,
+                                                      final String queryPath){
+        return new BioportalRestAPIRequestGenerator(apiContext,queryParameters,queryHeaders,queryPath, "HEAD");
     }
 }

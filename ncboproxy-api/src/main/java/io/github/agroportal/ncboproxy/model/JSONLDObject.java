@@ -1,22 +1,34 @@
 package io.github.agroportal.ncboproxy.model;
 
 import com.eclipsesource.json.JsonObject;
-import com.eclipsesource.json.JsonValue;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 public interface JSONLDObject extends NCBOOutputModel {
-    String getId();
+    Optional<String> getId();
     List<JSONLDLink> getLinks();
-    String getStringValue(final String fieldName);
+
+    Optional<Integer> getIntegerValue(String... fieldsName);
+
     @SuppressWarnings("all")
-    boolean getBooleanValue(final String fieldName);
-    JSONLDObject getObject(final String fieldName);
-    Collection<JsonValue> getCollection(final String fieldName);
+    Optional<Boolean> getBooleanValue(final String fieldName);
+    Optional<JSONLDObject> getObject(final String fieldName);
+    Optional<NCBOCollection> getCollection(final String fieldName);
     URI expandFieldFromContext(final String fieldName) throws URISyntaxException;
+
+    Optional<String> getStringValue(String fieldName);
+
+    Optional<Integer> getIntegerValue(String fieldName);
+
+    /**
+     * Get first field value that exists and that is not null out of the list supplied in {@code fieldsName}
+     * @param fieldsName The list of fields in descending order of priority
+     * @return The optional value of the first non null property
+     */
+    Optional<String> getStringValue(final String... fieldsName);
 
     static JSONLDObject create(final JsonObject jsonObject){
         return new JSONLDObjectImpl(jsonObject);

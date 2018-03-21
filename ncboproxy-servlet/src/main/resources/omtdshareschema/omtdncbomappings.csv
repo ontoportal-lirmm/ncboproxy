@@ -1,0 +1,28 @@
+resourceType;f;lexicalConceptualResource
+resourceName;p;ontology.acronym
+description;p;description
+resourceIdentifier;URI identifier id
+public;p;ontology.viewingRestriction[public=>yes:no]
+version;p;version
+contactPoint;p;homepage documentation
+contactType
+licence
+nonStandardLicenceName
+nonStandardLicenceTermsURL
+rightsStatement
+distributionMedium
+distributionLocation
+lexicalConceptualResourceType
+lingualityType
+ language
+dataFormat
+contactPerson
+contactGroup
+resourceDocumentationInfo
+resourceCreator
+contentTypes
+metalanguage
+size & sizeUnit
+domain
+relationType
+relatedResource

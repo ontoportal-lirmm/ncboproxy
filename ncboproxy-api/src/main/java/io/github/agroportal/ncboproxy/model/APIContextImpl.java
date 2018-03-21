@@ -11,8 +11,7 @@ import java.util.regex.Pattern;
 
 class APIContextImpl implements APIContext {
 
-    private static final String SERVER_ENCODING = "server.encoding";
-    private static final String ONTOLOGIES_API_URI = "ontologiesApiURI";
+
     @SuppressWarnings("HardcodedFileSeparator")
     private static final String HTTPS_URL_PATTERN = "^((?:https?://)?[^:]+)";
 

@@ -33,7 +33,7 @@ public class JSONLDObjectImpl implements JSONLDObject {
     }
 
     @Override
-    public String getId() {
+    public Optional<String> getId() {
         return getStringValue("@id");
     }
 
@@ -45,55 +45,104 @@ public class JSONLDObjectImpl implements JSONLDObject {
         return Collections.unmodifiableList(links);
     }
 
+
     @Override
-    public String getStringValue(final String fieldName) {
-        String result= "";
+    public Optional<String> getStringValue(final String fieldName) {
+        Optional<String> result= Optional.empty();
         if (jsonObject
                 .names()
                 .contains(fieldName)) {
             final JsonValue value = jsonObject.get(fieldName);
             if(value.isString()){
-                result = value.asString();
+                result = Optional.of(value.asString());
             }
         }
         return result;
     }
 
     @Override
-    public boolean getBooleanValue(final String fieldName) {
-        boolean result = false;
+    public Optional<Integer> getIntegerValue(final String fieldName) {
+        Optional<Integer> result= Optional.empty();
         if (jsonObject
                 .names()
                 .contains(fieldName)) {
             final JsonValue value = jsonObject.get(fieldName);
-            result = value.isBoolean() && value.asBoolean();
+            if(value.isNumber()){
+                result = Optional.of(value.asInt());
+            }
         }
         return result;
     }
 
     @Override
-    public JSONLDObject getObject(final String fieldName) {
-        JSONLDObject jsonldObject = null;
+    public Optional<String> getStringValue(final String... fieldsName) {
+        Optional<String> result= Optional.empty();
+        boolean found = false;
+        int i = 0;
+        while(!found && (i < fieldsName.length)){
+            final Optional<String> current = getStringValue(fieldsName[i]);
+            if(current.isPresent() && !current.get().isEmpty()){
+                result = current;
+                found = true;
+            }
+            i++;
+        }
+        return result;
+    }
+
+    @Override
+    public Optional<Integer> getIntegerValue(final String... fieldsName) {
+        Optional<Integer> result= Optional.empty();
+        boolean found = false;
+        int i = 0;
+        while(!found && (i < fieldsName.length)){
+            final Optional<Integer> current = getIntegerValue(fieldsName[i]);
+            if(current.isPresent()){
+                result = current;
+                found = true;
+            }
+            i++;
+        }
+        return result;
+    }
+
+    @Override
+    public Optional<Boolean> getBooleanValue(final String fieldName) {
+        Optional<Boolean> result = Optional.empty();
+        if (jsonObject
+                .names()
+                .contains(fieldName)) {
+            final JsonValue value = jsonObject.get(fieldName);
+            if(value.isBoolean()) {
+                result = Optional.of(value.asBoolean());
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public Optional<JSONLDObject> getObject(final String fieldName) {
+        Optional<JSONLDObject> jsonldObject = Optional.empty();
         if (jsonObject
                 .names()
                 .contains(fieldName)) {
             final JsonValue value = jsonObject.get(fieldName);
             if (value.isObject()){
-                jsonldObject = JSONLDObject.create(value.asObject());
+                jsonldObject = Optional.of(JSONLDObject.create(value.asObject()));
             }
         }
         return jsonldObject;
     }
 
     @Override
-    public Collection<JsonValue> getCollection(final String fieldName) {
-        final Collection<JsonValue> collection = new ArrayList<>();
+    public Optional<NCBOCollection> getCollection(final String fieldName) {
+        Optional<NCBOCollection> collection = Optional.empty();
         if (jsonObject
                 .names()
                 .contains(fieldName)) {
             final JsonValue value = jsonObject.get(fieldName);
             if (value.isArray()) {
-                value.asArray().forEach(collection::add);
+                collection = Optional.of(NCBOCollection.create(value.asArray()));
             }
         }
         return collection;
@@ -104,24 +153,21 @@ public class JSONLDObjectImpl implements JSONLDObject {
         return new URI(contextMap.get(fieldName));
     }
 
+
+
     @Override
     public JsonValue getModelRoot() {
         return jsonObject;
     }
 
     @Override
-    public boolean isPaginatedCollection() {
-        return false;
-    }
-
-    @Override
-    public boolean isCollection() {
-        return false;
-    }
-
-    @Override
     public boolean isObject() {
         return true;
+    }
+
+    @Override
+    public Optional<JSONLDObject> asObject() {
+        return Optional.of(this);
     }
 
     @Override

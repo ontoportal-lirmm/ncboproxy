@@ -1,5 +1,7 @@
 package io.github.agroportal.ncboproxy.util;
 
+import io.github.agroportal.ncboproxy.model.APIContext;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
@@ -19,11 +21,10 @@ public final class ParameterMapper {
     /**
      * Produce key/value list maps for input query parameters (query string or form data) from a {@link ServletRequest}
      * @param request The servlet request
-     * @param serverEncoding The encoding configured on the servlet server, should be retrieved as an external parameter of
-     *                       the servlet
+     * @param encoding The encoding configured on the application server
      * @return A map of key/value lists for {@code request}
      */
-    public static Map<String, List<String>> extractQueryParameters(final ServletRequest request, final String serverEncoding) {
+    public static Map<String, List<String>> extractQueryParameters(final ServletRequest request, final String encoding) {
         return request
                 .getParameterMap()
                 .entrySet()
@@ -32,7 +33,7 @@ public final class ParameterMapper {
                         Map.Entry::getKey,
                         e -> Arrays.stream(e.getValue()).map(value -> {
                             try {
-                                return new String(e.getValue()[0].getBytes(Charset.forName(serverEncoding.toUpperCase())), "utf-8");
+                                return new String(e.getValue()[0].getBytes(Charset.forName(encoding.toUpperCase())), "utf-8");
                             } catch (UnsupportedEncodingException ignored) {
                                 return "";
                             }

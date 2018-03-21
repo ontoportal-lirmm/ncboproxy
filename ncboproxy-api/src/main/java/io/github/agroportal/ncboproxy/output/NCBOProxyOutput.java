@@ -5,17 +5,39 @@ package io.github.agroportal.ncboproxy.output;
  * Default implementation of ProxyOutput
  */
 public class NCBOProxyOutput implements ProxyOutput {
-    private final String content;
+    private final String stringContent;
     private final String mimeType;
+    private final byte[] binaryContent;
+    private final boolean binary;
 
-    public NCBOProxyOutput(final String content, final String mimeType) {
-        this.content = content;
+    NCBOProxyOutput(final String stringContent, final String mimeType) {
+        this.stringContent = stringContent;
+        binaryContent = new byte[1];
         this.mimeType = mimeType;
+        binary = false;
+    }
+
+    NCBOProxyOutput(final byte[] binaryContent, final String mimeType) {
+        this.binaryContent = binaryContent.clone();
+        stringContent = "";
+        this.mimeType = mimeType;
+        binary = true;
     }
 
     @Override
-    public String getContent() {
-        return content;
+    public boolean isBinary() {
+        return binary;
+    }
+
+
+    @Override
+    public byte[] getBinaryContent() {
+        return binaryContent.clone();
+    }
+
+    @Override
+    public String getStringContent() {
+        return stringContent;
     }
 
     @Override

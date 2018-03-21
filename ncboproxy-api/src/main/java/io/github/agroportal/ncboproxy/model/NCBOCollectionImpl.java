@@ -6,6 +6,7 @@ import com.eclipsesource.json.JsonValue;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Optional;
 
 public class NCBOCollectionImpl implements NCBOCollection {
 
@@ -17,7 +18,14 @@ public class NCBOCollectionImpl implements NCBOCollection {
         this.jsonArray = jsonArray;
         objects = new ArrayList<>();
         for(int i=0; i< jsonArray.size(); i++){
-            objects.add(JSONLDObject.create(jsonArray.get(i).asObject()));
+            final JsonValue value = jsonArray.get(i);
+            if(value.isObject()){
+                objects.add(JSONLDObject.create(value.asObject()));
+            } else if(value.isNumber() || value.isBoolean() || value.isString()){
+                objects.add(JSONValue.create(value));
+            } else if(value.isArray()){
+                objects.add(NCBOCollection.create(value.asArray()));
+            }
         }
     }
 
@@ -27,18 +35,13 @@ public class NCBOCollectionImpl implements NCBOCollection {
     }
 
     @Override
-    public boolean isPaginatedCollection() {
-        return false;
-    }
-
-    @Override
     public boolean isCollection() {
         return true;
     }
 
     @Override
-    public boolean isObject() {
-        return false;
+    public Optional<NCBOCollection> asCollection() {
+        return Optional.of(this);
     }
 
     @Override

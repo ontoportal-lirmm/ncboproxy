@@ -258,7 +258,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="http://w3id.org/meta-share/omtd-share/Reader">
 				<xs:annotation>
-					<xs:documentation>A component that reads content of various types (pdf, txt, xml etc.)</xs:documentation>
+					<xs:documentation>A component that reads stringContent of various types (pdf, txt, xml etc.)</xs:documentation>
 					<xs:appinfo>
 						<label>Reader</label>
 						<subclassOf>http://w3id.org/meta-share/omtd-share/AccessComponent</subclassOf>
@@ -995,7 +995,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="http://w3id.org/meta-share/omtd-share/InformationRetrieval">
 				<xs:annotation>
-					<xs:documentation>The activity of obtaining information resources relevant to an information need from a collection of information resources; searches can be based on full-text or other content-based indexing</xs:documentation>
+					<xs:documentation>The activity of obtaining information resources relevant to an information need from a collection of information resources; searches can be based on full-text or other stringContent-based indexing</xs:documentation>
 					<xs:appinfo>
 						<label>Information retrieval</label>
 						<subclassOf>http://w3id.org/meta-share/omtd-share/TextAndDataMining</subclassOf>
@@ -1013,7 +1013,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="http://w3id.org/meta-share/omtd-share/InformationFiltering">
 				<xs:annotation>
-					<xs:documentation>The process/task of removing (filtering out) redundant or unwanted information from an information stream using (semi)automated or computerized methods prior to presentation to a human user; the selection of the items is based on the correlation between the content of the items and the user&#8217;s preferences (content-based filtering) or the correlation between people with similar preferences (collaborative filtering)</xs:documentation>
+					<xs:documentation>The process/task of removing (filtering out) redundant or unwanted information from an information stream using (semi)automated or computerized methods prior to presentation to a human user; the selection of the items is based on the correlation between the stringContent of the items and the user&#8217;s preferences (stringContent-based filtering) or the correlation between people with similar preferences (collaborative filtering)</xs:documentation>
 					<xs:appinfo>
 						<label>Information filtering</label>
 						<subclassOf>http://w3id.org/meta-share/omtd-share/InformationRetrieval</subclassOf>
@@ -4100,7 +4100,7 @@ In annotation, words are often used as equivalent to tokens; thus, for instance,
 			</xs:enumeration>
 			<xs:enumeration value="http://w3id.org/meta-share/omtd-share/DialogueAct">
 				<xs:annotation>
-					<xs:documentation>A dialogue act has two main components:  a communicative function and a semantic content.   The semantic content specifies the objects, relations, actions, events, etc. that the dialogue act is about; the communicative function can be viewed as a specification of the way an addressee uses the semantic content to update his or her information state when  he  or  she  understands  the  corresponding  stretch  of dialogue. [http://www.lrec-conf.org/proceedings/lrec2010/pdf/560_Paper.pdf]</xs:documentation>
+					<xs:documentation>A dialogue act has two main components:  a communicative function and a semantic stringContent.   The semantic stringContent specifies the objects, relations, actions, events, etc. that the dialogue act is about; the communicative function can be viewed as a specification of the way an addressee uses the semantic stringContent to update his or her information state when  he  or  she  understands  the  corresponding  stretch  of dialogue. [http://www.lrec-conf.org/proceedings/lrec2010/pdf/560_Paper.pdf]</xs:documentation>
 					<xs:appinfo>
 						<label>Dialogue act</label>
 						<subclassOf>http://w3id.org/meta-share/omtd-share/SpeechAct</subclassOf>
@@ -4277,7 +4277,7 @@ In annotation, words are often used as equivalent to tokens; thus, for instance,
 			</xs:enumeration>
 			<xs:enumeration value="http://w3id.org/meta-share/omtd-share/Crowdsourcing">
 				<xs:annotation>
-					<xs:documentation>The practice of obtaining needed services, ideas, or content by soliciting contributions from a large group of people and especially from the online community rather than from traditional employees or suppliers</xs:documentation>
+					<xs:documentation>The practice of obtaining needed services, ideas, or stringContent by soliciting contributions from a large group of people and especially from the online community rather than from traditional employees or suppliers</xs:documentation>
 					<xs:appinfo>
 						<label>Crowdsourcing</label>
 						<subclassOf>http://w3id.org/meta-share/omtd-share/TdmMethod</subclassOf>

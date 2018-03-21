@@ -2,6 +2,7 @@ package io.github.agroportal.ncboproxy.model.parser;
 
 import com.eclipsesource.json.*;
 import io.github.agroportal.ncboproxy.model.*;
+import io.github.agroportal.ncboproxy.model.retrieval.RequestResult;
 import io.github.agroportal.ncboproxy.output.ProxyOutput;
 
 public class DefaultNCBOOutputParser implements NCBOOutputParser {
@@ -11,10 +12,10 @@ public class DefaultNCBOOutputParser implements NCBOOutputParser {
     }
 
     @Override
-    public NCBOOutputModel parse(final String queryResponse, final APIContext apiContext) throws com.eclipsesource.json.ParseException, UnsupportedOperationException {
+    public NCBOOutputModel parse(final RequestResult queryResponse, final APIContext apiContext) throws com.eclipsesource.json.ParseException, UnsupportedOperationException {
         final NCBOOutputModel outputModel;
 
-        final JsonValue rootNode = Json.parse(queryResponse);
+        final JsonValue rootNode = Json.parse(queryResponse.getMessage());
         if (rootNode.isObject()) {
             final JsonObject rootObject = rootNode.asObject();
             //Json object with an "errors" array containing one or more error messages, this is the default error
@@ -57,4 +58,5 @@ public class DefaultNCBOOutputParser implements NCBOOutputParser {
                 String.format("Unrecognized JSONLD construct received from NCBO API: \"%s\"", rootValue.toString()),
                 ProxyOutput.HTTP_INTERNAL_APPLICATION_ERROR);
     }
+
 }

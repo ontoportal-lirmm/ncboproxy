@@ -2,6 +2,7 @@ package io.github.agroportal.ncboproxy.model.parser;
 
 import io.github.agroportal.ncboproxy.model.APIContext;
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
+import io.github.agroportal.ncboproxy.model.retrieval.RequestResult;
 
 @FunctionalInterface
 public interface NCBOOutputParser {
@@ -11,7 +12,7 @@ public interface NCBOOutputParser {
      * @param apiContext An ApiContext object containing essential API information (base URI, encoding, etc)
      * @return The parsed NCBOOutputModel
      */
-    NCBOOutputModel parse(String queryResponse, APIContext apiContext) throws com.eclipsesource.json.ParseException;
+    NCBOOutputModel parse(RequestResult queryResponse, APIContext apiContext) throws com.eclipsesource.json.ParseException;
 
 
     /**

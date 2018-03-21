@@ -164,7 +164,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="conformanceToStandardsBestPractices">
 		<xs:annotation>
-			<xs:documentation>List of standards and best practices used for annotation for formats and content specification</xs:documentation>
+			<xs:documentation>List of standards and best practices used for annotation for formats and stringContent specification</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="100"/>
@@ -538,7 +538,7 @@
 							</xs:enumeration>
 							<xs:enumeration value="ISBN">
 								<xs:annotation>
-									<xs:documentation>Value for resourceIdentifierSchemeName, referring to the ISBN (International Standard Book Number, https://www.isbn-international.org/content/what-isbn)</xs:documentation>
+									<xs:documentation>Value for resourceIdentifierSchemeName, referring to the ISBN (International Standard Book Number, https://www.isbn-international.org/stringContent/what-isbn)</xs:documentation>
 									<xs:appinfo>
 										<label>ISBN (International Standard Book Number)</label>
 									</xs:appinfo>
@@ -763,7 +763,7 @@
 							</xs:enumeration>
 							<xs:enumeration value="ISBN">
 								<xs:annotation>
-									<xs:documentation>Value for publicationIdentifierSchemeName, referring to the ISBN (International Standard Book Number, https://www.isbn-international.org/content/what-isbn)</xs:documentation>
+									<xs:documentation>Value for publicationIdentifierSchemeName, referring to the ISBN (International Standard Book Number, https://www.isbn-international.org/stringContent/what-isbn)</xs:documentation>
 									<xs:appinfo>
 										<label>ISBN (International Standard Book Number)</label>
 									</xs:appinfo>

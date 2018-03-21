@@ -72,11 +72,11 @@ public class NCBOCollectionImplTest {
 
     @Test
     public void iterator() {
-        for(final JSONLDObject object: collection){
+        for(final NCBOOutputModel object: collection){
             assert object.isObject();
         }
 
-        for(final JSONLDObject ignored: emptyCollection){
+        for(final NCBOOutputModel ignored: emptyCollection){
             assert false;
         }
     }

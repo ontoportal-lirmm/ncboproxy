@@ -322,7 +322,7 @@
 		<xs:sequence>
 			<xs:element name="mediaType" type="xs:string" fixed="text">
 				<xs:annotation>
-					<xs:documentation>Specifies the media type of the resource and basically corresponds to the physical medium of the content representation. Each media type is described through a distinctive set of features. A resource may consist of parts attributed to different types of media. A tool/service may take as input/output more than one different media types.</xs:documentation>
+					<xs:documentation>Specifies the media type of the resource and basically corresponds to the physical medium of the stringContent representation. Each media type is described through a distinctive set of features. A resource may consist of parts attributed to different types of media. A tool/service may take as input/output more than one different media types.</xs:documentation>
 					<xs:appinfo>
 						<label>Media type</label>
 					</xs:appinfo>
@@ -349,7 +349,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<!--
+
 			<xs:element name="modalities" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
@@ -372,7 +372,7 @@
 			</xs:element>
 			<xs:element ref="ms:dataFormatInfo"/>
 			<xs:element ref="ms:characterEncoding" minOccurs="0"/>
--->
+
 			<xs:element name="domains" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
@@ -395,7 +395,7 @@
 			</xs:element>
 			<xs:element name="timeCoverage" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The time period that the content of a resource is about</xs:documentation>
+					<xs:documentation>The time period that the stringContent of a resource is about</xs:documentation>
 					<xs:appinfo>
 						<label>Time coverage</label>
 					</xs:appinfo>
@@ -408,7 +408,7 @@
 			</xs:element>
 			<xs:element name="geographicCoverage" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The geographic region that the content of a resource is about; for countries, recommended use of ISO-3166</xs:documentation>
+					<xs:documentation>The geographic region that the stringContent of a resource is about; for countries, recommended use of ISO-3166</xs:documentation>
 					<xs:appinfo>
 						<label>Geographic coverage</label>
 					</xs:appinfo>

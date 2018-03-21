@@ -7,6 +7,7 @@ import io.github.agroportal.ncboproxy.model.retrieval.BioportalRESTRequest;
 
 import java.io.IOException;
 import java.text.MessageFormat;
+import java.util.Optional;
 
 public class NCBOPaginatedCollectionImpl extends NCBOCollectionImpl implements NCBOPaginatedCollection {
 
@@ -81,5 +82,10 @@ public class NCBOPaginatedCollectionImpl extends NCBOCollectionImpl implements N
     @Override
     public boolean isPaginatedCollection() {
         return true;
+    }
+
+    @Override
+    public Optional<NCBOPaginatedCollection> asPaginatedCollection() {
+        return Optional.of(this);
     }
 }

@@ -10,6 +10,8 @@ import java.net.*;
 
 public final class BioportalRESTRequest {
     private static final Logger logger = LoggerFactory.getLogger(BioportalRESTRequest.class);
+    private static final int HTTP_OK = 200;
+    private static final int HTTP_OK_THRESHOLD = 400;
 
     private BioportalRESTRequest() {
     }
@@ -25,16 +27,27 @@ public final class BioportalRESTRequest {
     }
 
     @SuppressWarnings("MethodParameterOfConcreteClass")
-    public static String query(final RequestGenerator requestGenerator) throws IOException {
+    public static RequestResult query(final RequestGenerator requestGenerator) throws IOException {
         CookieHandler.setDefault(new CookieManager(null, CookiePolicy.ACCEPT_ALL));
         final HttpURLConnection httpURLConnection = requestGenerator.createRequest();
         logger.debug("Request to Annotator: {}", httpURLConnection.getURL());
         final int code = httpURLConnection.getResponseCode();
         final String message = httpURLConnection.getResponseMessage();
         logger.info("{} - {} {}", code, message, httpURLConnection.getURL());
-        final String response = streamAsString((code == 200) ? httpURLConnection.getInputStream() : httpURLConnection.getErrorStream());
+        final String response = streamAsString((code == HTTP_OK) ? httpURLConnection.getInputStream() : (httpURLConnection.getErrorStream()));
+        final String outputMessage = ((code == HTTP_OK) || response.contains("error")) ? response : (message + response);
         logger.debug(response);
-        return response;
+        return new RequestResult() {
+            @Override
+            public int getCode() {
+                return code;
+            }
+
+            @Override
+            public String getMessage() {
+                return outputMessage;
+            }
+        };
     }
 
     @SuppressWarnings("MethodParameterOfConcreteClass")
@@ -56,30 +69,51 @@ public final class BioportalRESTRequest {
         final int code = httpURLConnection.getResponseCode();
         final String message = httpURLConnection.getResponseMessage();
         logger.info("{} - {} {}", code, message, httpURLConnection.getURL());
-        final String response = streamAsString((code == 200) ? httpURLConnection.getInputStream() : httpURLConnection.getErrorStream());
+        String response = streamAsString((code == HTTP_OK) ? httpURLConnection.getInputStream() : httpURLConnection.getErrorStream());
+        if (response.isEmpty() && (code >= HTTP_OK_THRESHOLD)) {
+            response = message;
+        }
         logger.debug(response);
         return response;
     }
 
     @SuppressWarnings("HardcodedLineSeparator")
     private static String streamAsString(final InputStream stream) {
-        final StringBuilder stringBuilder = new StringBuilder();
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(stream, "UTF-8"))) {
-            String line = bufferedReader.readLine();
-            while ((line != null) && !line.isEmpty()) {
-                stringBuilder
-                        .append(line)
-                        .append("\n");
-                line = bufferedReader.readLine();
-            }
+        String result;
+        if (stream != null) {
+            final StringBuilder stringBuilder = new StringBuilder();
+            try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(stream, "UTF-8"))) {
+                String line = bufferedReader.readLine();
+                while ((line != null) && !line.isEmpty()) {
+                    stringBuilder
+                            .append(line)
+                            .append("\n");
+                    line = bufferedReader.readLine();
+                }
 
-        } catch (final UnsupportedEncodingException e) {
-            return e.getLocalizedMessage();
-        } catch (final IOException e) {
-            stringBuilder.append(e.getLocalizedMessage());
-            return e.getLocalizedMessage();
+            } catch (final UnsupportedEncodingException e) {
+                result = e.getLocalizedMessage();
+            } catch (final IOException e) {
+                stringBuilder.append(e.getLocalizedMessage());
+                result = e.getLocalizedMessage();
+            }
+            result = stringBuilder.toString();
+        } else {
+            result = "";
         }
-        return stringBuilder.toString();
+        return result;
+    }
+
+    static final class EmptyRequestResult implements RequestResult {
+        @Override
+        public int getCode() {
+            return 0;
+        }
+
+        @Override
+        public String getMessage() {
+            return "";
+        }
     }
 
 }

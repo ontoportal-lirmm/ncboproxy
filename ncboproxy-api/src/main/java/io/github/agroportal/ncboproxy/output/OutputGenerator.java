@@ -21,4 +21,17 @@ public interface OutputGenerator extends BiFunction<Optional<NCBOOutputModel>,Ma
     @SuppressWarnings("all")
     @Override
     ProxyOutput apply(Optional<NCBOOutputModel> outputModel, Map<String,String> outputParameters);
+
+    static ProxyOutput errorOutput(final String message){
+        return ProxyOutput
+                .create(prettyError(errorModel(message))
+                        , "application/json");
+    }
+    static String prettyError(final NCBOOutputModel outputModel) {
+        return outputModel.toPrettyString();
+    }
+
+    static NCBOOutputModel errorModel(final String message) {
+        return NCBOOutputModel.error(message, ProxyOutput.HTTP_INTERNAL_APPLICATION_ERROR);
+    }
 }

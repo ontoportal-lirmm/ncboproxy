@@ -428,7 +428,7 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:enumeration>
-						<xs:enumeration value="content">
+						<xs:enumeration value="stringContent">
 							<xs:annotation>
 								<xs:appinfo>
 									<label>Content</label>
@@ -927,7 +927,7 @@
 		<xs:sequence>
 			<xs:element name="timeCoverage">
 				<xs:annotation>
-					<xs:documentation>The time period that the content of a resource is about</xs:documentation>
+					<xs:documentation>The time period that the stringContent of a resource is about</xs:documentation>
 					<xs:appinfo>
 						<label>Time coverage</label>
 					</xs:appinfo>
@@ -953,7 +953,7 @@
 		<xs:sequence>
 			<xs:element name="geographicCoverage">
 				<xs:annotation>
-					<xs:documentation>The geographic region that the content of a resource is about; for countries, recommended use of ISO-3166</xs:documentation>
+					<xs:documentation>The geographic region that the stringContent of a resource is about; for countries, recommended use of ISO-3166</xs:documentation>
 					<xs:appinfo>
 						<label>Geographic coverage</label>
 					</xs:appinfo>
@@ -1809,7 +1809,7 @@
 	</xs:element>
 	<xs:element name="validationInfo" type="ms:validationInfoType">
 		<xs:annotation>
-			<xs:documentation>Groups information on validation of a resource; it can be repeated to allow for different validations (e.g. formal validation of the whole resource; content validation of one part of the resource etc.). </xs:documentation>
+			<xs:documentation>Groups information on validation of a resource; it can be repeated to allow for different validations (e.g. formal validation of the whole resource; stringContent validation of one part of the resource etc.). </xs:documentation>
 			<xs:appinfo>
 				<label>Validation</label>
 			</xs:appinfo>
@@ -2004,7 +2004,7 @@
 	</xs:element>
 	<xs:element name="mediaType">
 		<xs:annotation>
-			<xs:documentation>Specifies the media type of the resource and basically corresponds to the physical medium of the content representation. Each media type is described through a distinctive set of features. A resource may consist of parts attributed to different types of media.</xs:documentation>
+			<xs:documentation>Specifies the media type of the resource and basically corresponds to the physical medium of the stringContent representation. Each media type is described through a distinctive set of features. A resource may consist of parts attributed to different types of media.</xs:documentation>
 			<xs:appinfo>
 				<label>Media type</label>
 			</xs:appinfo>

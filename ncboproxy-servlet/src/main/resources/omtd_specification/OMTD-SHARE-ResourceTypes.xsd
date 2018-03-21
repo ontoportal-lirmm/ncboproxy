@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:ms="http://www.meta-share.org/OMTD-SHARE_XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.meta-share.org/OMTD-SHARE_XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0.2" xml:lang="en">
-	<!--include specific details for each LR type -->
-	<xs:include schemaLocation="./OMTD-SHARE-LexicalConceptualResource.xsd"/>
-	<xs:include schemaLocation="./OMTD-SHARE-Corpus.xsd"/>
-	<xs:include schemaLocation="./OMTD-SHARE-LanguageDescription.xsd"/>
-	<xs:include schemaLocation="./OMTD-SHARE-Component.xsd"/>
-</xs:schema>

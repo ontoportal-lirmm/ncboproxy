@@ -3,8 +3,8 @@ package io.github.agroportal.ncboproxy;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
-import java.util.regex.Pattern;
 
+@SuppressWarnings("FeatureEnvy")
 class NCBOProxyServletHandlerDispatcher implements ServletHandlerDispatcher {
 
 
@@ -24,15 +24,10 @@ class NCBOProxyServletHandlerDispatcher implements ServletHandlerDispatcher {
     public Optional<ServletHandler> findMatchingHandler(final String queryString) {
         return handlers
                 .stream()
-                .filter(servletHandler -> doesPathMatchPattern(queryString, servletHandler.getQueryStringPattern()))
+                .filter(servletHandler -> !ServletHandlerDispatcher
+                        .findMatchingPattern(queryString, servletHandler.getQueryStringPattern())
+                        .isEmpty())
                 .findFirst();
-    }
-
-    private static boolean doesPathMatchPattern(final CharSequence queryString, final String pattern) {
-        return Pattern
-                .compile(pattern+".*")
-                .matcher(queryString)
-                .matches();
     }
 
 }

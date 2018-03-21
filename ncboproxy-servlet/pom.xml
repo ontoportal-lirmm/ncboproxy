@@ -21,6 +21,7 @@
     </properties>
 
     <build>
+        <finalName>ROOT</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -39,6 +40,60 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.8.1</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <args>
+                        <arg>-Xannotate</arg>
+                        <arg>-nv</arg>
+                    </args>
+                    <extension>true</extension>
+                    <forceRegenerate>true</forceRegenerate>
+                    <bindingDirectory>${basedir}/src/main/resources/omtdshareschema/xjb</bindingDirectory>
+                    <bindingIncludes>
+                        <include>*.xjb</include>
+                    </bindingIncludes>
+                    <schemas>
+                        <schema>
+                            <fileset>
+                                <directory>${basedir}/src/main/resources/omtdshareschema/</directory>
+                                <includes>
+                                    <include>*.xsd</include>
+                                </includes>
+                            </fileset>
+                        </schema>
+                    </schemas>
+                    <debug>true</debug>
+                    <verbose>true</verbose>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.jvnet.jaxb2_commons</groupId>
+                            <artifactId>jaxb2-basics</artifactId>
+                            <version>0.6.2</version>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.jvnet.jaxb2_commons</groupId>
+                            <artifactId>jaxb2-basics-annotate</artifactId>
+                            <version>0.6.2</version>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.jvnet.jaxb2_commons</groupId>
+                            <artifactId>jaxb2-namespace-prefix</artifactId>
+                            <version>1.1</version>
+                        </plugin>
+                    </plugins>
                 </configuration>
             </plugin>
         </plugins>
@@ -70,6 +125,11 @@
             <groupId>io.github.agroportal</groupId>
             <artifactId>ncboproxy-api</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.2.4-1</version>
         </dependency>
     </dependencies>
 </project>

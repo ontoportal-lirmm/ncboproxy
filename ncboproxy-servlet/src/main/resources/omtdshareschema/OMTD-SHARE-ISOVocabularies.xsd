@@ -55924,7 +55924,7 @@
 			<xs:enumeration value="zxx">
 				<xs:annotation>
 					<xs:appinfo>
-						<xs:label>No linguistic content; Not applicable</xs:label>
+						<xs:label>No linguistic stringContent; Not applicable</xs:label>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:enumeration>
@@ -59240,7 +59240,7 @@
 					<xs:appinfo>
 						<xs:label>X-SAMPA transcription</xs:label>
 					</xs:appinfo>
-					<xs:documentation>Indicates that the content is transcribed according to X-SAMPA</xs:documentation>
+					<xs:documentation>Indicates that the stringContent is transcribed according to X-SAMPA</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="1694acad">

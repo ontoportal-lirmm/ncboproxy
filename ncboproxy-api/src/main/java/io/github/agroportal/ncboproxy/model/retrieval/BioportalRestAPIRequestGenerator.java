@@ -11,7 +11,7 @@ import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Provides static methods to process url used by servlet servlets
@@ -34,17 +34,17 @@ public class BioportalRestAPIRequestGenerator implements RequestGenerator {
     private final APIContext apiContext;
     private final String queryPath;
 
-    private final boolean isPost;
+    private final String method;
 
     BioportalRestAPIRequestGenerator(final APIContext apiContext, final Map<String, List<String>> queryParameters,
                                      final Map<String, String> queryHeaders,
-                                     final String queryPath, final boolean isPost) {
+                                     final String queryPath, final String method) {
 
         this.queryParameters = Collections.unmodifiableMap(queryParameters);
         headers = Collections.unmodifiableMap(queryHeaders);
         this.apiContext = apiContext;
         this.queryPath = queryPath;
-        this.isPost = isPost;
+        this.method = method;
     }
 
     private String generateFullURL(final String uri) {
@@ -72,23 +72,29 @@ public class BioportalRestAPIRequestGenerator implements RequestGenerator {
         String fullURL = generateFullURL(queryPath);
         final String parameterString = createParameterString();
 
-        if(!isPost){
-            fullURL+= "?" + parameterString;
+        if (!method.toLowerCase().equals("post")) {
+            fullURL += "?" + parameterString;
         }
 
         final URL url = new URL(fullURL);
         final HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        if(isPost) {
-            connection.setRequestMethod("POST");
-        } else {
-            connection.setRequestMethod("GET");
+        switch (method.toLowerCase()) {
+            case "post":
+                connection.setRequestMethod("POST");
+                break;
+            case "head":
+                connection.setRequestMethod("HEAD");
+                break;
+            default:
+                connection.setRequestMethod("GET");
+                break;
         }
         connection.setUseCaches(false);
         connection.setDoInput(true);
         connection.setRequestProperty(ACCEPT_HEADER, ACCEPTED_MIMES);
         transferHeaders(connection);
 
-        if(isPost) {
+        if (method.toLowerCase().equals("post")) {
             connection.setDoOutput(true);
             connection.setRequestProperty(CONTENT_TYPE,
                     APPLICATION_X_WWW_FORM_URLENCODED_CHARSET_UTF_8);
@@ -112,19 +118,19 @@ public class BioportalRestAPIRequestGenerator implements RequestGenerator {
                 parameterString.append("&");
             }
             first = false;
-            final Optional<String> paramValue = stringListEntry
+            final String paramValue = stringListEntry
                     .getValue()
                     .stream()
-                    .findFirst();
-            paramValue.ifPresent(val -> {
-                try {
-                    parameterString
-                            .append(stringListEntry.getKey())
-                            .append("=")
-                            .append(URLEncoder.encode(val, apiContext.getServerEncoding()));
-                } catch (final UnsupportedEncodingException ignored) {
-                }
-            });
+                    .collect(Collectors.joining(","));
+
+            try {
+                parameterString
+                        .append(stringListEntry.getKey())
+                        .append("=")
+                        .append(URLEncoder.encode(paramValue, apiContext.getServerEncoding()));
+            } catch (final UnsupportedEncodingException ignored) {
+            }
+
         }
         return parameterString.toString();
     }
