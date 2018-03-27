@@ -27,6 +27,13 @@ public interface ServletHandler {
 
     ServletHandler latchToOutputGeneratorDispatcher(OutputGeneratorDispatcher outputGeneratorDispatcher);
 
+    /**
+     * Determine whether all parameters in mandatory registered parameter handlers are met
+     * @param queryParameters The map of query parameters
+     * @return True if all conditions are met, false otherwise
+     */
+    boolean areParameterConstraintsMet(final Map<String, List<String>> queryParameters);
+
 
     NCBOOutputModel handleRequest(final Map<String, List<String>> queryParameters,
                                   final Map<String, String> queryHeaders,

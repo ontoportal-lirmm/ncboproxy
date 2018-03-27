@@ -42,7 +42,7 @@ public class OmTDShareSingleServletHandler extends AbstractServletHandler {
 
         OutputGenerator outputGenerator = new OMTDShareOutputGenerator(portalType);
 
-        registerParameterHandler("format", new OMTDShareParameterHandler(outputGenerator), true);
+        registerParameterHandler("format", new OMTDShareParameterHandler(outputGenerator), false, "omtd-share");
 
         parser = NCBOOutputParser.create();
     }
@@ -69,12 +69,13 @@ public class OmTDShareSingleServletHandler extends AbstractServletHandler {
         NCBOOutputModel model;
         if (matcher.find()) {
             final String acronym = matcher.group(1);
-            final String number = ((matcher.end() - 1) <= matcher.end(1)) ? "latest_submission" : matcher.group(2);
+
+            final String number = (matcher.groupCount()<2) ? "latest_submission" : matcher.group(2);
 
             queryParameters.put("display", Collections.singletonList("all"));
             final String submissionsPath = number.contains("latest") ?
                     ("/ontologies/" + acronym + "/latest_submission/") :
-                    ("/ontologies/" + acronym + "/" + Integer.valueOf(number) + "/");
+                    ("/ontologies/" + acronym + "/submissions/" + Integer.valueOf(number) + "/");
             final RequestGenerator requestGenerator = RequestGenerator.createGETRequestGenerator(apiContext, queryParameters, queryHeaders, submissionsPath);
             try {
                 final RequestResult result = BioportalRESTRequest.query(requestGenerator);

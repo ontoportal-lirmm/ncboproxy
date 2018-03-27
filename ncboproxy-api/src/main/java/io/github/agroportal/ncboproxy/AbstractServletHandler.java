@@ -64,6 +64,20 @@ public abstract class AbstractServletHandler implements ServletHandler {
         return this;
     }
 
+    @Override
+    public boolean areParameterConstraintsMet(final Map<String, List<String>> queryParameters) {
+        return parameterHandlerRegistry.areMandatoryConstraintsSatisfied(queryParameters);
+    }
+
+    @SuppressWarnings("all")
+    protected void registerParameterHandler(final String pattern,
+                                            final ParameterHandler parameterHandler,
+                                            final boolean isOptional, String... constrainedValues) {
+        if (outputGeneratorDispatcher != null) {
+            parameterHandlerRegistry.registerParameterHandler(pattern, parameterHandler, isOptional, constrainedValues);
+        }
+    }
+
     @SuppressWarnings("all")
     protected void registerParameterHandler(final String pattern,
                                             final ParameterHandler parameterHandler,

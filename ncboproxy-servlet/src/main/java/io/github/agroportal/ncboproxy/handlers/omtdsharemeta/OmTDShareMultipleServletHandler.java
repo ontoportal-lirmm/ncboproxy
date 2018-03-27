@@ -37,12 +37,12 @@ public class OmTDShareMultipleServletHandler extends AbstractServletHandler {
                 ResponsePostProcessorRegistry.create(),
                 OutputGeneratorDispatcher.create());
         queryStringPattern = new ArrayList<>();
-        queryStringPattern.add("/ontologies");
-        queryStringPattern.add("/submissions/");
+        queryStringPattern.add("/ontologies/?");
+        queryStringPattern.add("/submissions/?");
 
         OutputGenerator outputGenerator = new OMTDShareZipOutputGenerator(portalType);
 
-        registerParameterHandler("format", new OMTDShareParameterHandler(outputGenerator), true);
+        registerParameterHandler("format", new OMTDShareParameterHandler(outputGenerator), false, "omtd-share");
 
         parser = NCBOOutputParser.create();
     }
@@ -62,7 +62,7 @@ public class OmTDShareMultipleServletHandler extends AbstractServletHandler {
         queryParameters.remove("format");
         queryParameters.put("display", Collections.singletonList("all"));
 
-        final String endQueryPath = "/submissions";
+        final String endQueryPath = "/submissions/";
         final RequestGenerator requestGenerator = RequestGenerator.createGETRequestGenerator(apiContext, queryParameters, queryHeaders, endQueryPath);
         NCBOOutputModel model;
         try {

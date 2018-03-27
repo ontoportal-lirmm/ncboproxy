@@ -2,12 +2,14 @@ package io.github.agroportal.ncboproxy;
 
 
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
 public interface ServletHandlerDispatcher {
     ServletHandlerDispatcher registerServletHookHandler(ServletHandler servletHandler);
-    Optional<ServletHandler> findMatchingHandler(final String queryString);
+    Optional<ServletHandler> findMatchingHandler(final String queryString, final Map<String, List<String>> queryParameters);
 
     static ServletHandlerDispatcher create(){
         return new NCBOProxyServletHandlerDispatcher();

@@ -1,8 +1,6 @@
 package io.github.agroportal.ncboproxy;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Optional;
+import java.util.*;
 
 @SuppressWarnings("FeatureEnvy")
 class NCBOProxyServletHandlerDispatcher implements ServletHandlerDispatcher {
@@ -21,12 +19,13 @@ class NCBOProxyServletHandlerDispatcher implements ServletHandlerDispatcher {
     }
 
     @Override
-    public Optional<ServletHandler> findMatchingHandler(final String queryString) {
+    public Optional<ServletHandler> findMatchingHandler(final String queryString, final Map<String, List<String>> queryParameters) {
         return handlers
                 .stream()
                 .filter(servletHandler -> !ServletHandlerDispatcher
                         .findMatchingPattern(queryString, servletHandler.getQueryStringPattern())
-                        .isEmpty())
+                        .isEmpty()
+                        && servletHandler.areParameterConstraintsMet(queryParameters))
                 .findFirst();
     }
 

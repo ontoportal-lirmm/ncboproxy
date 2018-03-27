@@ -86,7 +86,7 @@ public class NCBOProxyServlet extends HttpServlet {
     }
 
     private Map<String, List<String>> extractQueryParameters(final ServletRequest request, final APIContext apiContext) {
-        return ParameterMapper.extractQueryParameters(request,apiContext.getServerEncoding());
+        return ParameterMapper.extractQueryParameters(request, apiContext.getServerEncoding());
     }
 
 
@@ -127,7 +127,7 @@ public class NCBOProxyServlet extends HttpServlet {
          *  local registries.
          */
         final ServletHandler handler = servletHandlerDispatcher
-                .findMatchingHandler(request.getPathInfo())
+                .findMatchingHandler(request.getPathInfo(), extractQueryParameters(request, apiContext))
                 .orElseGet(ServletHandler::defaultHandler)
                 .latchToParameterHandlerRegistry(parameterHandlerRegistry);
 
@@ -156,7 +156,6 @@ public class NCBOProxyServlet extends HttpServlet {
             //Pre-processing step, matching and handling parameters
             outputParameters =
                     parameterHandlerRegistry.processParameters(queryParameters, headers, queryPath, handler);
-
 
 
             //Handling the request to the REST API (the responsibility befalls implementing classes of {@code ServletHandler}
@@ -206,8 +205,8 @@ public class NCBOProxyServlet extends HttpServlet {
     @SuppressWarnings("FeatureEnvy")
     private void outputContent(final ProxyOutput proxyOutput, final ServletResponse response) throws IOException {
         response.setContentType(String.format(UTF8_CONTENT_TYPE_FORMAT_STRING, proxyOutput.getMimeType()));
-        if(proxyOutput.isBinary()){
-            try (final OutputStream outputStream = response.getOutputStream()){
+        if (proxyOutput.isBinary()) {
+            try (final OutputStream outputStream = response.getOutputStream()) {
                 outputStream.write(proxyOutput.getBinaryContent());
             }
         } else {

@@ -15,7 +15,9 @@ import java.util.regex.Pattern;
 @SuppressWarnings({"MethodParameterOfConcreteClass", "InstanceVariableOfConcreteClass", "LocalVariableOfConcreteClass", "FeatureEnvy", "OverlyCoupledClass", "LawOfDemeter"})
 public class AgroPortalModelMapper implements OMTDShareModelMapper {
 
-    private static final Pattern TEST_ENDPOINT_ENDING = Pattern.compile("^(.*)/test$");
+    private static final Pattern LESSER_THAN = Pattern.compile("<");
+    private static final Pattern GREATER_THAN = Pattern.compile(">");
+    //    private static final Pattern TEST_ENDPOINT_ENDING = Pattern.compile("^(.*)/test$");
     private final ObjectFactory objectFactory;
     private final OMTDLicenceMapper licenseMapper;
 
@@ -46,12 +48,12 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
 
 
         final ResourceDocumentationInfoType resourceDocumentationInfoType = objectFactory.createResourceDocumentationInfoType();
-        resourceDocumentations
-                .getResourceDocumentationInfo()
-                .add(resourceDocumentationInfoType);
         if (!reference.equals(MISSING)) {
             resourceDocumentationInfoType.setDocumentationType("publication");
             resourceDocumentationInfoType.setDocumentationDescription(reference);
+            resourceDocumentations
+                    .getResourceDocumentationInfo()
+                    .add(resourceDocumentationInfoType);
         } else if (!publication.equals(MISSING)) {
             resourceDocumentationInfoType.setDocumentationType("publication");
             final ResourceDocumentationInfoType.PublicationIdentifiers publicationIdentifiers = objectFactory.createResourceDocumentationInfoTypePublicationIdentifiers();
@@ -60,6 +62,8 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
                     .getPublicationIdentifier()
                     .add(publicationIdentifierType);
             resourceDocumentationInfoType.setPublicationIdentifiers(publicationIdentifiers);
+
+            resourceDocumentationInfoType.setDocumentationDescription(publication);
 
             if (publication
                     .toLowerCase()
@@ -70,11 +74,18 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
                 publicationIdentifierType.setPublicationIdentifierSchemeName("URL");
                 publicationIdentifierType.setSchemeURI(publication);
             } else {
+                publicationIdentifierType.setPublicationIdentifierSchemeName("other");
                 publicationIdentifierType.setValue(publication);
             }
+            resourceDocumentations
+                    .getResourceDocumentationInfo()
+                    .add(resourceDocumentationInfoType);
         } else if (!documentation.equals(MISSING)) {
             resourceDocumentationInfoType.setDocumentationType("onLineHelpURL");
             resourceDocumentationInfoType.setDocumentationDescription(documentation);
+            resourceDocumentations
+                    .getResourceDocumentationInfo()
+                    .add(resourceDocumentationInfoType);
         }
     }
 
@@ -104,7 +115,7 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
     @Override
     public void textInformation(final LexicalConceptualResourceTextInfoType lexicalConceptualResourceTextInfoType, final NCBOOutputModel outputModel, final boolean downloadable) {
 
-        //HHandling data format properties
+        //Handling data format properties
         final DataFormatInfo dataFormatInfo = objectFactory.createDataFormatInfo();
         lexicalConceptualResourceTextInfoType.setDataFormatInfo(dataFormatInfo);
         dataFormat(dataFormatInfo, downloadable);
@@ -123,7 +134,7 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
         metalanguages
                 .getMetalanguageInfo()
                 .add(languageInfoType);
-        languageInfoType.setLanguage("eng");
+        languageInfoType.setLanguage("en");
 
         //Handling resource sizes
         final LexicalConceptualResourceTextInfoType.Sizes sizes = objectFactory.createLexicalConceptualResourceTextInfoTypeSizes();
@@ -155,6 +166,7 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
             } else {
                 domain.setValue(domainValue);
             }
+            domain.setClassificationSchemeName(ClassificationSchemeName.OTHER);
         }
     }
 
@@ -164,11 +176,21 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
         int count = 0;
         for (final String value : values) {
             final LanguageInfoType languageInfoType = objectFactory.createLanguageInfoType();
-            languageInfoType.setLanguage(OMTDUtilityMapper.mapLanguage(value));
+            final String langValue = OMTDUtilityMapper.mapLanguage(value);
+            if(!langValue.equals("unknown")) {
+                languageInfoType.setLanguage(langValue);
+                languages
+                        .getLanguageInfo()
+                        .add(languageInfoType);
+                count++;
+            }
+        }
+        if(values.isEmpty()){
+            final LanguageInfoType languageInfoType = objectFactory.createLanguageInfoType();
+            languageInfoType.setLanguage(DEFAULT_LANG);
             languages
                     .getLanguageInfo()
                     .add(languageInfoType);
-            count++;
         }
 
         if ((count > -1) && (count < 2)) {
@@ -197,10 +219,10 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
                 .toLowerCase()
                 .contains("skos")) {
             size = OMTDShareModelMapper.getSubmissionPropertyIntValue(outputModel, "numberOfIndividuals");
-            sizeInfoType.setSizeUnit("Individuals");
+            sizeInfoType.setSizeUnit("concepts");
         } else {
             size = OMTDShareModelMapper.getSubmissionPropertyIntValue(outputModel, "numberOfClasses");
-            sizeInfoType.setSizeUnit("Classes");
+            sizeInfoType.setSizeUnit("classes");
         }
         sizeInfoType.setSize(String.valueOf(size));
     }
@@ -290,14 +312,19 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
                                      final IdentificationInfoType.Descriptions.Description description,
                                      final NCBOOutputModel outputModel) {
         final String descriptionValue = OMTDShareModelMapper.getSubmissionPropertyValue(outputModel, "description");
-        if (!descriptionValue.equals(MISSING)) {
-            description.setLang(DEFAULT_LANG);
-            description.setValue(descriptionValue);
-
-            descriptions
-                    .getDescription()
-                    .add(description);
+        description.setLang(DEFAULT_LANG);
+        if (descriptionValue.equals(MISSING)) {
+            description.setValue("");
+        } else {
+            description.setValue(GREATER_THAN
+                    .matcher(LESSER_THAN
+                            .matcher(descriptionValue)
+                            .replaceAll("&lt;"))
+                    .replaceAll("&gt;"));
         }
+        descriptions
+                .getDescription()
+                .add(description);
     }
 
     @SuppressWarnings("LawOfDemeter")
@@ -305,25 +332,23 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
                                     final NCBOOutputModel outputModel) {
         final String uriValue = OMTDShareModelMapper.getSubmissionPropertyValue(outputModel, "URI");
         final String identifierValue = OMTDShareModelMapper.getSubmissionPropertyValue(outputModel, "identifier");
+        final String id = OMTDShareModelMapper.getOntologyPropertyValue(outputModel, "@id");
 
-        if (!uriValue.equals(MISSING)) {
+        resourceIdentifierFromValue(identifiers, uriValue);
+        resourceIdentifierFromValue(identifiers, identifierValue);
+        if (uriValue.equals(MISSING) && (identifierValue.equals(MISSING) || identifierValue.isEmpty())) {
+            resourceIdentifierFromValue(identifiers,id);
+        }
+    }
+
+    private void resourceIdentifierFromValue(final IdentificationInfoType.ResourceIdentifiers identifiers, final String identifierValue) {
+        if (!identifierValue.equals(MISSING) && !identifierValue.isEmpty()) {
             final ResourceIdentifierType resourceIdentifier = objectFactory.createResourceIdentifierType();
-            resourceIdentifier.setResourceIdentifierSchemeName("URI");
-            resourceIdentifier.setValue(uriValue);
+            resourceIdentifier.setResourceIdentifierSchemeName("URL");
+            resourceIdentifier.setValue(identifierValue);
             identifiers
                     .getResourceIdentifier()
                     .add(resourceIdentifier);
-        }
-        if (!identifierValue.equals(MISSING)) {
-            final ResourceIdentifierType resourceIdentifier = objectFactory.createResourceIdentifierType();
-            resourceIdentifier.setResourceIdentifierSchemeName("URI");
-            resourceIdentifier.setValue(identifierValue);
-        }
-        if (uriValue.equals(MISSING) && identifierValue.equals(MISSING)) {
-            final String idValue = OMTDShareModelMapper.getSubmissionPropertyValue(outputModel, "id");
-            final ResourceIdentifierType resourceIdentifier = objectFactory.createResourceIdentifierType();
-            resourceIdentifier.setResourceIdentifierSchemeName("URI");
-            resourceIdentifier.setValue(idValue);
         }
     }
 
@@ -336,7 +361,8 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
 
     @Override
     public void version(final VersionInfoType versionInfoType, final NCBOOutputModel outputModel) {
-        versionInfoType.setVersion(OMTDShareModelMapper.getSubmissionPropertyValue(outputModel, "version"));
+        final String version = OMTDShareModelMapper.getSubmissionPropertyValue(outputModel, "version");
+        versionInfoType.setVersion((version.equals(MISSING)?"No Versioning":version));
     }
 
 
@@ -411,7 +437,7 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
                             .orElse(MISSING);
                     if (contactPoint.equals(MISSING)) {
                         contactInfoType.setContactPoint(email);
-                        contactInfoType.setContactType("email");
+                        contactInfoType.setContactType("contactEmail");
                     }
                     if (!email.isEmpty() && !name.isEmpty()) {
                         final PersonInfoType personInfoType = objectFactory.createPersonInfoType();
@@ -460,6 +486,26 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
 //                distributionInfoType.setDistributionMedium("webExecutable");
 //            }
         }
+
+        //Handling resource sizes
+        final DatasetDistributionInfoType.Sizes sizes = objectFactory.createDatasetDistributionInfoTypeSizes();
+        final SizeInfoType sizeInfoType = objectFactory.createSizeInfoType();
+        sizes
+                .getSizeInfo()
+                .add(sizeInfoType);
+        sizes(sizeInfoType, outputModel);
+        distributionInfoType.setSizes(sizes);
+
+        final DatasetDistributionInfoType.TextFormats textFormats = objectFactory.createDatasetDistributionInfoTypeTextFormats();
+        final TextFormatInfoType textFormatInfoType = objectFactory.createTextFormatInfoType();
+        textFormats.getTextFormatInfo().add(textFormatInfoType);
+        distributionInfoType.setTextFormats(textFormats);
+
+        final DataFormatInfo dataFormatInfo = objectFactory.createDataFormatInfo();
+        textFormatInfoType.setDataFormatInfo(dataFormatInfo);
+        dataFormat(dataFormatInfo, downloadable);
+
+
     }
 
     @SuppressWarnings({"LawOfDemeter", "IfStatementWithTooManyBranches"})

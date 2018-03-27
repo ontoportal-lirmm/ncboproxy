@@ -4,24 +4,31 @@ package io.github.agroportal.ncboproxy.parameters;
 import io.github.agroportal.ncboproxy.ServletHandler;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class NCBOProxyParameterHandlerHandlerRegistry implements ParameterHandlerRegistry {
+public class NCBOProxyParameterHandlerRegistry implements ParameterHandlerRegistry {
 
 
     private final Set<Parameters> parameters;
     private final Map<Parameters, ParameterHandler> parameterHandlers;
 
 
-    NCBOProxyParameterHandlerHandlerRegistry() {
+    NCBOProxyParameterHandlerRegistry() {
         parameters = new HashSet<>();
         parameterHandlers = new HashMap<>();
     }
 
-    @SuppressWarnings("LocalVariableOfConcreteClass")
+
     @Override
     public synchronized ParameterHandlerRegistry registerParameterHandler(final String name, final ParameterHandler parameterHandler, final boolean isOptional) {
+        return registerParameterHandler(name, parameterHandler, isOptional, new String[0]);
+    }
+
+    @SuppressWarnings("LocalVariableOfConcreteClass")
+    @Override
+    public synchronized ParameterHandlerRegistry registerParameterHandler(final String name, final ParameterHandler parameterHandler, final boolean isOptional, final String... constrainedValues) {
         final Parameters currentParameters = new Parameters(name, isOptional);
-        if(parameters.contains(currentParameters)){
+        if (parameters.contains(currentParameters)) {
             parameters.remove(currentParameters);
         }
         parameters.add(currentParameters);
@@ -39,7 +46,7 @@ public class NCBOProxyParameterHandlerHandlerRegistry implements ParameterHandle
         for (final Parameters parameter : parameters) {
             if (!parameter.isOptional() && !queryParameters.containsKey(parameter.getName())) {
                 throw new InvalidParameterException(String.format("Mandatory parameter missing -- %s", parameter.getName()));
-            } else if (parameter.isAtLeastOneContained(queryParameters)) {
+            } else if (parameter.matchesQueryParameters(queryParameters)) {
                 final Map<String, String> localOutput = parameterHandlers
                         .get(parameter)
                         .processParameter(queryParameters, queryHeaders, queryPath, servletHandler);
@@ -53,17 +60,34 @@ public class NCBOProxyParameterHandlerHandlerRegistry implements ParameterHandle
     }
 
     @Override
-    public ParameterHandlerRegistry polymorphicOverride(final ParameterHandlerRegistry parameterHandlerRegistry) {
-        parameters.forEach(p -> parameterHandlerRegistry.registerParameterHandler(p.getName(), parameterHandlers.get(p), p.isOptional()));
+    public ParameterHandlerRegistry polymorphicOverride(final ParameterHandlerRegistry otherParameterHandlerRegistry) {
+        parameters.forEach(p ->
+                otherParameterHandlerRegistry.registerParameterHandler(
+                        p.getName(), parameterHandlers.get(p), p.isOptional())
+        );
         return this;
+    }
+
+    @Override
+    public boolean areMandatoryConstraintsSatisfied(final Map<String, List<String>> queryParameters) {
+        boolean endCondition = true;
+
+        for (final Parameters parameter : parameters) {
+            if (!parameter.isOptional() && (!queryParameters.containsKey(parameter.getName()) || !parameter.matchesQueryParameters(queryParameters))) {
+                endCondition = false;
+                break;
+            }
+        }
+        return endCondition;
     }
 
     @SuppressWarnings("SuspiciousGetterSetter")
     private static final class Parameters {
         private final List<String> names;
+        private final List<String> constrainedValues;
         private final boolean isOptional;
 
-        Parameters(final String names, final boolean isOptional) {
+        Parameters(final String names, final boolean isOptional, final String... constrainedValues) {
             this.names = new ArrayList<>();
             if (names.contains("|")) {
                 Collections.addAll(this.names, names.split("\\|"));
@@ -71,16 +95,27 @@ public class NCBOProxyParameterHandlerHandlerRegistry implements ParameterHandle
                 this.names.add(names);
             }
             this.isOptional = isOptional;
+            this.constrainedValues = Arrays
+                    .stream(constrainedValues)
+                    .collect(Collectors.toList());
         }
 
         String getName() {
             return names.get(0);
         }
 
-        boolean isAtLeastOneContained(final Map<String, List<String>> parameters) {
+        boolean matchesQueryParameters(final Map<String, List<String>> queryParameters) {
             boolean atLeastOne = false;
             for (final String name : names) {
-                atLeastOne = parameters.containsKey(name);
+                if (queryParameters.containsKey(name) && !constrainedValues.isEmpty()) {
+                    for (final String value : constrainedValues) {
+                        atLeastOne = queryParameters
+                                .get(name)
+                                .contains(value);
+                    }
+                } else {
+                    atLeastOne = true;
+                }
                 if (atLeastOne) break;
             }
             return atLeastOne;
@@ -96,9 +131,9 @@ public class NCBOProxyParameterHandlerHandlerRegistry implements ParameterHandle
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             Parameters that = (Parameters) o;
-            boolean foundOne= false;
-            for(final String thatName: that.names){
-                if(names.contains(thatName)){
+            boolean foundOne = false;
+            for (final String thatName : that.names) {
+                if (names.contains(thatName)) {
                     foundOne = true;
                     break;
                 }
