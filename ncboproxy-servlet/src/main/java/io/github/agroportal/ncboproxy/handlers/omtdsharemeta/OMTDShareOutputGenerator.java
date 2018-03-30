@@ -49,18 +49,20 @@ import java.util.Optional;
 public class OMTDShareOutputGenerator implements OutputGenerator {
 
     private final ObjectFactory objectFactory;
-    private final OMTDShareModelMapper modelMapper;
+    private final PortalType portalType;
 
     OMTDShareOutputGenerator(final PortalType portalType) {
         objectFactory = new ObjectFactory();
-        modelMapper = OMTDShareModelMapper.create(portalType, objectFactory);
+        this.portalType = portalType;
     }
 
 
-    @SuppressWarnings({"MethodParameterOfConcreteClass", "FeatureEnvy", "LocalVariableOfConcreteClass"})
+    @SuppressWarnings({"MethodParameterOfConcreteClass", "FeatureEnvy", "LocalVariableOfConcreteClass", "LawOfDemeter"})
     private void mapMetaData(final LexicalConceptualResourceInfoType lexicalConceptualResourceInfo, final NCBOOutputModel outputModel, final boolean downloadable, final String apiKey) {
 //                final MetadataHeaderInfoType metadataHeaderInfo = objectFactory.createMetadataHeaderInfoType();
 //                metadataRecord.setMetadataHeaderInfo(metadataHeaderInfo);
+
+        final OMTDShareModelMapper modelMapper = OMTDShareModelMapper.create(portalType, objectFactory, apiKey);
 
         modelMapper.rootResourceProperties(lexicalConceptualResourceInfo, outputModel);
 
@@ -86,9 +88,9 @@ public class OMTDShareOutputGenerator implements OutputGenerator {
         modelMapper.contactInformation(contactInfoType, outputModel);
 
         //Resource creation information
-        final ResourceCreationInfoType resourceCreationInfoType  = objectFactory.createResourceCreationInfoType();
+        final ResourceCreationInfoType resourceCreationInfoType = objectFactory.createResourceCreationInfoType();
         lexicalConceptualResourceInfo.setResourceCreationInfo(resourceCreationInfoType);
-        modelMapper.resourceCreation(resourceCreationInfoType,outputModel);
+        modelMapper.resourceCreation(resourceCreationInfoType, outputModel);
 
         //Distribution information
         final LexicalConceptualResourceInfoType.DistributionInfos distributionInfos = objectFactory.createLexicalConceptualResourceInfoTypeDistributionInfos();
@@ -98,7 +100,7 @@ public class OMTDShareOutputGenerator implements OutputGenerator {
         //Documentation information
         final LexicalConceptualResourceInfoType.ResourceDocumentations resourceDocumentations = objectFactory.createLexicalConceptualResourceInfoTypeResourceDocumentations();
         lexicalConceptualResourceInfo.setResourceDocumentations(resourceDocumentations);
-        modelMapper.documentationInformation(resourceDocumentations,outputModel);
+        modelMapper.documentationInformation(resourceDocumentations, outputModel);
 
         //Rights information
         final RightsInfo rightsInfo = objectFactory.createRightsInfo();
@@ -107,7 +109,7 @@ public class OMTDShareOutputGenerator implements OutputGenerator {
 
         //Relations information
         final LexicalConceptualResourceInfoType.Relations relations = objectFactory.createLexicalConceptualResourceInfoTypeRelations();
-        modelMapper.relations(relations,outputModel);
+        modelMapper.relations(relations, outputModel);
         lexicalConceptualResourceInfo.setRelations(relations);
     }
 
@@ -116,7 +118,7 @@ public class OMTDShareOutputGenerator implements OutputGenerator {
     public ProxyOutput apply(final Optional<NCBOOutputModel> outputModel, final Map<String, String> outputParameters) {
         ProxyOutput proxyOutput;
         if (outputModel.isPresent()) {
-            final String acronym = OMTDShareModelMapper.getOntologyPropertyValue(outputModel.get(),"acronym");
+            final String acronym = OMTDShareModelMapper.getOntologyPropertyValue(outputModel.get(), "acronym");
             try {
                 final JAXBContext jaxbContext = JAXBContext.newInstance("io.github.agroportal.ncboproxy.handlers.omtdsharemeta.xsdmodel");
 
@@ -124,7 +126,7 @@ public class OMTDShareOutputGenerator implements OutputGenerator {
                 final LcrMetadataRecord metadataRecord = objectFactory.createLcrMetadataRecord();
                 final LexicalConceptualResourceInfoType lexicalConceptualResourceInfo = generateLexicalConceptualResourceRoot(metadataRecord);
 
-                mapMetaData(lexicalConceptualResourceInfo, outputModel.get(), outputParameters.containsKey(acronym),outputParameters.get("apikey"));
+                mapMetaData(lexicalConceptualResourceInfo, outputModel.get(), outputParameters.containsKey(acronym), outputParameters.get("apikey"));
 
                 proxyOutput = generateXMLOutput(jaxbContext, metadataRecord);
 

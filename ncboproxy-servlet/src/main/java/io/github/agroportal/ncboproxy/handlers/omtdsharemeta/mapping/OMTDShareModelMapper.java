@@ -188,17 +188,17 @@ public interface OMTDShareModelMapper {
     }
 
     @SuppressWarnings("MethodParameterOfConcreteClass")
-    static OMTDShareModelMapper create(final PortalType portalType, final ObjectFactory objectFactory) {
+    static OMTDShareModelMapper create(final PortalType portalType, final ObjectFactory objectFactory, final String apiKey) {
         OMTDShareModelMapper mapper = null;
         switch (portalType) {
             case AGROPORTAL:
-                mapper = new AgroPortalModelMapper(objectFactory);
+                mapper = new AgroPortalModelMapper(objectFactory,apiKey, "en");
                 break;
             case SIFR_BIOPORTAL:
-                mapper = new AgroPortalModelMapper(objectFactory);
+                mapper = new AgroPortalModelMapper(objectFactory,apiKey, "fr");
                 break;
             case STAGEPORTAL:
-                mapper = new AgroPortalModelMapper(objectFactory);
+                mapper = new AgroPortalModelMapper(objectFactory,apiKey, "en");
                 break;
             default:
                 break;

@@ -11,6 +11,9 @@ import io.github.agroportal.ncboproxy.servlet.PortalType;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import java.util.Optional;
 import java.util.zip.ZipEntry;
@@ -52,7 +55,7 @@ public class OMTDShareZipOutputGenerator implements OutputGenerator {
     }
 
 
-    @SuppressWarnings("LawOfDemeter")
+    @SuppressWarnings({"LawOfDemeter", "FeatureEnvy"})
     @Override
     public ProxyOutput apply(final Optional<NCBOOutputModel> outputModel, final Map<String, String> outputParameters) {
         ProxyOutput proxyOutput;
@@ -66,14 +69,22 @@ public class OMTDShareZipOutputGenerator implements OutputGenerator {
                     for (final NCBOOutputModel childModel : ncboCollection) {
                         final ProxyOutput output = omtdShareOutputGenerator.apply(Optional.of(childModel), outputParameters);
                         final String acronym = OMTDShareModelMapper.getOntologyPropertyValue(childModel, "acronym");
-                        zipOutputStream.putNextEntry(new ZipEntry(acronym+ ".xml"));
-                        zipOutputStream.write(output.getStringContent().getBytes());
+                        zipOutputStream.putNextEntry(new ZipEntry(acronym + ".xml"));
+                        zipOutputStream.write(output
+                                .getStringContent()
+                                .getBytes());
                         zipOutputStream.closeEntry();
                     }
                     zipOutputStream.flush();
                 }
                 byteArrayOutputStream.flush();
-                proxyOutput = ProxyOutput.create(byteArrayOutputStream.toByteArray(),"application/zip");
+
+                final DateFormat dateFormat = new SimpleDateFormat("dd_MM_yyyy-HH_mm");
+                final String currentDateString = dateFormat.format(new Date());
+
+                proxyOutput =
+                        ProxyOutput.create(byteArrayOutputStream.toByteArray(), "application/zip")
+                                   .makeFileTransfer(String.format("ontologies_omtd-share_metadata-%s.zip",currentDateString));
             } catch (final IOException e) {
                 proxyOutput = OutputGenerator.errorOutput("OMTDShare Output: Failed to initialize zip generator - " + e.getMessage());
             }
@@ -83,4 +94,5 @@ public class OMTDShareZipOutputGenerator implements OutputGenerator {
         }
         return proxyOutput;
     }
+
 }

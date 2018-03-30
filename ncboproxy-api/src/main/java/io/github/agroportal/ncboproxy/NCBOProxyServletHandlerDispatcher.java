@@ -22,7 +22,7 @@ class NCBOProxyServletHandlerDispatcher implements ServletHandlerDispatcher {
     public Optional<ServletHandler> findMatchingHandler(final String queryString, final Map<String, List<String>> queryParameters) {
         return handlers
                 .stream()
-                .filter(servletHandler -> !ServletHandlerDispatcher
+                .filter(servletHandler ->!ServletHandlerDispatcher
                         .findMatchingPattern(queryString, servletHandler.getQueryStringPattern())
                         .isEmpty()
                         && servletHandler.areParameterConstraintsMet(queryParameters))

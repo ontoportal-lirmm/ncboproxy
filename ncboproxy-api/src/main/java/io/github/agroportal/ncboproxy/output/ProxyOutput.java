@@ -1,10 +1,17 @@
 package io.github.agroportal.ncboproxy.output;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * This interface specifies the output of the annotator
  */
 public interface ProxyOutput {
     int HTTP_INTERNAL_APPLICATION_ERROR = 500;
+
+    void addCustomHeader(String name, String value);
+    ProxyOutput transferCustomHeadersToResponse(final HttpServletResponse servletResponse);
+
+    ProxyOutput makeFileTransfer(final String filename);
 
     /**
      * The content of the output

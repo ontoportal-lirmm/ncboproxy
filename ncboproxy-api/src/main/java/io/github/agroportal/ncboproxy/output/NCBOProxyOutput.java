@@ -1,6 +1,9 @@
 package io.github.agroportal.ncboproxy.output;
 
 
+import javax.servlet.http.HttpServletResponse;
+import java.util.*;
+
 /**
  * Default implementation of ProxyOutput
  */
@@ -9,12 +12,14 @@ public class NCBOProxyOutput implements ProxyOutput {
     private final String mimeType;
     private final byte[] binaryContent;
     private final boolean binary;
+    private final Map<String,List<String>> customHeaders;
 
     NCBOProxyOutput(final String stringContent, final String mimeType) {
         this.stringContent = stringContent;
         binaryContent = new byte[1];
         this.mimeType = mimeType;
         binary = false;
+        customHeaders = new HashMap<>();
     }
 
     NCBOProxyOutput(final byte[] binaryContent, final String mimeType) {
@@ -22,6 +27,7 @@ public class NCBOProxyOutput implements ProxyOutput {
         stringContent = "";
         this.mimeType = mimeType;
         binary = true;
+        customHeaders = new HashMap<>();
     }
 
     @Override
@@ -33,6 +39,33 @@ public class NCBOProxyOutput implements ProxyOutput {
     @Override
     public byte[] getBinaryContent() {
         return binaryContent.clone();
+    }
+
+
+    @Override
+    public void addCustomHeader(final String name, final String value) {
+        customHeaders.putIfAbsent(name, new ArrayList<>());
+        customHeaders.get(name).add(value);
+    }
+
+    @Override
+    public ProxyOutput transferCustomHeadersToResponse(final HttpServletResponse servletResponse) {
+        for(final Map.Entry<String, List<String>> entry : customHeaders.entrySet()){
+            for(final String value: entry.getValue()){
+                servletResponse.addHeader(entry.getKey(),value);
+            }
+        }
+        return this;
+    }
+
+    @Override
+    public ProxyOutput makeFileTransfer(final String filename) {
+        addCustomHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");
+        addCustomHeader("Cache-Control", "public");
+        addCustomHeader("Content-Description", "File Transfer");
+        addCustomHeader("Content-Disposition", String.format("attachment; filename=\"%s\"",filename));
+        addCustomHeader("Content-Transfer-Encoding", "binary");
+        return this;
     }
 
     @Override

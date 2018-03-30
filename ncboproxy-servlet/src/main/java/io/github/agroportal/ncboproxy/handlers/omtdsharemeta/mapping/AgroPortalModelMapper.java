@@ -1,5 +1,6 @@
 package io.github.agroportal.ncboproxy.handlers.omtdsharemeta.mapping;
 
+import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils.KeyWordExtractor;
 import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils.OMTDLicenceMapper;
 import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils.OMTDUtilityMapper;
 import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.xsdmodel.*;
@@ -7,6 +8,7 @@ import io.github.agroportal.ncboproxy.model.JSONLDObject;
 import io.github.agroportal.ncboproxy.model.NCBOCollection;
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -20,10 +22,14 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
     //    private static final Pattern TEST_ENDPOINT_ENDING = Pattern.compile("^(.*)/test$");
     private final ObjectFactory objectFactory;
     private final OMTDLicenceMapper licenseMapper;
+    private final String apiKey;
+    private final String portalLanguage;
 
-    AgroPortalModelMapper(final ObjectFactory objectFactory) {
+    AgroPortalModelMapper(final ObjectFactory objectFactory, final String apiKey, final String portalLanguage) {
         this.objectFactory = objectFactory;
         licenseMapper = OMTDLicenceMapper.create();
+        this.apiKey = apiKey;
+        this.portalLanguage = portalLanguage;
     }
 
 
@@ -111,14 +117,16 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
 
     }
 
-    @SuppressWarnings("OverlyCoupledMethod")
+    @SuppressWarnings({"OverlyCoupledMethod", "MethodWithMoreThanThreeNegations"})
     @Override
     public void textInformation(final LexicalConceptualResourceTextInfoType lexicalConceptualResourceTextInfoType, final NCBOOutputModel outputModel, final boolean downloadable) {
 
+        lexicalConceptualResourceTextInfoType.setMediaType("Ontological/Terminological resource, electronic distribution, RDF");
+
         //Handling data format properties
-        final DataFormatInfo dataFormatInfo = objectFactory.createDataFormatInfo();
-        lexicalConceptualResourceTextInfoType.setDataFormatInfo(dataFormatInfo);
-        dataFormat(dataFormatInfo, downloadable);
+//        final DataFormatInfo dataFormatInfo = objectFactory.createDataFormatInfo();
+//        lexicalConceptualResourceTextInfoType.setDataFormatInfo(dataFormatInfo);
+//        dataFormat(dataFormatInfo, downloadable);
 
         //Handling languages
         final LexicalConceptualResourceTextInfoType.Languages languages = objectFactory.createLexicalConceptualResourceTextInfoTypeLanguages();
@@ -138,22 +146,43 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
 
         //Handling resource sizes
         final LexicalConceptualResourceTextInfoType.Sizes sizes = objectFactory.createLexicalConceptualResourceTextInfoTypeSizes();
-        final SizeInfoType sizeInfoType = objectFactory.createSizeInfoType();
-        sizes
-                .getSizeInfo()
-                .add(sizeInfoType);
-        sizes(sizeInfoType, outputModel);
-        lexicalConceptualResourceTextInfoType.setSizes(sizes);
 
         //Handling domains
         final LexicalConceptualResourceTextInfoType.Domains domains = objectFactory.createLexicalConceptualResourceTextInfoTypeDomains();
-        lexicalConceptualResourceTextInfoType.setDomains(domains);
         domains(domains, outputModel);
+        if (!domains
+                .getDomain()
+                .isEmpty()) {
+            lexicalConceptualResourceTextInfoType.setDomains(domains);
+        }
 
+        final String keywordsValue = OMTDShareModelMapper.getSubmissionPropertyValue(outputModel, "keywords");
+        final String descriptionValue = OMTDShareModelMapper.getSubmissionPropertyValue(outputModel, "description");
+
+        if (!keywordsValue.equals(MISSING) || !descriptionValue.equals(MISSING)) {
+            final LexicalConceptualResourceTextInfoType.Keywords keywords = objectFactory.createLexicalConceptualResourceTextInfoTypeKeywords();
+            final List<String> keywordList;
+            if (keywordsValue.equals(MISSING)) {
+                keywordList = (portalLanguage.equals("en") ? KeyWordExtractor.extractKeyWordsEnglish(descriptionValue, 4) : KeyWordExtractor.extractKeyWordFrench(descriptionValue, 4));
+            } else {
+                keywordList = Arrays.asList(keywordsValue.split(","));
+            }
+            for (final String keyWord : keywordList) {
+                keywords
+                        .getKeyword()
+                        .add(keyWord);
+            }
+            if (!keywords
+                    .getKeyword()
+                    .isEmpty()) {
+                lexicalConceptualResourceTextInfoType.setKeywords(keywords);
+            }
+        }
 
     }
 
-    private void domains(final LexicalConceptualResourceTextInfoType.Domains domains, final NCBOOutputModel outputModel) {
+    private void domains(final LexicalConceptualResourceTextInfoType.Domains domains,
+                         final NCBOOutputModel outputModel) {
         final List<String> domainList = OMTDShareModelMapper.getOntologyPropertyCollection(outputModel, "hasDomain");
 
         for (final String domainValue : domainList) {
@@ -162,7 +191,7 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
                     .getDomain()
                     .add(domain);
             if (domainValue.contains("http")) {
-                domain.setSchemeURI(domainValue);
+                domain.setSchemeURI(domainValue + "?apikey=" + apiKey);
             } else {
                 domain.setValue(domainValue);
             }
@@ -171,13 +200,14 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
     }
 
 
-    private void languages(final LexicalConceptualResourceTextInfoType.Languages languages, final LingualityInfoType lingualityInfoType, final NCBOOutputModel outputModel) {
+    private void languages(final LexicalConceptualResourceTextInfoType.Languages languages,
+                           final LingualityInfoType lingualityInfoType, final NCBOOutputModel outputModel) {
         final List<String> values = OMTDShareModelMapper.getSubmissionPropertyCollection(outputModel, "naturalLanguage");
         int count = 0;
         for (final String value : values) {
             final LanguageInfoType languageInfoType = objectFactory.createLanguageInfoType();
             final String langValue = OMTDUtilityMapper.mapLanguage(value);
-            if(!langValue.equals("unknown")) {
+            if (!langValue.equals("unknown")) {
                 languageInfoType.setLanguage(langValue);
                 languages
                         .getLanguageInfo()
@@ -185,7 +215,7 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
                 count++;
             }
         }
-        if(values.isEmpty()){
+        if (values.isEmpty()) {
             final LanguageInfoType languageInfoType = objectFactory.createLanguageInfoType();
             languageInfoType.setLanguage(DEFAULT_LANG);
             languages
@@ -229,7 +259,9 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
 
     @SuppressWarnings("MethodWithMoreThanThreeNegations")
     @Override
-    public void relations(final LexicalConceptualResourceInfoType.Relations relations, final NCBOOutputModel outputModel) { final List<String> wasGeneratedByList = OMTDShareModelMapper.getSubmissionPropertyCollection(outputModel, "wasGeneratedBy");
+    public void relations(final LexicalConceptualResourceInfoType.Relations relations,
+                          final NCBOOutputModel outputModel) {
+        final List<String> wasGeneratedByList = OMTDShareModelMapper.getSubmissionPropertyCollection(outputModel, "wasGeneratedBy");
         final List<String> isBackwardsCompatibleWithList = OMTDShareModelMapper.getSubmissionPropertyCollection(outputModel, "isBackwardsCompatibleWith");
         final List<String> similarToList = OMTDShareModelMapper.getSubmissionPropertyCollection(outputModel, "similarTo");
         final List<String> hasPartList = OMTDShareModelMapper.getSubmissionPropertyCollection(outputModel, "hasPart");
@@ -296,11 +328,18 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
                               final ResourceName resourceName, final NCBOOutputModel outputModel) {
         final String acronym = OMTDShareModelMapper.getOntologyPropertyValue(outputModel, "acronym");
 
+        final String name = OMTDShareModelMapper.getOntologyPropertyValue(outputModel, "name");
+
         //Acronym as a short name
         identificationInfoType.setResourceShortName(acronym);
 
-        resourceName.setLang(DEFAULT_LANG);
-        resourceName.setValue(acronym);
+        resourceName.setLang(portalLanguage);
+        if (name.equals(MISSING)) {
+            resourceName.setValue(acronym);
+        } else {
+            resourceName.setValue(name);
+        }
+
         resourceNames
                 .getResourceName()
                 .add(resourceName);
@@ -334,23 +373,34 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
         final String identifierValue = OMTDShareModelMapper.getSubmissionPropertyValue(outputModel, "identifier");
         final String id = OMTDShareModelMapper.getOntologyPropertyValue(outputModel, "@id");
 
-        resourceIdentifierFromValue(identifiers, uriValue);
-        resourceIdentifierFromValue(identifiers, identifierValue);
-        if (uriValue.equals(MISSING) && (identifierValue.equals(MISSING) || identifierValue.isEmpty())) {
-            resourceIdentifierFromValue(identifiers,id);
-        }
+        identifiers
+                .getResourceIdentifier()
+                .add(
+                        resourceId(uriValue)
+                                .orElse(resourceId(identifierValue)
+                                        .orElse(resourceId(id)
+                                                .orElse(emptyId())))
+                );
     }
 
-    private void resourceIdentifierFromValue(final IdentificationInfoType.ResourceIdentifiers identifiers, final String identifierValue) {
+    @SuppressWarnings("MethodReturnOfConcreteClass")
+    private ResourceIdentifierType emptyId() {
+        return objectFactory.createResourceIdentifierType();
+    }
+
+    private Optional<ResourceIdentifierType> resourceId(final String identifierValue) {
+        final Optional<ResourceIdentifierType> result;
         if (!identifierValue.equals(MISSING) && !identifierValue.isEmpty()) {
-            final ResourceIdentifierType resourceIdentifier = objectFactory.createResourceIdentifierType();
+            final ResourceIdentifierType resourceIdentifier = emptyId();
             resourceIdentifier.setResourceIdentifierSchemeName("URL");
             resourceIdentifier.setValue(identifierValue);
-            identifiers
-                    .getResourceIdentifier()
-                    .add(resourceIdentifier);
+            result = Optional.of(resourceIdentifier);
+        } else {
+            result = Optional.empty();
         }
+        return result;
     }
+
 
     private void publicTag(final IdentificationInfoType identificationInfoType, final NCBOOutputModel outputModel) {
         identificationInfoType.setPublic(
@@ -362,7 +412,7 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
     @Override
     public void version(final VersionInfoType versionInfoType, final NCBOOutputModel outputModel) {
         final String version = OMTDShareModelMapper.getSubmissionPropertyValue(outputModel, "version");
-        versionInfoType.setVersion((version.equals(MISSING)?"No Versioning":version));
+        versionInfoType.setVersion((version.equals(MISSING) ? "No Versioning" : version));
     }
 
 
@@ -462,7 +512,8 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
     }
 
     @Override
-    public void distribution(final LexicalConceptualResourceInfoType.DistributionInfos distributionInfos, final NCBOOutputModel outputModel, final boolean downloadable, final String apikey) {
+    public void distribution(final LexicalConceptualResourceInfoType.DistributionInfos distributionInfos,
+                             final NCBOOutputModel outputModel, final boolean downloadable, final String apikey) {
         final DatasetDistributionInfoType distributionInfoType = objectFactory.createDatasetDistributionInfoType();
         distributionInfos
                 .getDatasetDistributionInfo()
@@ -476,7 +527,7 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
             final String restEndPoint = OMTDShareModelMapper.getOntologyPropertyValue(outputModel, "@id");
             if (!restEndPoint.equals(MISSING)) {
                 distributionInfoType.setDistributionLocation(restEndPoint);
-                distributionInfoType.setDistributionMedium("webExecutable");
+                distributionInfoType.setDistributionMedium("accessibleThroughInterface");
             }
 //            final Matcher matcher = TEST_ENDPOINT_ENDING
 //                    .matcher(OMTDShareModelMapper.getSubmissionPropertyValue(outputModel, "endpoint"));
@@ -498,7 +549,9 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
 
         final DatasetDistributionInfoType.TextFormats textFormats = objectFactory.createDatasetDistributionInfoTypeTextFormats();
         final TextFormatInfoType textFormatInfoType = objectFactory.createTextFormatInfoType();
-        textFormats.getTextFormatInfo().add(textFormatInfoType);
+        textFormats
+                .getTextFormatInfo()
+                .add(textFormatInfoType);
         distributionInfoType.setTextFormats(textFormats);
 
         final DataFormatInfo dataFormatInfo = objectFactory.createDataFormatInfo();

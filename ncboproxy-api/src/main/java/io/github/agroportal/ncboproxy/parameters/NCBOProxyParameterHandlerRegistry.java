@@ -27,7 +27,7 @@ public class NCBOProxyParameterHandlerRegistry implements ParameterHandlerRegist
     @SuppressWarnings("LocalVariableOfConcreteClass")
     @Override
     public synchronized ParameterHandlerRegistry registerParameterHandler(final String name, final ParameterHandler parameterHandler, final boolean isOptional, final String... constrainedValues) {
-        final Parameters currentParameters = new Parameters(name, isOptional);
+        final Parameters currentParameters = new Parameters(name, isOptional,constrainedValues);
         if (parameters.contains(currentParameters)) {
             parameters.remove(currentParameters);
         }

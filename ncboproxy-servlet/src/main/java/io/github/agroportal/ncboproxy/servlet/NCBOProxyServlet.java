@@ -16,7 +16,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -202,16 +201,22 @@ public class NCBOProxyServlet extends HttpServlet {
         return outputModel.isError();
     }
 
-    @SuppressWarnings("FeatureEnvy")
-    private void outputContent(final ProxyOutput proxyOutput, final ServletResponse response) throws IOException {
+
+    @SuppressWarnings({"FeatureEnvy", "LawOfDemeter"})
+    private void outputContent(final ProxyOutput proxyOutput, final HttpServletResponse response) throws IOException {
         response.setContentType(String.format(UTF8_CONTENT_TYPE_FORMAT_STRING, proxyOutput.getMimeType()));
+        ;
         if (proxyOutput.isBinary()) {
             try (final OutputStream outputStream = response.getOutputStream()) {
-                outputStream.write(proxyOutput.getBinaryContent());
+                outputStream.write(proxyOutput
+                        .transferCustomHeadersToResponse(response)
+                        .getBinaryContent());
             }
         } else {
             try (PrintWriter writer = response.getWriter()) {
-                writer.println(proxyOutput.getStringContent());
+                writer.println(proxyOutput
+                        .transferCustomHeadersToResponse(response)
+                        .getStringContent());
                 writer.flush();
             }
         }
