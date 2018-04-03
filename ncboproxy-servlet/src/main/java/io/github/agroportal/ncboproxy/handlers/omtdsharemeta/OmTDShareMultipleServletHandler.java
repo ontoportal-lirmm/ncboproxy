@@ -37,8 +37,8 @@ public class OmTDShareMultipleServletHandler extends AbstractServletHandler {
                 ResponsePostProcessorRegistry.create(),
                 OutputGeneratorDispatcher.create());
         queryStringPattern = new ArrayList<>();
-        queryStringPattern.add("/ontologies/?");
-        queryStringPattern.add("/submissions/?");
+        queryStringPattern.add("/?[a-z]+/ontologies/?");
+        queryStringPattern.add("/?[a-z]+/submissions/?");
 
         OutputGenerator outputGenerator = new OMTDShareZipOutputGenerator(portalType);
 

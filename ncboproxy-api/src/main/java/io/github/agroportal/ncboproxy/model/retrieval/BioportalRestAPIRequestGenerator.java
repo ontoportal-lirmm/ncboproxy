@@ -47,21 +47,19 @@ public class BioportalRestAPIRequestGenerator implements RequestGenerator {
         this.method = method;
     }
 
-    private String generateFullURL(final String uri) {
+    private String generateFullURL(final String path) {
         String baseURI = apiContext.getRestAPIURL();
-        if (!baseURI.endsWith("/") && !uri.equals("/")) {
-            baseURI += "/";
-        } else if (baseURI.endsWith("/") && uri.equals("/")) {
-            baseURI = baseURI.substring(0, uri.length() - 1);
+        if (baseURI.endsWith("/")) {
+            baseURI = baseURI.substring(0, path.length() - 1);
         }
 
         final String finalURI;
-        if (!uri.endsWith("/")) {
-            finalURI = baseURI + uri + "/";
-        } else if (uri.endsWith("?")) {
-            finalURI = baseURI + uri.substring(0, uri.length() - 1) + "/";
+        if (!path.endsWith("/")) {
+            finalURI = baseURI + path + "/";
+        } else if (path.endsWith("?")) {
+            finalURI = baseURI + path.substring(0, path.length() - 1) + "/";
         } else {
-            finalURI = baseURI + uri;
+            finalURI = baseURI + path;
         }
         return finalURI;
     }

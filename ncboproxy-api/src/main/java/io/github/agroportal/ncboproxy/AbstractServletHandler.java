@@ -18,6 +18,8 @@ import java.net.HttpURLConnection;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Handles handler registrations and overrides for {@code ServletHandler} implementing classes, please use
@@ -107,23 +109,39 @@ public abstract class AbstractServletHandler implements ServletHandler {
                                          final Map<String, String> queryHeaders,
                                          final String queryPath,
                                          final APIContext apiContext, final Map<String, String> outputProperties) {
-        final RequestGenerator requestGenerator = isPOSTRequest(apiContext) ?
-                RequestGenerator.createPOSTRequestGenerator(apiContext, queryParameters, queryHeaders, queryPath) :
-                RequestGenerator.createGETRequestGenerator(apiContext, queryParameters, queryHeaders, queryPath);
 
-        RequestResult queryOutput = RequestResult.empty();
+        final String matchingPathPattern = ServletHandlerDispatcher.findMatchingPattern(queryPath,getQueryStringPattern());
+
+        queryParameters.remove("format");
+
+        final Matcher matcher = Pattern
+                .compile(matchingPathPattern + ".*")
+                .matcher(queryPath);
+
         NCBOOutputModel outputModel;
-        try {
-            queryOutput = BioportalRESTRequest.query(requestGenerator);
-            outputModel = (isValidJSONOutput(queryOutput)) ? parser.parse(queryOutput, apiContext)
-                    : error(queryOutput);
-        } catch (final com.eclipsesource.json.ParseException e) {
-            outputModel = error(MessageFormat.format("Parse error ({0}) : {1}", e.getMessage(), queryOutput));
-        } catch (final UnsupportedOperationException e) {
-            outputModel = error(MessageFormat.format("Parse error ({0}) : {1}", e.getMessage()));
-        } catch (final IOException e) {
-            outputModel =
-                    error(MessageFormat.format("Query to REST API failed: {0}", e.getMessage()));
+        if (matcher.find()) {
+
+            final String finalQueryPath = (matcher.groupCount()<2)?queryPath:matcher.group(2);
+
+            final RequestGenerator requestGenerator = isPOSTRequest(apiContext) ?
+                    RequestGenerator.createPOSTRequestGenerator(apiContext, queryParameters, queryHeaders, finalQueryPath) :
+                    RequestGenerator.createGETRequestGenerator(apiContext, queryParameters, queryHeaders, finalQueryPath);
+
+            RequestResult queryOutput = RequestResult.empty();
+            try {
+                queryOutput = BioportalRESTRequest.query(requestGenerator);
+                outputModel = (isValidJSONOutput(queryOutput)) ? parser.parse(queryOutput, apiContext)
+                        : error(queryOutput);
+            } catch (final com.eclipsesource.json.ParseException e) {
+                outputModel = error(MessageFormat.format("Parse error ({0}) : {1}", e.getMessage(), queryOutput));
+            } catch (final UnsupportedOperationException e) {
+                outputModel = error(MessageFormat.format("Parse error ({0}) : {1}", e.getMessage()));
+            } catch (final IOException e) {
+                outputModel =
+                        error(MessageFormat.format("Query to REST API failed: {0}", e.getMessage()));
+            }
+        } else {
+            outputModel = error("NCBOProxy: Invalid Query Path. Please report the issue on the ncboproxy tracker");
         }
         return outputModel;
     }

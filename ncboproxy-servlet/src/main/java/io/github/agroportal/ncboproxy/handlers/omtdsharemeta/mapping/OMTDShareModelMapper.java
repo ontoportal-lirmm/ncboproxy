@@ -200,6 +200,9 @@ public interface OMTDShareModelMapper {
             case STAGEPORTAL:
                 mapper = new AgroPortalModelMapper(objectFactory,apiKey, "en");
                 break;
+            case NCBO_BIOPORTAL:
+                mapper = new AgroPortalModelMapper(objectFactory,apiKey, "en");
+                break;
             default:
                 break;
         }

@@ -44,7 +44,7 @@ public interface ServletHandler {
         return new AbstractServletHandler(null, null, null) {
             @Override
             public List<String> getQueryStringPattern() {
-                return Collections.singletonList(".*");
+                return Collections.singletonList("(/[a-z]+)?(.*)");
             }
         };
     }
