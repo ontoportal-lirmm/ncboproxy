@@ -10,8 +10,8 @@ Currently, the only servlet handler implemented pertains to the export of *Porta
 
 This is a maven project composed of two sub-modules:
 
-- `ncboproxy-api` - Contains interface specifications and default implementations for the different parts of the architecture: Default registries (parameter registry, post-processor registry, output generator dispatcher, servlet handler dipatcher), JSON-LD model object mapping, default output generators (json, error)
-- `ncboproxy-servlet` - The servlet implementation itself that ties everything together and concrete `ServletHandler` implementaions defining extended behaviour. By convention each `ServletHandler` implementation and all related implementations (parameter handlers, post-processors, output generators) are to be added in separate sub-packages.
+- `ncboproxy-api` ([Javadoc](https://agroportal.github.io/ncboproxy/ncboproxy-api/))- Contains interface specifications and default implementations for the different parts of the architecture: Default registries (parameter registry, post-processor registry, output generator dispatcher, servlet handler dipatcher), JSON-LD model object mapping, default output generators (json, error). 
+- `ncboproxy-servlet` ([Javadoc](https://agroportal.github.io/ncboproxy/ncboproxy-servlet/)) - The servlet implementation itself that ties everything together and concrete `ServletHandler` implementaions defining extended behaviour. By convention each `ServletHandler` implementation and all related implementations (parameter handlers, post-processors, output generators) are to be added in separate sub-packages.
 
 ## Servlet handlers
 
