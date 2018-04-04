@@ -81,7 +81,7 @@ Each of the interfaces features a `.create()` method that instanciates the defau
 
 The following diagram illustrates the full process graphically:
 
-![Architecture documentation diagram](documentation/architecture_diagram.png)
+![Architecture documentation diagram](docs/architecture_diagram.png)
 
 
 

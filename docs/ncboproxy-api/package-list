@@ -1,0 +1,8 @@
+io.github.agroportal.ncboproxy
+io.github.agroportal.ncboproxy.model
+io.github.agroportal.ncboproxy.model.parser
+io.github.agroportal.ncboproxy.model.retrieval
+io.github.agroportal.ncboproxy.output
+io.github.agroportal.ncboproxy.parameters
+io.github.agroportal.ncboproxy.postprocessors
+io.github.agroportal.ncboproxy.util

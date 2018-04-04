@@ -21,7 +21,7 @@ public interface OMTDShareModelMapper {
 
     /**
      * Sets the resource type as lexicalConceptualResource, given that all ontologies in bioportal are such
-     *
+     * @param outputModel The output model
      * @param lexicalConceptualResourceInfoType The lexical conceptual resource information complex type JAXB binding
      */
     default void rootResourceProperties(final LexicalConceptualResourceInfoType lexicalConceptualResourceInfoType, final NCBOOutputModel outputModel) {

@@ -22,15 +22,18 @@ public interface ParameterHandler {
      * Callback that handles the parameter. Parameter handlers should directly register post-annotation components in
      * the {@link ResponsePostProcessorRegistry} passed as a parameter of the callback.
      *
-     * @param queryParameters             The query parameters as a map
-     * @param queryHeaders                 Headers of the query as a map
-     * @param servletHandler The servlet proxy handler
+     * @param queryParameters The query parameters as a map
+     * @param queryHeaders    Headers of the query as a map
+     * @param queryPath       The query path
+     * @param servletHandler  The servlet proxy handler
+     * @return A map of key/value parameters that will be passed along to the ServletHandler, the post-processors and
+     * the output generators
      * @throws InvalidParameterException This exception must be thrown, if the format of the parameter or its options
      *                                   are incorrect or ill-formed.
      */
     @SuppressWarnings("all")
-    Map<String,String> processParameter(final Map<String,List<String>> queryParameters,
-                                        final Map<String,String> queryHeaders,
-                                        final String queryPath,
-                                        final ServletHandler servletHandler) throws InvalidParameterException;
+    Map<String, String> processParameter(final Map<String, List<String>> queryParameters,
+                                         final Map<String, String> queryHeaders,
+                                         final String queryPath,
+                                         final ServletHandler servletHandler) throws InvalidParameterException;
 }

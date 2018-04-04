@@ -20,29 +20,12 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * <p></>Generate an XML output compatible with the OMTDShare metadata interchange format, see below for an illustration (in ascii)
+ * <p>Generate an XML output compatible with the OMTDShare metadata interchange format, see below for an illustration (in ascii)
  * of the structure of the XML document. We are using JAXB to bind the XSD specifications to Java classes, one only needs to instantiate the right objects
  * and to use the setters to assign them to the appropriate parents. Please consult OMTD-SHARE-LexicalConceptualResource.xsd for full details
  * about the full specification.</p>
  * <p>Please consult omtdshareschema/examples in the root project (ncboproxy) for a few complete examples
  * of metadata for several ontologies</p>
- * <ul>
- * Top-level tree structure of the XML document to produce:
- * [ROOT] lcrMetadataRecord
- * <li>metadataHeaderInfo
- * <ul>
- * <li>metadataRecordIdentifier</li>
- * <li>metadataCreationDate</li>
- * <li>metadataCreators</li>
- * <li></li>
- * </ul>
- * <p>
- * </li>
- * <li>lexicalConceptualResourceInfo</li>
- * <ul>
- * <li></li>
- * </ul>
- * </ul>
  */
 
 @SuppressWarnings({"InstanceVariableOfConcreteClass", "OverlyCoupledClass", "OverlyCoupledMethod"})

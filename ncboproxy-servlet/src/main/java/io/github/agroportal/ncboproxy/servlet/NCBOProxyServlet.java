@@ -27,11 +27,9 @@ import java.util.*;
 
 
 /**
- * Implements the core features of the AnnotatorPlus web services:
- * - It queries the suitable bioportal annotation server (w.r.t implementing subclasses)
- * - adds several new features
- *
- * @authors Julien Diener, Emmanuel Castanier, Andon Tchechmedjiev
+ * Implements the core features of the NCBO Proxy Service:
+ * See README.md for detailed explanation
+ * Authors:  Andon Tchechmedjiev
  */
 @SuppressWarnings({"HardcodedFileSeparator", "LocalVariableOfConcreteClass", "SerializableHasSerializationMethods"})
 //@WebServlet(name = "NCBOProxy", displayName = "NCBO REST API Proxy", urlPatterns = "/*", loadOnStartup = 1)

@@ -1,0 +1,5 @@
+
+io.github.agroportal.ncboproxy.handlers.omtdsharemeta
+io.github.agroportal.ncboproxy.handlers.omtdsharemeta.mapping
+io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils
+io.github.agroportal.ncboproxy.servlet

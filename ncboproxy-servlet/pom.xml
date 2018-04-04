@@ -96,6 +96,26 @@
                     </plugins>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <excludePackageNames>*.xsdmodel</excludePackageNames>
+                    <sourceFileExcludes>
+                        <sourceFileExclude>**/target/generated-sources/xjc/io/github/agroportal/ncboproxy/handlers/omtdsharemeta/xsdmodel/*.java</sourceFileExclude>
+                    </sourceFileExcludes>
+                    <reportOutputDirectory>${project.parent.basedir}/docs</reportOutputDirectory>
+                    <destDir>ncboproxy-servlet</destDir>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
