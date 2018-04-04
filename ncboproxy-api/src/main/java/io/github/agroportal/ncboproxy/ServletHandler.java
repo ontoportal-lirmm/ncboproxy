@@ -1,7 +1,6 @@
 package io.github.agroportal.ncboproxy;
 
 
-import io.github.agroportal.ncboproxy.model.APIContext;
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
 import io.github.agroportal.ncboproxy.output.OutputGenerator;
 import io.github.agroportal.ncboproxy.output.OutputGeneratorDispatcher;
@@ -17,7 +16,7 @@ public interface ServletHandler {
     String ACRONYM_PATTERN = "([A-Z_0-9]+)";
     String SUBMISSION_ID_PATTERN = "([0-9]+)";
 
-    List<String> getQueryStringPattern();
+    List<String> getQueryPathPattern();
 
     void registerOutputGenerator(final String format, final OutputGenerator outputGenerator);
 
@@ -43,8 +42,8 @@ public interface ServletHandler {
     static ServletHandler defaultHandler() {
         return new AbstractServletHandler(null, null, null) {
             @Override
-            public List<String> getQueryStringPattern() {
-                return Collections.singletonList("(/[a-z]+)?(.*)");
+            public List<String> getQueryPathPattern() {
+                return Collections.singletonList("(.*)");
             }
         };
     }

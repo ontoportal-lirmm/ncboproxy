@@ -1,6 +1,5 @@
 package io.github.agroportal.ncboproxy;
 
-import io.github.agroportal.ncboproxy.model.APIContext;
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
 import io.github.agroportal.ncboproxy.model.parser.NCBOOutputParser;
 import io.github.agroportal.ncboproxy.model.retrieval.BioportalRESTRequest;
@@ -110,7 +109,7 @@ public abstract class AbstractServletHandler implements ServletHandler {
                                          final String queryPath,
                                          final APIContext apiContext, final Map<String, String> outputProperties) {
 
-        final String matchingPathPattern = ServletHandlerDispatcher.findMatchingPattern(queryPath,getQueryStringPattern());
+        final String matchingPathPattern = ServletHandlerDispatcher.findMatchingPattern(queryPath, getQueryPathPattern());
 
         queryParameters.remove("format");
 
@@ -121,7 +120,7 @@ public abstract class AbstractServletHandler implements ServletHandler {
         NCBOOutputModel outputModel;
         if (matcher.find()) {
 
-            final String finalQueryPath = (matcher.groupCount()<2)?queryPath:matcher.group(2);
+            final String finalQueryPath = matcher.group(1);
 
             final RequestGenerator requestGenerator = isPOSTRequest(apiContext) ?
                     RequestGenerator.createPOSTRequestGenerator(apiContext, queryParameters, queryHeaders, finalQueryPath) :

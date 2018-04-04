@@ -1,6 +1,6 @@
 package io.github.agroportal.ncboproxy.model.parser;
 
-import io.github.agroportal.ncboproxy.model.APIContext;
+import io.github.agroportal.ncboproxy.APIContext;
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
 import io.github.agroportal.ncboproxy.model.retrieval.RequestResult;
 

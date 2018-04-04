@@ -7,10 +7,9 @@ import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import static io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils.OMTDLicenceMapper.HTTPS_URL_PATTERN;
 
@@ -18,6 +17,8 @@ public final class OMTDUtilityMapper {
 
     private static final Pattern LANG_CODE_SEPARATOR = Pattern.compile("[-_]+");
     private static final Logger logger = LoggerFactory.getLogger(OMTDUtilityMapper.class);
+    private static final Pattern LEXVO_PAGE_URL_PATTERN = Pattern.compile("/page/");
+    private static final Pattern LEXVO_WWW_PATTERN = Pattern.compile("www.");
 
     private OMTDUtilityMapper() {
     }
@@ -59,9 +60,13 @@ public final class OMTDUtilityMapper {
         final String result;
         if (HTTPS_URL_PATTERN
                 .matcher(value)
-                .matches() && value.contains("lexvo")) { ;
-
-            result = LocaleMapHolder.urlLanguageCodeMapping.get(value);
+                .matches() && value.contains("lexvo")) {
+            final String finalValue = value.contains("/page/") ? LEXVO_WWW_PATTERN
+                    .matcher(LEXVO_PAGE_URL_PATTERN
+                            .matcher(value)
+                            .replaceAll("/id/"))
+                    .replaceAll("") : value;
+            result = LocaleMapHolder.urlLanguageCodeMapping.get(finalValue);
         } else {
             result = getLanguageCode(value);
         }
@@ -119,6 +124,16 @@ public final class OMTDUtilityMapper {
     private static String getISO2Language(final Locale language) {
         final String[] localeStrings = (LANG_CODE_SEPARATOR.split(language.getLanguage()));
         return localeStrings[0];
+    }
+
+    public static List<String> getDisplayPropertyValue(){
+        List<String> value = Collections.singletonList("all");
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(OMTDLicenceMapper.class.getResourceAsStream("/omtdshareschema/portalpropertylist.txt")))) {
+            value = reader.lines().collect(Collectors.toList());
+        } catch (final IOException e) {
+            logger.error("Cannot read display parameter values file classpath:/omtdshareschema/portalpropertylist.txt");
+        }
+        return value;
     }
 
 }

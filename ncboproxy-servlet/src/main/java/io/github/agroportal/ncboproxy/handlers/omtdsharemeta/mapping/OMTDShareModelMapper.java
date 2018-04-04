@@ -203,6 +203,9 @@ public interface OMTDShareModelMapper {
             case NCBO_BIOPORTAL:
                 mapper = new AgroPortalModelMapper(objectFactory,apiKey, "en");
                 break;
+            case BIBLIOPORTAL:
+                mapper = new AgroPortalModelMapper(objectFactory,apiKey, "en");
+                break;
             default:
                 break;
         }

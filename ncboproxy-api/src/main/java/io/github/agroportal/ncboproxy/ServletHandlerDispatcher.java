@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.regex.Pattern;
 
 public interface ServletHandlerDispatcher {
-    ServletHandlerDispatcher registerServletHookHandler(ServletHandler servletHandler);
+    ServletHandlerDispatcher registerServletHandler(ServletHandler servletHandler);
     Optional<ServletHandler> findMatchingHandler(final String queryString, final Map<String, List<String>> queryParameters);
 
     static ServletHandlerDispatcher create(){

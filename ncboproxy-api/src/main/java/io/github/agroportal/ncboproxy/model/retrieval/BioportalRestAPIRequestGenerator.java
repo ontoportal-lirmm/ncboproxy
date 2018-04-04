@@ -1,6 +1,6 @@
 package io.github.agroportal.ncboproxy.model.retrieval;
 
-import io.github.agroportal.ncboproxy.model.APIContext;
+import io.github.agroportal.ncboproxy.APIContext;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -47,19 +47,24 @@ public class BioportalRestAPIRequestGenerator implements RequestGenerator {
         this.method = method;
     }
 
+    @SuppressWarnings("FeatureEnvy")
     private String generateFullURL(final String path) {
         String baseURI = apiContext.getRestAPIURL();
+        final String finalPath =
+                path.contains(apiContext.getDeploymentRoot()) ?
+                        path.replaceAll("/" + apiContext.getDeploymentRoot(), "")
+                        : path;
         if (baseURI.endsWith("/")) {
-            baseURI = baseURI.substring(0, path.length() - 1);
+            baseURI = baseURI.substring(0, baseURI.length() - 1);
         }
 
         final String finalURI;
-        if (!path.endsWith("/")) {
-            finalURI = baseURI + path + "/";
-        } else if (path.endsWith("?")) {
-            finalURI = baseURI + path.substring(0, path.length() - 1) + "/";
+        if (!finalPath.endsWith("/")) {
+            finalURI = baseURI + finalPath + "/";
+        } else if (finalPath.endsWith("?")) {
+            finalURI = baseURI + finalPath.substring(0, finalPath.length() - 1) + "/";
         } else {
-            finalURI = baseURI + path;
+            finalURI = baseURI + finalPath;
         }
         return finalURI;
     }
@@ -70,7 +75,9 @@ public class BioportalRestAPIRequestGenerator implements RequestGenerator {
         String fullURL = generateFullURL(queryPath);
         final String parameterString = createParameterString();
 
-        if (!method.toLowerCase().equals("post")) {
+        if (!method
+                .toLowerCase()
+                .equals("post")) {
             fullURL += "?" + parameterString;
         }
 
@@ -92,7 +99,9 @@ public class BioportalRestAPIRequestGenerator implements RequestGenerator {
         connection.setRequestProperty(ACCEPT_HEADER, ACCEPTED_MIMES);
         transferHeaders(connection);
 
-        if (method.toLowerCase().equals("post")) {
+        if (method
+                .toLowerCase()
+                .equals("post")) {
             connection.setDoOutput(true);
             connection.setRequestProperty(CONTENT_TYPE,
                     APPLICATION_X_WWW_FORM_URLENCODED_CHARSET_UTF_8);
@@ -119,15 +128,19 @@ public class BioportalRestAPIRequestGenerator implements RequestGenerator {
             final String paramValue = stringListEntry
                     .getValue()
                     .stream()
+                    .map(p -> {
+                        try {
+                            return (URLEncoder.encode(p, apiContext.getServerEncoding()));
+                        } catch (UnsupportedEncodingException ignored) {
+                        }
+                        return p;
+                    })
                     .collect(Collectors.joining(","));
 
-            try {
-                parameterString
-                        .append(stringListEntry.getKey())
-                        .append("=")
-                        .append(URLEncoder.encode(paramValue, apiContext.getServerEncoding()));
-            } catch (final UnsupportedEncodingException ignored) {
-            }
+            parameterString
+                    .append(stringListEntry.getKey())
+                    .append("=")
+                    .append(paramValue);
 
         }
         return parameterString.toString();

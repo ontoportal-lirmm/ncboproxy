@@ -4,7 +4,7 @@ import io.github.agroportal.ncboproxy.ServletHandler;
 import io.github.agroportal.ncboproxy.ServletHandlerDispatcher;
 import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.OmTDShareMultipleServletHandler;
 import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.OmTDShareSingleServletHandler;
-import io.github.agroportal.ncboproxy.model.APIContext;
+import io.github.agroportal.ncboproxy.APIContext;
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
 import io.github.agroportal.ncboproxy.output.OutputGeneratorDispatcher;
 import io.github.agroportal.ncboproxy.output.ProxyOutput;
@@ -60,8 +60,8 @@ public class NCBOProxyServlet extends HttpServlet {
             final PortalType portalType = inferPortalType(restAPIURL);
 
             servletHandlerDispatcher = ServletHandlerDispatcher.create();
-            servletHandlerDispatcher.registerServletHookHandler(new OmTDShareSingleServletHandler(portalType));
-            servletHandlerDispatcher.registerServletHookHandler(new OmTDShareMultipleServletHandler(portalType));
+            servletHandlerDispatcher.registerServletHandler(new OmTDShareSingleServletHandler(portalType));
+            servletHandlerDispatcher.registerServletHandler(new OmTDShareMultipleServletHandler(portalType));
 
         } catch (final IOException e) {
             logger.error("Cannot instantiate servlet: {}", e.getLocalizedMessage());

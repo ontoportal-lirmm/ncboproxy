@@ -2,7 +2,8 @@ package io.github.agroportal.ncboproxy.handlers.omtdsharemeta;
 
 import io.github.agroportal.ncboproxy.AbstractServletHandler;
 import io.github.agroportal.ncboproxy.ServletHandlerDispatcher;
-import io.github.agroportal.ncboproxy.model.APIContext;
+import io.github.agroportal.ncboproxy.APIContext;
+import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils.OMTDUtilityMapper;
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
 import io.github.agroportal.ncboproxy.model.parser.NCBOOutputParser;
 import io.github.agroportal.ncboproxy.model.retrieval.BioportalRESTRequest;
@@ -26,7 +27,7 @@ import java.util.regex.Pattern;
 public class OmTDShareSingleServletHandler extends AbstractServletHandler {
     static final String OMTDSHARE_FORMAT_OPTION_NAME = "omtd-share";
     private static final int HTTP_OK = 300;
-    private final List<String> queryStringPattern;
+    private final List<String> queryPathPattern;
 
     private final NCBOOutputParser parser;
 
@@ -35,10 +36,10 @@ public class OmTDShareSingleServletHandler extends AbstractServletHandler {
         super(ParameterHandlerRegistry.create(),
                 ResponsePostProcessorRegistry.create(),
                 OutputGeneratorDispatcher.create());
-        queryStringPattern = new ArrayList<>();
-        queryStringPattern.add(String.format("/?[a-z]*/ontologies/%s/submissions/%s", ACRONYM_PATTERN, SUBMISSION_ID_PATTERN));
-        queryStringPattern.add(String.format("/?[a-z]*/ontologies/%s/(latest_submission)", ACRONYM_PATTERN));
-        queryStringPattern.add(String.format("/?[a-z]*/ontologies/%s", ACRONYM_PATTERN));
+        queryPathPattern = new ArrayList<>();
+        queryPathPattern.add(String.format("/?[a-z]*/ontologies/%s/submissions/%s", ACRONYM_PATTERN, SUBMISSION_ID_PATTERN));
+        queryPathPattern.add(String.format("/?[a-z]*/ontologies/%s/(latest_submission)", ACRONYM_PATTERN));
+        queryPathPattern.add(String.format("/?[a-z]*/ontologies/%s", ACRONYM_PATTERN));
 
         OutputGenerator outputGenerator = new OMTDShareOutputGenerator(portalType);
 
@@ -49,8 +50,8 @@ public class OmTDShareSingleServletHandler extends AbstractServletHandler {
 
 
     @Override
-    public List<String> getQueryStringPattern() {
-        return Collections.unmodifiableList(queryStringPattern);
+    public List<String> getQueryPathPattern() {
+        return Collections.unmodifiableList(queryPathPattern);
     }
 
     @Override
@@ -59,7 +60,7 @@ public class OmTDShareSingleServletHandler extends AbstractServletHandler {
                                          final String queryPath,
                                          final APIContext apiContext, final Map<String, String> outputProperties) {
 
-        final String matchingPathPattern = ServletHandlerDispatcher.findMatchingPattern(queryPath,queryStringPattern);
+        final String matchingPathPattern = ServletHandlerDispatcher.findMatchingPattern(queryPath, queryPathPattern);
 
         queryParameters.remove("format");
 
@@ -72,7 +73,7 @@ public class OmTDShareSingleServletHandler extends AbstractServletHandler {
 
             final String number = (matcher.groupCount()<2) ? "latest_submission" : matcher.group(2);
 
-            queryParameters.put("display", Collections.singletonList("all"));
+            queryParameters.put("display", OMTDUtilityMapper.getDisplayPropertyValue());
             final String submissionsPath = number.contains("latest") ?
                     ("/ontologies/" + acronym + "/latest_submission/") :
                     ("/ontologies/" + acronym + "/submissions/" + Integer.valueOf(number) + "/");

@@ -1,7 +1,5 @@
 package io.github.agroportal.ncboproxy.util;
 
-import io.github.agroportal.ncboproxy.model.APIContext;
-
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;

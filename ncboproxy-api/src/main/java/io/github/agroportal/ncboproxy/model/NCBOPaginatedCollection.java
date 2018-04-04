@@ -1,6 +1,7 @@
 package io.github.agroportal.ncboproxy.model;
 
 import com.eclipsesource.json.JsonObject;
+import io.github.agroportal.ncboproxy.APIContext;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package io.github.agroportal.ncboproxy.model;
+package io.github.agroportal.ncboproxy;
 
 import io.github.agroportal.ncboproxy.util.ParameterMapper;
 
@@ -9,7 +9,7 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class APIContextImpl implements APIContext {
+public class APIContextImpl implements APIContext {
 
 
     @SuppressWarnings("HardcodedFileSeparator")
@@ -19,15 +19,22 @@ class APIContextImpl implements APIContext {
     private final String serverEncoding;
     private final String restAPIURL;
     private final String method;
+    private final String deploymentRoot;
 
     @Override
     public String getMethod() {
         return method;
     }
 
+
     @Override
     public String getServerEncoding() {
         return serverEncoding;
+    }
+
+    @Override
+    public String getDeploymentRoot() {
+        return deploymentRoot;
     }
 
     @Override
@@ -43,13 +50,21 @@ class APIContextImpl implements APIContext {
         apiKey = findAPIKey(proxyProperties, queryParameters, headers);
         restAPIURL = getOntologiesApiURI(proxyProperties,servletRequest);
         method = servletRequest.getMethod();
+
+        deploymentRoot = findDeploymentRoot(proxyProperties);
     }
 
-    APIContextImpl(final String apiKey, final String serverEncoding, final String restAPIURL) {
+    public APIContextImpl(final String apiKey, final String serverEncoding, final String restAPIURL) {
         this.apiKey = apiKey;
         this.serverEncoding = serverEncoding;
         this.restAPIURL = restAPIURL;
         method = "GET";
+        deploymentRoot = "/";
+    }
+
+    private static String findDeploymentRoot(final Properties proxyProperties){
+
+        return proxyProperties.containsKey(DEPLOYMENT_ROOT) ? proxyProperties.getProperty(DEPLOYMENT_ROOT) : "/";
     }
 
     private static String findAPIKey(final Properties proxyProperties,

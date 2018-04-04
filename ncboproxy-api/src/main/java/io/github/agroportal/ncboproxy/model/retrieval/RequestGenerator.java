@@ -1,6 +1,6 @@
 package io.github.agroportal.ncboproxy.model.retrieval;
 
-import io.github.agroportal.ncboproxy.model.APIContext;
+import io.github.agroportal.ncboproxy.APIContext;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;

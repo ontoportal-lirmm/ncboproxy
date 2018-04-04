@@ -13,7 +13,7 @@ class NCBOProxyServletHandlerDispatcher implements ServletHandlerDispatcher {
     }
 
     @Override
-    public ServletHandlerDispatcher registerServletHookHandler(final ServletHandler servletHandler) {
+    public ServletHandlerDispatcher registerServletHandler(final ServletHandler servletHandler) {
         handlers.add(servletHandler);
         return this;
     }
@@ -23,7 +23,7 @@ class NCBOProxyServletHandlerDispatcher implements ServletHandlerDispatcher {
         return handlers
                 .stream()
                 .filter(servletHandler ->!ServletHandlerDispatcher
-                        .findMatchingPattern(queryString, servletHandler.getQueryStringPattern())
+                        .findMatchingPattern(queryString, servletHandler.getQueryPathPattern())
                         .isEmpty()
                         && servletHandler.areParameterConstraintsMet(queryParameters))
                 .findFirst();

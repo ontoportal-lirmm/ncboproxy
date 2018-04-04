@@ -1,7 +1,7 @@
 package io.github.agroportal.ncboproxy.model.retrieval;
 
 
-import io.github.agroportal.ncboproxy.model.APIContext;
+import io.github.agroportal.ncboproxy.APIContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

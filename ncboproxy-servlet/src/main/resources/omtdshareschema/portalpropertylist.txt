@@ -1,7 +1,6 @@
 description
 URI
 identifier
-id
 version
 homepage
 documentation
@@ -9,7 +8,6 @@ contact
 hasLicense
 copyrightHolder
 download
-endpoint
 hasFormalityLevel
 naturalLanguage
 hasOntologyLanguage
@@ -19,3 +17,16 @@ numberOfClasses
 numberOfIndividuals
 hasDomain
 ontologiesRelatedTo
+keywords
+reference
+publication
+wasGeneratedBy
+isBackwardsCompatibleWith
+similarTo
+hasPart
+acronym
+name
+viewingRestriction
+download
+ontology
+email

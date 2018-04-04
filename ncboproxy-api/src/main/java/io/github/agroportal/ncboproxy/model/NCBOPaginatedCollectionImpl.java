@@ -3,6 +3,7 @@ package io.github.agroportal.ncboproxy.model;
 import com.eclipsesource.json.Json;
 import com.eclipsesource.json.JsonObject;
 import com.eclipsesource.json.JsonValue;
+import io.github.agroportal.ncboproxy.APIContext;
 import io.github.agroportal.ncboproxy.model.retrieval.BioportalRESTRequest;
 
 import java.io.IOException;

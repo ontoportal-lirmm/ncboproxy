@@ -1,6 +1,8 @@
 package io.github.agroportal.ncboproxy.model;
 
 import com.eclipsesource.json.Json;
+import io.github.agroportal.ncboproxy.APIContext;
+import io.github.agroportal.ncboproxy.APIContextImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

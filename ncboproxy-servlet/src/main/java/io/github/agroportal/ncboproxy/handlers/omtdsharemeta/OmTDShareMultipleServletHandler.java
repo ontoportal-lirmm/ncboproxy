@@ -3,7 +3,8 @@ package io.github.agroportal.ncboproxy.handlers.omtdsharemeta;
 import com.eclipsesource.json.JsonArray;
 import io.github.agroportal.ncboproxy.AbstractServletHandler;
 import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.mapping.OMTDShareModelMapper;
-import io.github.agroportal.ncboproxy.model.APIContext;
+import io.github.agroportal.ncboproxy.APIContext;
+import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils.OMTDUtilityMapper;
 import io.github.agroportal.ncboproxy.model.NCBOCollection;
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
 import io.github.agroportal.ncboproxy.model.parser.NCBOOutputParser;
@@ -37,8 +38,8 @@ public class OmTDShareMultipleServletHandler extends AbstractServletHandler {
                 ResponsePostProcessorRegistry.create(),
                 OutputGeneratorDispatcher.create());
         queryStringPattern = new ArrayList<>();
-        queryStringPattern.add("/?[a-z]+/ontologies/?");
-        queryStringPattern.add("/?[a-z]+/submissions/?");
+        queryStringPattern.add("/?[a-z]*/ontologies/?");
+        queryStringPattern.add("/?[a-z]*/submissions/?");
 
         OutputGenerator outputGenerator = new OMTDShareZipOutputGenerator(portalType);
 
@@ -49,7 +50,7 @@ public class OmTDShareMultipleServletHandler extends AbstractServletHandler {
 
 
     @Override
-    public List<String> getQueryStringPattern() {
+    public List<String> getQueryPathPattern() {
         return Collections.unmodifiableList(queryStringPattern);
     }
 
@@ -60,7 +61,7 @@ public class OmTDShareMultipleServletHandler extends AbstractServletHandler {
                                          final APIContext apiContext, final Map<String, String> outputProperties) {
 
         queryParameters.remove("format");
-        queryParameters.put("display", Collections.singletonList("all"));
+        queryParameters.put("display", OMTDUtilityMapper.getDisplayPropertyValue());
 
         final String endQueryPath = "/submissions/";
         final RequestGenerator requestGenerator = RequestGenerator.createGETRequestGenerator(apiContext, queryParameters, queryHeaders, endQueryPath);
