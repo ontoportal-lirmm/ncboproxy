@@ -83,6 +83,38 @@ The following diagram illustrates the full process graphically:
 
 ![Architecture documentation diagram](docs/architecture_diagram.svg)
 
+# OMTDShare Adapter
+
+The OMTD-Share adapter for the ontology metadata is implemented as a custom ServletHandler. Support is included to export the metadata of single ontologies or for all the ontologies on a given portal (SIFR Bioportal, Agroportal, NCBO Bioportal, Biblioportal).
+
+The single ontology adapter is implemented in `OmTDShareSingleServletHandler` and registers  the `OMTDShareOutputGenerator` to generate OMTDShare XML from the `NCBOOutputModel`. We use JAXB to bind the XSD specification of OMTD-Share to a Java object model so as to be able to generate an object model from our metadata and unmarshall it as valid OMTD-Share XML. This imoplementation is based on the 3.0.2 version of the OMTD-Share implementation. The XSD specification files are included as a resource of the project and the object model is generated on the fly through the JAXB maven plugin on the install target. 
+
+`OMTDShareOutputGenerator` delegates the actual population of the object model from metadata properties to the `OMTDShareModelMapper`, which retrieves the metadata properties from out NCBOOutputModel. The interface provides a method for each of the categories of metadata required by the OpenMinted call. 
+
+`OMTDShareModelMapper` provides a set of static methods to facilitate the retrival of the metadata from the `NCBOOutputModel`:
+
+```java
+static String getSubmissionPropertyValue(final NCBOOutputModel model, final String propertyName);
+
+static Integer getSubmissionPropertyIntValue(final NCBOOutputModel model, final String propertyName);
+
+static String getSubmissionPropertyValue(final NCBOOutputModel model, final String... propertyName);
+
+static List<String> getSubmissionPropertyCollection(final NCBOOutputModel model, final String propertyName);
+
+static List<String> getOntologyPropertyCollection(final NCBOOutputModel model, final String propertyName);
+
+static String getOntologyLinkValue(final NCBOOutputModel model, final String propertyName);
+
+static String getOntologyPropertyValue(final NCBOOutputModel model, final String propertyName);
+
+static String getOntologyPropertyValue(final NCBOOutputModel model, final String... propertyName);
+```
+
+
+
+The only implementation of `OMTDShareModelMapper` is `AgroportalModelMapper`. `AgroportalModelMapper` implements all the metadata mapping for the extended Agroportal model and fallsback on defaults that correspond to the NCBO Bioportal metadata model. The model mapper is parametrized with the language of the portal depending on the rest API URI.
+
 
 
 
