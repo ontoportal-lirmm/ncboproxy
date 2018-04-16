@@ -4,7 +4,7 @@ General REST proxy architecture for the seamless extension of NCBO Bioportal API
 
 This document will explain the general software architecture of the proxy and illustrates how extentions can be added (servlet handlers, parameter pre-processors, output post-processors, output generators). 
 
-Currently, the only servlet handler implemented pertains to the export of *Portal metadata in the OMTD-Share format, the registration of new components will be illustrated step-by-step through this example. 
+Currently, the only servlet handler implemented pertains to the export of *Portal metadata in the OMTD-Share format, the registration of new components will be illustrated step-by-step for the usecase of the OMTD-Share adapter. 
 
 # General architecture
 
@@ -125,8 +125,60 @@ For each portal (including AgroPortal), a special service will be deployed and w
 
 **BiblioPortal:** http://services.agroportal.lirmm.fr/biblioportal/ontologies?format=omtd-share that willbe routed from an address in the ontoportal.org name hold by Stanford.
 
-As seen in the previous example, it will be necessary to add the following parameters in the API call for a given ontology:
+As seen in the previous example, adding the following parameters in the API call it will be necessary to for a given ontology:
 
 /ACRONYM/latest_submission/?apikey=xxx&display=all&format=omtd-share
 
+# Deployment
 
+There are two depoyment options for the NCBProxy, the first is to deploy it as the ROOT servlet of the application server (preferred) and the second is to deploy it in a sub-path of the root. In the latter case, the root for the API calls becomes the sub-path. Please not that the proxy has only been tested with Apache Tomcat 8. Deployment on other application servers may require additional configuration steps. 
+
+If one wants to depoy with the first option on `services.myportalinstance.org`, then one needs to copy the ROOT.war file generated (target/ROOT.war in the ncboproxy-servlet module) to the `webapps` directory of the application server. The API will be accessible from the root of the deployment domain http://services.myportalinstance.org/. One needs to make sure to delete the default root static content `rm -rf /pathtoapplicationserver/webapps/ROOT`.
+
+Alternatively, with the second deployent option where one seeks to deploy on , `services.myportalinstance.org/subpath`, then the ROOT.war file should be copied to the root of the `webapps` directory of the application server as `subpath.war`. 
+
+__Requirements:__ 
+
+* A functional Bioportal instance with its REST api accessible to the application server (same server or public IP/demain)
+* Tomcat 8+
+* Java JDK 8+
+* Apache Maven 3+
+
+## Building the war file and configuring the proxy
+
+1. First, clone the repository and enter the root of the project: 
+
+```shell
+git clone https://github.com/agroportal/ncboproxy.git
+cd ncboproxy
+```
+
+2. Then, rename the sample configuration properties file (proxy.properties.sample) to proxy.properties
+
+```shell
+mv ncboproxy-servlet/src/main/resources/proxy.properties.sample ncboproxy-servlet/src/main/resources/proxy.properties 
+```
+
+3. Edit the configuration properties file 
+
+```
+server.encoding = utf-8 #This is the URI encoding configured in the application server
+ontologiesApiURI=http://myrestapi.mybioportalinstance.org #This is the URL of the REST API of your Bioportal instance
+#deploymentRoot=ncbobioportal # For the second deployment option, please specify the name of the subpath where you want to deploy
+
+```
+
+4. Build the project and generate the war file:
+
+```shell
+mvn clean install 
+
+#Note: the unit tests need access to the internet to run properly against our staging environemnt, if that's not the case on your server, please disable the tests when running maven:
+#mvn clean install -Dmaven.test.skip=true
+```
+
+`ROOT.war` can now be found in ncboproxy-servlet/target/ROOT.war and is ready to be deployed on the application server.
+
+__If you use the second deployment option, please remember to uncomment the deploymentRoot configuration property and to set it to subpath, where subpath is the subpath where you want to deploy and to rename ROOT.war to subpath.war (as far as Tomcat is concerned).__
+
+__If you are using Tomcat 8, it is preferable that you set the URIEncoding attribute of the connector to "UTF-8" and the server.encoding configuration property of the proxy to utf-8.__
