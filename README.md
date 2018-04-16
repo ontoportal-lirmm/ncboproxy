@@ -5,15 +5,28 @@ General REST proxy architecture for the seamless extension of NCBO Bioportal API
 This document will explain the general software architecture of the proxy and illustrates how extentions can be added (servlet handlers, parameter pre-processors, output post-processors, output generators). 
 
 Currently, the only servlet handler implemented pertains to the export of *Portal metadata in the OMTD-Share format, the registration of new components will be illustrated step-by-step for the usecase of the OMTD-Share adapter. 
+- [ncboproxy](#ncboproxy)
+  * [General architecture](#general-architecture)
+    + [Servlet handlers](#servlet-handlers)
+    + [Parameter handlers](#parameter-handlers)
+    + [Post-processors](#post-processors)
+    + [OutputGenerators](#outputgenerators)
+    + [NCBOOutputModel](#ncbooutputmodel)
+    + [NCBOProxyServlet](#ncboproxyservlet)
+    + [Graphical summary](#graphical-summary)
+  * [OMTDShare Adapter](#omtdshare-adapter)
+    + [API Usage](#api-usage)
+  * [Deployment](#deployment)
+    + [Building the war file and configuring the proxy](#building-the-war-file-and-configuring-the-proxy)
 
-# General architecture
+## General architecture
 
 This is a maven project composed of two sub-modules:
 
 - `ncboproxy-api` ([Javadoc](https://agroportal.github.io/ncboproxy/ncboproxy-api/))- Contains interface specifications and default implementations for the different parts of the architecture: Default registries (parameter registry, post-processor registry, output generator dispatcher, servlet handler dipatcher), JSON-LD model object mapping, default output generators (json, error). 
 - `ncboproxy-servlet` ([Javadoc](https://agroportal.github.io/ncboproxy/ncboproxy-servlet/)) - The servlet implementation itself that ties everything together and concrete `ServletHandler` implementaions defining extended behaviour. By convention each `ServletHandler` implementation and all related implementations (parameter handlers, post-processors, output generators) are to be added in separate sub-packages.
 
-## Servlet handlers
+### Servlet handlers
 
 A `ServletHandler` is the central piece of the proxy architecture. An abstract class (`AbstractServletHandler`) implements the ServletHandler interface and all subsequent implementations are required to extend the abstract class rather than reimplementing their own, given that a set of consistent default behaviours are predefined in the abstract class.
 
@@ -30,7 +43,7 @@ When a servlet handler is triggered in `NCBOProxyServlet`, the contents of irs r
 
 A `Map<String,String>` outputParameters is passed along from parameter handlers, to the ServletHandler, to post-processors and to the output generator. Aside from modifications made to the model itself, this is the only way of passing parameters and values along. This ensures maximum decoupling between the components.  
 
-## Parameter handlers
+### Parameter handlers
 
 Each parameter handler is meant to handle one or more parameter names with an optionnal constraint to a list of specific values. A parameter handler can be marked as optional or as mandatory. A mandatory parameter handler registered in a servlet handler become a contraint for the servlet handler to be triggered. 
 
@@ -38,25 +51,25 @@ For instance if one registers a parameter handler in a servlet handler for the p
 
 Parameter handlers can remove/add parameters to the query before it is forwarded, register post-processor and/or output generators based on conditions on specific paramater and value constraints.
 
-## Post-processors
+### Post-processors
 
 A post-processor can be registered by a parameter handler or directly from a servlet handler. The purpose of the post-processor is to perform actions on the NCBOOutputModel parsed from the output of the query to the original REST API, for example to remove elements, add new elements or modify existing elements. 
 
 The default implementation of the output model is based on a JSON object representation and is serializable to json-ld seamlessly. 
 
-## OutputGenerators
+### OutputGenerators
 
 An output generator takes as input an `NCBOOutputModel` instance and transforms it into a `ProxyOutput` instance that contains the output that will be sent as a response to the query by the servlet (String or byte array content + mime/type + optionally custom headers). 
 
 By default a JSON-LD output generator and an error output generator are provided and registered by default. The formet generates a response based on the `.toPrettyString()` serialization of the `NCBOOutputModel`. The error model is a JSON model containing an error message and an error code, following the JSON error format of NCBO BioPortal. 
 
-## NCBOOutputModel
+### NCBOOutputModel
 
 `NCBOOutputModel` is the root interface for the BioPortal JSON-LD object model wrapper as returned by an `NCBOOutputParser`. `NCBOOutputModel` is implemented by several sub-interfaces that correspond to the different possible types of responses returned by the NCBO BioPortal rest API: a JSON-LD object (`JSONLDObject`, a collection of JSON-LD objects (`NCBOCollection`), a paginated collection of JSON-LD objects (`NCBOPaginatedCollection`), a value (`JSONLDValue`). 
 
 Each of the interfaces features a `.create()` method that instanciates the default implementations. Moreover, each object of type `NCBOOutputModel` contains a set of methods to determine the precise type of model contained inside: `isCollection()`, `isObject()`, `isPaginatedCollection()`,` isString()`, `isInteger()`, `isBoolean()` and a set of methods to convert the instance to its actual type (as an `Optional`). 
 
-## NCBOProxyServlet
+### NCBOProxyServlet
 
 `NCBOProxyServlet` ties everything together: 
 
@@ -77,13 +90,13 @@ Each of the interfaces features a `.create()` method that instanciates the defau
    - Dispatches the post-processed model to the appropriate output generator (`OutputGeneratorDispatcher.generate`)
 
 
-## Graphical summary
+### Graphical summary
 
 The following diagram illustrates the full process graphically:
 
 ![Architecture documentation diagram](docs/architecture_diagram.svg)
 
-# OMTDShare Adapter
+## OMTDShare Adapter
 
 The OMTD-Share adapter for the ontology metadata is implemented as a custom ServletHandler. Support is included to export the metadata of single ontologies or for all the ontologies on a given portal (SIFR Bioportal, Agroportal, NCBO Bioportal, Biblioportal).
 
@@ -115,7 +128,7 @@ static String getOntologyPropertyValue(final NCBOOutputModel model, final String
 
 The only implementation of `OMTDShareModelMapper` is `AgroportalModelMapper`. `AgroportalModelMapper` implements all the metadata mapping for the extended Agroportal model and fallsback on defaults that correspond to the NCBO Bioportal metadata model. The model mapper is parametrized with the language of the portal depending on the rest API URI.
 
-## API Usage
+### API Usage
 
 For each portal (including AgroPortal), a special service will be deployed and will be accessible at thefollowing URL:
 
@@ -129,7 +142,7 @@ As seen in the previous example, adding the following parameters in the API call
 
 /ACRONYM/latest_submission/?apikey=xxx&display=all&format=omtd-share
 
-# Deployment
+## Deployment
 
 There are two depoyment options for the NCBProxy, the first is to deploy it as the ROOT servlet of the application server (preferred) and the second is to deploy it in a sub-path of the root. In the latter case, the root for the API calls becomes the sub-path. Please not that the proxy has only been tested with Apache Tomcat 8. Deployment on other application servers may require additional configuration steps. 
 
@@ -144,7 +157,7 @@ __Requirements:__
 * Java JDK 8+
 * Apache Maven 3+
 
-## Building the war file and configuring the proxy
+### Building the war file and configuring the proxy
 
 1. First, clone the repository and enter the root of the project: 
 
