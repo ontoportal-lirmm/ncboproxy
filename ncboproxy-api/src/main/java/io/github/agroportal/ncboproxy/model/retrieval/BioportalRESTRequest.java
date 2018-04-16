@@ -51,7 +51,7 @@ public final class BioportalRESTRequest {
     }
 
     @SuppressWarnings("MethodParameterOfConcreteClass")
-    private static String query(final String selfURL) throws IOException {
+    public static String query(final String selfURL) throws IOException {
         CookieHandler.setDefault(new CookieManager(null, CookiePolicy.ACCEPT_ALL));
 
         final URL url = new URL(selfURL);

@@ -1,5 +1,8 @@
 package io.github.agroportal.ncboproxy.handlers.omtdsharemeta.mapping;
 
+import com.eclipsesource.json.Json;
+import com.eclipsesource.json.JsonObject;
+import com.eclipsesource.json.JsonValue;
 import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils.KeyWordExtractor;
 import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils.OMTDLicenceMapper;
 import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils.OMTDUtilityMapper;
@@ -7,7 +10,9 @@ import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.xsdmodel.*;
 import io.github.agroportal.ncboproxy.model.JSONLDObject;
 import io.github.agroportal.ncboproxy.model.NCBOCollection;
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
+import io.github.agroportal.ncboproxy.model.retrieval.BioportalRESTRequest;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -121,7 +126,7 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
     @Override
     public void textInformation(final LexicalConceptualResourceTextInfoType lexicalConceptualResourceTextInfoType, final NCBOOutputModel outputModel, final boolean downloadable) {
 
-        lexicalConceptualResourceTextInfoType.setMediaType("Ontological/Terminological resource, electronic distribution, RDF");
+        lexicalConceptualResourceTextInfoType.setMediaType("text");
 
         //Handling data format properties
 //        final DataFormatInfo dataFormatInfo = objectFactory.createDataFormatInfo();
@@ -191,7 +196,20 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
                     .getDomain()
                     .add(domain);
             if (domainValue.contains("http")) {
-                domain.setSchemeURI(domainValue + "?apikey=" + apiKey);
+                final String URL = domainValue + "?apikey=" + apiKey;
+                domain.setSchemeURI(URL);
+                try {
+                    final String output = BioportalRESTRequest.query(URL);
+                    final JsonValue value = Json.parse(output);
+                    if(value.isObject()){
+                        final JsonObject object = value.asObject();
+                        final JsonValue nameVal = object.get("name");
+                        if(nameVal.isString()){
+                            domain.setValue(nameVal.asString());
+                        }
+                    }
+                } catch (final IOException ignored) {
+                }
             } else {
                 domain.setValue(domainValue);
             }
