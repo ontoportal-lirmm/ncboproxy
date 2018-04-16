@@ -3,6 +3,7 @@ package io.github.agroportal.ncboproxy.output;
 
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 import java.util.Optional;
 
@@ -18,6 +19,6 @@ public class ErrorOutputGenerator implements OutputGenerator {
                 .map(ncboOutputModel -> new NCBOProxyOutput(ncboOutputModel
                         .getModelRoot()
                         .toString(), MimeTypes.APPLICATION_JSON))
-                .orElseGet(() -> new NCBOProxyOutput("{ \"errors\" : [ \"Empty Output From Server\"], \"status\": 500}", MimeTypes.APPLICATION_JSON));
+                .orElseGet(() -> new NCBOProxyOutput(String.format("{ \"errors\" : [ \"Empty Output From Server\"], \"status\":%d}", HttpServletResponse.SC_INTERNAL_SERVER_ERROR), MimeTypes.APPLICATION_JSON));
     }
 }

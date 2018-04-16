@@ -1,9 +1,12 @@
 package io.github.agroportal.ncboproxy.parameters;
 
 
-public class InvalidParameterException extends Exception {
+@SuppressWarnings("SerializableHasSerializationMethods")
+public class InvalidParameterException extends RuntimeException {
 
-    public InvalidParameterException(final String message) {
+    private static final long serialVersionUID = 6449276614063517190L;
+
+    InvalidParameterException(final String message) {
         super(message);
     }
 }

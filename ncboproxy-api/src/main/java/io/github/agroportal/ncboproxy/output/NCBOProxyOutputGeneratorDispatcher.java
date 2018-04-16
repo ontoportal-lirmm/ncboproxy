@@ -7,8 +7,7 @@ public class NCBOProxyOutputGeneratorDispatcher extends AbstractOutputGeneratorD
 
     private static final String ERROR_OUTPUT = NCBOErrorModel.ERROR_FORMAT_STRING;
 
-    @SuppressWarnings("HardcodedFileSeparator")
-    public NCBOProxyOutputGeneratorDispatcher() {
+    NCBOProxyOutputGeneratorDispatcher() {
         super();
         registerGenerator("json", new JSONOutputGenerator());
         registerGenerator(ERROR_OUTPUT, new ErrorOutputGenerator());

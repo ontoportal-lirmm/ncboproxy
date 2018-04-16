@@ -115,8 +115,18 @@ static String getOntologyPropertyValue(final NCBOOutputModel model, final String
 
 The only implementation of `OMTDShareModelMapper` is `AgroportalModelMapper`. `AgroportalModelMapper` implements all the metadata mapping for the extended Agroportal model and fallsback on defaults that correspond to the NCBO Bioportal metadata model. The model mapper is parametrized with the language of the portal depending on the rest API URI.
 
+## API Usage
 
+For each portal (including AgroPortal), a special service will be deployed and will be accessible at thefollowing URL:
 
+**AgroPortal**: http://services.agroportal.lirmm.fr/ontologies?format=omtd-share SIFR BioPortal: http://services.bioportal.lirmm.fr/ontologies?format=omtd-share
 
+**NCBO BioPortal:** http://services.agroportal.lirmm.fr/ncbobioportal/ontologies?format=omtd-sharethat will be routed from an address in the biolontology.org name hold by Stanford.
+
+**BiblioPortal:** http://services.agroportal.lirmm.fr/biblioportal/ontologies?format=omtd-share that willbe routed from an address in the ontoportal.org name hold by Stanford.
+
+As seen in the previous example, it will be necessary to add the following parameters in the API call for a given ontology:
+
+/ACRONYM/latest_submission/?apikey=xxx&display=all&format=omtd-share
 
 

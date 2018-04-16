@@ -25,7 +25,7 @@ public interface JSONLDLink {
         return linksObject
                 .names()
                 .stream()
-                .filter(name -> !name.equals("@context"))
+                .filter(name -> !name.equals(JSONLDConstants.CONTEXT))
                 .map(name -> create(name,
                         linksObject.getString("name", ""),
                         (atContext != null) ? atContext.getString(name, "") : ""))

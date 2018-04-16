@@ -7,7 +7,6 @@ import java.util.Map;
 /**
  * Dispatches the output generation to the right output generator depending on the generator trigger
  */
-@SuppressWarnings("OptionalUsedAsFieldOrParameterType")
 public interface OutputGeneratorDispatcher extends OutputGenerator {
     /**
      * Generate the output with the appropriate generator associated with the generatorTrigger.

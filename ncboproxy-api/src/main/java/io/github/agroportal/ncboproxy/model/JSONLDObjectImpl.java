@@ -34,7 +34,7 @@ public class JSONLDObjectImpl implements JSONLDObject {
 
     @Override
     public Optional<String> getId() {
-        return getStringValue("@id");
+        return getStringValue(JSONLDConstants.ID);
     }
 
     @Override
@@ -176,7 +176,7 @@ public class JSONLDObjectImpl implements JSONLDObject {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         final JSONLDObjectImpl that = (JSONLDObjectImpl) o;
-        return (getStringValue("@id").equals(that.getStringValue("@id"))) || Objects.equals(jsonObject, that.jsonObject);
+        return (getStringValue(JSONLDConstants.ID).equals(that.getStringValue(JSONLDConstants.ID))) || Objects.equals(jsonObject, that.jsonObject);
     }
 
     @Override

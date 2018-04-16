@@ -3,6 +3,7 @@ package io.github.agroportal.ncboproxy.output;
 
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiFunction;
@@ -25,13 +26,13 @@ public interface OutputGenerator extends BiFunction<Optional<NCBOOutputModel>,Ma
     static ProxyOutput errorOutput(final String message){
         return ProxyOutput
                 .create(prettyError(errorModel(message))
-                        , "application/json");
+                        , MimeTypes.APPLICATION_JSON);
     }
     static String prettyError(final NCBOOutputModel outputModel) {
         return outputModel.toPrettyString();
     }
 
     static NCBOOutputModel errorModel(final String message) {
-        return NCBOOutputModel.error(message, ProxyOutput.HTTP_INTERNAL_APPLICATION_ERROR);
+        return NCBOOutputModel.error(message, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
     }
 }
