@@ -1,6 +1,7 @@
 package io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils;
 
 
+import eu.openminted.registry.domain.LexicalConceptualResourceTypeEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,38 +20,39 @@ public final class OMTDUtilityMapper {
     private static final Logger logger = LoggerFactory.getLogger(OMTDUtilityMapper.class);
     private static final Pattern LEXVO_PAGE_URL_PATTERN = Pattern.compile("/page/");
     private static final Pattern LEXVO_WWW_PATTERN = Pattern.compile("www.");
+    public static final String UNKNOWN_LANGUAGE_VALUE = "unknown";
 
     private OMTDUtilityMapper() {
     }
 
 //    lexvo-iso639-1.tsv
 
-    public static String mapFromFormalityLevel(final String formalityLevelValue) {
-        final String resourceType;
+    public static LexicalConceptualResourceTypeEnum mapFromFormalityLevel(final String formalityLevelValue) {
+        final LexicalConceptualResourceTypeEnum resourceType;
         switch (formalityLevelValue) {
             case "http://w3id.org/nkos/nkostype#thesaurus":
-                resourceType = "thesaurus";
+                resourceType = LexicalConceptualResourceTypeEnum.THESAURUS;
                 break;
             case "http://w3id.org/nkos/nkostype#taxonomy":
-                resourceType = "typesystem";
+                resourceType = LexicalConceptualResourceTypeEnum.TYPESYSTEM;
                 break;
             case "http://w3id.org/nkos/nkostype#dictionary":
-                resourceType = "machineReadableDictionary";
+                resourceType = LexicalConceptualResourceTypeEnum.MACHINE_READABLE_DICTIONARY;
                 break;
             case "http://w3id.org/nkos/nkostype#semantic_network":
-                resourceType = "computationalLexicon";
+                resourceType = LexicalConceptualResourceTypeEnum.COMPUTATIONAL_LEXICON;
                 break;
             case "http://w3id.org/nkos/nkostype#classification_schema":
-                resourceType = "terminologicalResource";
+                resourceType = LexicalConceptualResourceTypeEnum.TERMINOLOGICAL_RESOURCE;
                 break;
             case "http://w3id.org/nkos/nkostype#list":
-                resourceType = "wordList";
+                resourceType = LexicalConceptualResourceTypeEnum.WORD_LIST;
                 break;
             case "http://w3id.org/nkos/nkostype#glossary":
-                resourceType = "wordList";
+                resourceType = LexicalConceptualResourceTypeEnum.WORD_LIST;
                 break;
             default:
-                resourceType = "ontology";
+                resourceType = LexicalConceptualResourceTypeEnum.ONTOLOGY;
                 break;
         }
         return resourceType;
@@ -87,7 +89,7 @@ public final class OMTDUtilityMapper {
     private static String getLanguageCode(final String languageName) {
         final Locale localeEn = new Locale("en");
         final String[] name = Locale.getISOLanguages(); // list of language codes
-        String result = "unknown";
+        String result = UNKNOWN_LANGUAGE_VALUE;
         for (final String aName : name) {
             final Locale locale = new Locale(aName, "US");
             // get the language name in english for comparison

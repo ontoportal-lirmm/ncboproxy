@@ -1,5 +1,6 @@
 package io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils;
 
+import eu.openminted.registry.domain.LicenceEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +19,7 @@ class OMTDLicenceMapperImpl implements OMTDLicenceMapper {
     private static final Pattern PUNCTUATION_PATTERN = Pattern.compile("\\p{Punct}");
     private static final Pattern HTTP_COLON_PATTERN = Pattern.compile("http:");
 
-    private final List<String> acoronyms;
+    private final List<LicenceEnum> acoronyms;
     private final List<String> descriptions;
     private final List<String> urls;
 
@@ -32,7 +33,7 @@ class OMTDLicenceMapperImpl implements OMTDLicenceMapper {
                     .lines()
                     .forEach(line -> {
                         final String[] fields = line.split(",");
-                        acoronyms.add(fields[0]);
+                        acoronyms.add(LicenceEnum.fromValue(fields[0]));
                         urls.add(fields[1]);
                         descriptions.add(PUNCTUATION_PATTERN
                                 .matcher(fields[2]
@@ -46,7 +47,7 @@ class OMTDLicenceMapperImpl implements OMTDLicenceMapper {
     }
 
     @Override
-    public Optional<String> findLicense(final String descriptor) {
+    public Optional<LicenceEnum> findLicense(final String descriptor) {
         final Matcher urlMatcher = HTTPS_URL_PATTERN.matcher(descriptor);
         int index = -1;
         if (urlMatcher.matches()) {

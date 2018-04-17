@@ -46,7 +46,7 @@ public class OMTDShareZipOutputGenerator implements OutputGenerator {
                 try (ZipOutputStream zipOutputStream = new ZipOutputStream(byteArrayOutputStream)) {
                     for (final NCBOOutputModel childModel : ncboCollection) {
                         final ProxyOutput output = omtdShareOutputGenerator.apply(Optional.of(childModel), outputParameters);
-                        final String acronym = OMTDShareModelMapper.getOntologyPropertyValue(childModel, "acronym");
+                        final String acronym = OMTDShareModelMapper.getOntologyPropertyValue(childModel, OmTDShareMultipleServletHandler.ACRONYM_FIELD_VALUE);
                         zipOutputStream.putNextEntry(new ZipEntry(acronym + ".xml"));
                         zipOutputStream.write(output
                                 .getStringContent()

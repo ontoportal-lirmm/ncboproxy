@@ -28,6 +28,8 @@ import static io.github.agroportal.ncboproxy.handlers.omtdsharemeta.OmTDShareSin
 
 public class OmTDShareMultipleServletHandler extends AbstractServletHandler {
     private static final int HTTP_OK = 300;
+    public static final String ACRONYM_FIELD_VALUE = "acronym";
+    public static final String DOWNLOAD_FIELD_VALUE = "download";
     private final List<String> queryStringPattern;
 
     private final NCBOOutputParser parser;
@@ -94,8 +96,8 @@ public class OmTDShareMultipleServletHandler extends AbstractServletHandler {
                     .asCollection()
                     .orElse(NCBOCollection.create(new JsonArray()));
             for (final NCBOOutputModel childModel : ncboCollection) {
-                final String downloadLink = OMTDShareModelMapper.getOntologyLinkValue(childModel, "download");
-                final String acronym = OMTDShareModelMapper.getOntologyPropertyValue(childModel, "acronym");
+                final String downloadLink = OMTDShareModelMapper.getOntologyLinkValue(childModel, DOWNLOAD_FIELD_VALUE);
+                final String acronym = OMTDShareModelMapper.getOntologyPropertyValue(childModel, ACRONYM_FIELD_VALUE);
                 if(isDownloadable(downloadLink,apiContext,queryParameters,queryHeaders)){
                     outputProperties.put(acronym,"true");
                 }

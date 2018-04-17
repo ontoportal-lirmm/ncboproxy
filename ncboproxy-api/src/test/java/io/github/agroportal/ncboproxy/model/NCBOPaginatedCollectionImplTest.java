@@ -24,7 +24,7 @@ public class NCBOPaginatedCollectionImplTest {
 
     @Before
     public void setUp() throws Exception {
-         apiContext = new APIContextImpl("1de0a270-29c5-4dda-b043-7c3580628cd5","utf-8", "");
+         apiContext = new APIContextImpl("1de0a270-29c5-4dda-b043-7c3580628cd5","utf-8", "","GET","/");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(NCBOPaginatedCollectionImplTest.class.getResourceAsStream("/collectionPage.json")));
         final String fileContent = bufferedReader.lines().collect(Collectors.joining("\n"));
         paginatedCollection = new NCBOPaginatedCollectionImpl(Json.parse(fileContent).asObject(),apiContext);

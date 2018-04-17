@@ -8,6 +8,7 @@ import java.util.*;
  * Default implementation of ProxyOutput
  */
 public class NCBOProxyOutput implements ProxyOutput {
+    public static final String PUBLIC_VIEWING_RESTRICTIONS_VALUE = "public";
     private final String stringContent;
     private final String mimeType;
     private final byte[] binaryContent;
@@ -61,7 +62,7 @@ public class NCBOProxyOutput implements ProxyOutput {
     @Override
     public ProxyOutput makeFileTransfer(final String filename) {
         addCustomHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");
-        addCustomHeader("Cache-Control", "public");
+        addCustomHeader("Cache-Control", PUBLIC_VIEWING_RESTRICTIONS_VALUE);
         addCustomHeader("Content-Description", "File Transfer");
         addCustomHeader("Content-Disposition", String.format("attachment; filename=\"%s\"",filename));
         addCustomHeader("Content-Transfer-Encoding", "binary");

@@ -21,6 +21,14 @@ public class APIContextImpl implements APIContext {
     private final String method;
     private final String deploymentRoot;
 
+    public APIContextImpl(final String apiKey,final String serverEncoding, final String restAPIURL, final String method, final String deploymentRoot) {
+        this.apiKey = apiKey;
+        this.serverEncoding = serverEncoding;
+        this.restAPIURL = restAPIURL;
+        this.method = method;
+        this.deploymentRoot = deploymentRoot;
+    }
+
     @Override
     public String getMethod() {
         return method;
@@ -42,7 +50,7 @@ public class APIContextImpl implements APIContext {
         return restAPIURL;
     }
 
-    APIContextImpl(final Properties proxyProperties, final HttpServletRequest servletRequest) {
+    public APIContextImpl(final Properties proxyProperties, final HttpServletRequest servletRequest) {
         serverEncoding = findServerEncoding(proxyProperties);
         final Map<String,String> headers = ParameterMapper.extractHeaders(servletRequest);
         final Map<String,List<String>> queryParameters = ParameterMapper.extractQueryParameters(servletRequest, serverEncoding);
@@ -52,14 +60,6 @@ public class APIContextImpl implements APIContext {
         method = servletRequest.getMethod();
 
         deploymentRoot = findDeploymentRoot(proxyProperties);
-    }
-
-    public APIContextImpl(final String apiKey, final String serverEncoding, final String restAPIURL) {
-        this.apiKey = apiKey;
-        this.serverEncoding = serverEncoding;
-        this.restAPIURL = restAPIURL;
-        method = "GET";
-        deploymentRoot = "/";
     }
 
     private static String findDeploymentRoot(final Properties proxyProperties){

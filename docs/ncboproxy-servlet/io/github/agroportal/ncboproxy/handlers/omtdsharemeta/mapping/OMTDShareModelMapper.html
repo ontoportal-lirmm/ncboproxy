@@ -154,7 +154,7 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/github/agroportal/ncboproxy/handlers/omtdsharemeta/mapping/OMTDShareModelMapper.html#contactInformation-io.github.agroportal.ncboproxy.handlers.omtdsharemeta.xsdmodel.ContactInfoType-io.github.agroportal.ncboproxy.model.NCBOOutputModel-">contactInformation</a></span>(io.github.agroportal.ncboproxy.handlers.omtdsharemeta.xsdmodel.ContactInfoType&nbsp;contactInfoType,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/github/agroportal/ncboproxy/handlers/omtdsharemeta/mapping/OMTDShareModelMapper.html#contactInformation-io.github.agroportal.ncboproxy.handlers.omtdsharemeta.xsdmodel.ContactInfoType-io.github.agroportal.ncboproxy.model.NCBOOutputModel-">contactInformation</a></span>(io.github.agroportal.ncboproxy.handlers.omtdsharemeta.xsdmodel.ContactInfoType&nbsp;contactInfo,
                   io.github.agroportal.ncboproxy.model.NCBOOutputModel&nbsp;ncboOutputModel)</code>
 <div class="block">Set the contact information metadata setting the contactInfo complex type that contains
  the contact point and the list of contact for the resource.</div>
@@ -401,14 +401,14 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>contactInformation</h4>
-<pre>void&nbsp;contactInformation(io.github.agroportal.ncboproxy.handlers.omtdsharemeta.xsdmodel.ContactInfoType&nbsp;contactInfoType,
+<pre>void&nbsp;contactInformation(io.github.agroportal.ncboproxy.handlers.omtdsharemeta.xsdmodel.ContactInfoType&nbsp;contactInfo,
                         io.github.agroportal.ncboproxy.model.NCBOOutputModel&nbsp;ncboOutputModel)</pre>
 <div class="block">Set the contact information metadata setting the contactInfo complex type that contains
  the contact point and the list of contact for the resource. In bioportal there is no way of differentiating between
  contact persons and contact organizations, therefore, by default, all contacts are treated as contact persons.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>contactInfoType</code> - The contact information JAXB complex type</dd>
+<dd><code>contactInfo</code> - The contact information JAXB complex type</dd>
 <dd><code>ncboOutputModel</code> - The NCBO Output Model for the ontology submission</dd>
 </dl>
 </li>

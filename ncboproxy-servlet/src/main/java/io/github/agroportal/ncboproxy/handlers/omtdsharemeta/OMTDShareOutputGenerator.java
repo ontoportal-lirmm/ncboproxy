@@ -2,8 +2,8 @@ package io.github.agroportal.ncboproxy.handlers.omtdsharemeta;
 
 
 import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
+import eu.openminted.registry.domain.*;
 import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.mapping.OMTDShareModelMapper;
-import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.xsdmodel.*;
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
 import io.github.agroportal.ncboproxy.output.OutputGenerator;
 import io.github.agroportal.ncboproxy.output.ProxyOutput;
@@ -41,7 +41,7 @@ public class OMTDShareOutputGenerator implements OutputGenerator {
 
 
     @SuppressWarnings({"MethodParameterOfConcreteClass", "FeatureEnvy", "LocalVariableOfConcreteClass", "LawOfDemeter"})
-    private void mapMetaData(final LexicalConceptualResourceInfoType lexicalConceptualResourceInfo, final NCBOOutputModel outputModel, final boolean downloadable, final String apiKey) {
+    private void mapMetaData(final LexicalConceptualResourceInfo lexicalConceptualResourceInfo, final NCBOOutputModel outputModel, final boolean downloadable, final String apiKey) {
 //                final MetadataHeaderInfoType metadataHeaderInfo = objectFactory.createMetadataHeaderInfoType();
 //                metadataRecord.setMetadataHeaderInfo(metadataHeaderInfo);
 
@@ -50,40 +50,36 @@ public class OMTDShareOutputGenerator implements OutputGenerator {
         modelMapper.rootResourceProperties(lexicalConceptualResourceInfo, outputModel);
 
 
-        final LexicalConceptualResourceTextInfoType lexicalConceptualResourceTextInfoType = objectFactory.createLexicalConceptualResourceTextInfoType();
-        modelMapper.textInformation(lexicalConceptualResourceTextInfoType, outputModel, downloadable);
-        lexicalConceptualResourceInfo.setLexicalConceptualResourceTextInfo(lexicalConceptualResourceTextInfoType);
+        final LexicalConceptualResourceTextInfo lexicalConceptualResourceTextInfo = objectFactory.createLexicalConceptualResourceTextInfo();
+        modelMapper.textInformation(lexicalConceptualResourceTextInfo, outputModel, downloadable);
+        lexicalConceptualResourceInfo.setLexicalConceptualResourceTextInfo(lexicalConceptualResourceTextInfo);
 
 
         //Setting identification information
-        final IdentificationInfoType identificationInfo = objectFactory.createIdentificationInfoType();
+        final IdentificationInfo identificationInfo = objectFactory.createIdentificationInfo();
         lexicalConceptualResourceInfo.setIdentificationInfo(identificationInfo);
         modelMapper.identificationInformation(identificationInfo, outputModel);
 
         //Version Information
-        final VersionInfoType versionInfoType = objectFactory.createVersionInfoType();
+        final VersionInfo versionInfoType = objectFactory.createVersionInfo();
         modelMapper.version(versionInfoType, outputModel);
         lexicalConceptualResourceInfo.setVersionInfo(versionInfoType);
 
         //Contact information
-        final ContactInfoType contactInfoType = objectFactory.createContactInfoType();
+        final ContactInfo contactInfoType = objectFactory.createContactInfo();
         lexicalConceptualResourceInfo.setContactInfo(contactInfoType);
         modelMapper.contactInformation(contactInfoType, outputModel);
 
         //Resource creation information
-        final ResourceCreationInfoType resourceCreationInfoType = objectFactory.createResourceCreationInfoType();
-        lexicalConceptualResourceInfo.setResourceCreationInfo(resourceCreationInfoType);
-        modelMapper.resourceCreation(resourceCreationInfoType, outputModel);
+        final ResourceCreationInfo resourceCreationInfo = objectFactory.createResourceCreationInfo();
+        lexicalConceptualResourceInfo.setResourceCreationInfo(resourceCreationInfo);
+        modelMapper.resourceCreation(resourceCreationInfo, outputModel);
 
         //Distribution information
-        final LexicalConceptualResourceInfoType.DistributionInfos distributionInfos = objectFactory.createLexicalConceptualResourceInfoTypeDistributionInfos();
-        modelMapper.distribution(distributionInfos, outputModel, downloadable, apiKey);
-        lexicalConceptualResourceInfo.setDistributionInfos(distributionInfos);
+        modelMapper.distribution(lexicalConceptualResourceInfo, outputModel, downloadable, apiKey);
 
         //Documentation information
-        final LexicalConceptualResourceInfoType.ResourceDocumentations resourceDocumentations = objectFactory.createLexicalConceptualResourceInfoTypeResourceDocumentations();
-        lexicalConceptualResourceInfo.setResourceDocumentations(resourceDocumentations);
-        modelMapper.documentationInformation(resourceDocumentations, outputModel);
+        modelMapper.documentationInformation(lexicalConceptualResourceInfo, outputModel);
 
         //Rights information
         final RightsInfo rightsInfo = objectFactory.createRightsInfo();
@@ -91,9 +87,7 @@ public class OMTDShareOutputGenerator implements OutputGenerator {
         lexicalConceptualResourceInfo.setRightsInfo(rightsInfo);
 
         //Relations information
-        final LexicalConceptualResourceInfoType.Relations relations = objectFactory.createLexicalConceptualResourceInfoTypeRelations();
-        modelMapper.relations(relations, outputModel);
-        lexicalConceptualResourceInfo.setRelations(relations);
+        modelMapper.relations(lexicalConceptualResourceInfo, outputModel);
     }
 
     @SuppressWarnings("LocalVariableOfConcreteClass")
@@ -101,17 +95,17 @@ public class OMTDShareOutputGenerator implements OutputGenerator {
     public ProxyOutput apply(final Optional<NCBOOutputModel> outputModel, final Map<String, String> outputParameters) {
         ProxyOutput proxyOutput;
         if (outputModel.isPresent()) {
-            final String acronym = OMTDShareModelMapper.getOntologyPropertyValue(outputModel.get(), "acronym");
+            final String acronym = OMTDShareModelMapper.getOntologyPropertyValue(outputModel.get(), OmTDShareMultipleServletHandler.ACRONYM_FIELD_VALUE);
             try {
-                final JAXBContext jaxbContext = JAXBContext.newInstance("io.github.agroportal.ncboproxy.handlers.omtdsharemeta.xsdmodel");
+                final JAXBContext jaxbContext = JAXBContext.newInstance("eu.openminted.registry.domain");
 
                 //Creating root element instance and initializing main complex types
-                final LcrMetadataRecord metadataRecord = objectFactory.createLcrMetadataRecord();
-                final LexicalConceptualResourceInfoType lexicalConceptualResourceInfo = generateLexicalConceptualResourceRoot(metadataRecord);
+                final Lexical lexicalMetaData = objectFactory.createLexical();
+                final LexicalConceptualResourceInfo lexicalConceptualResourceInfo = generateLexicalConceptualResourceRoot(lexicalMetaData);
 
                 mapMetaData(lexicalConceptualResourceInfo, outputModel.get(), outputParameters.containsKey(acronym), outputParameters.get("apikey"));
 
-                proxyOutput = generateXMLOutput(jaxbContext, metadataRecord);
+                proxyOutput = generateXMLOutput(jaxbContext, lexicalMetaData);
 
             } catch (final PropertyException e) {
                 proxyOutput = OutputGenerator.errorOutput(
@@ -127,14 +121,14 @@ public class OMTDShareOutputGenerator implements OutputGenerator {
     }
 
     @SuppressWarnings("MethodParameterOfConcreteClass")
-    private ProxyOutput generateXMLOutput(final JAXBContext jaxbContext, final LcrMetadataRecord metadataRecord) throws JAXBException {
+    private ProxyOutput generateXMLOutput(final JAXBContext jaxbContext, final Lexical lexicalMetaData) throws JAXBException {
         ProxyOutput proxyOutput;
         final Marshaller marshaller = jaxbContext.createMarshaller();
         try (StringWriter outputWriter = new StringWriter()) {
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, "http://www.meta-share.org/OMTD-SHARE_XMLSchema http://www.meta-share.org/OMTD-SHARE_XMLSchema/v302/OMTD-SHARE-LexicalConceptualResource.xsd");
             marshaller.setProperty("com.sun.xml.bind.namespacePrefixMapper", mapper);
-            marshaller.marshal(metadataRecord, outputWriter);
+            marshaller.marshal(lexicalMetaData, outputWriter);
             proxyOutput = ProxyOutput.create(outputWriter.toString(), "text/xml");
         } catch (final IOException e) {
             proxyOutput = OutputGenerator.errorOutput(
@@ -152,9 +146,9 @@ public class OMTDShareOutputGenerator implements OutputGenerator {
      * @return Returns the new LexicalConceptualResourceInfoType instance and sets it into the metadata record.
      */
     @SuppressWarnings({"LawOfDemeter", "MethodReturnOfConcreteClass", "LocalVariableOfConcreteClass", "MethodParameterOfConcreteClass"})
-    private LexicalConceptualResourceInfoType generateLexicalConceptualResourceRoot(final LcrMetadataRecord metadataRecord) {
-        final LexicalConceptualResourceInfoType lexicalConceptualResourceInfoType =
-                objectFactory.createLexicalConceptualResourceInfoType();
+    private LexicalConceptualResourceInfo generateLexicalConceptualResourceRoot(final Lexical metadataRecord) {
+        final LexicalConceptualResourceInfo lexicalConceptualResourceInfoType =
+                objectFactory.createLexicalConceptualResourceInfo();
         metadataRecord.setLexicalConceptualResourceInfo(lexicalConceptualResourceInfoType);
         return lexicalConceptualResourceInfoType;
     }

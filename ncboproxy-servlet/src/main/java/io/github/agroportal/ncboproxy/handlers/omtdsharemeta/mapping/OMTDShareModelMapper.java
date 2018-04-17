@@ -1,6 +1,6 @@
 package io.github.agroportal.ncboproxy.handlers.omtdsharemeta.mapping;
 
-import io.github.agroportal.ncboproxy.handlers.omtdsharemeta.xsdmodel.*;
+import eu.openminted.registry.domain.*;
 import io.github.agroportal.ncboproxy.model.JSONLDObject;
 import io.github.agroportal.ncboproxy.model.NCBOCollection;
 import io.github.agroportal.ncboproxy.model.NCBOOutputModel;
@@ -18,49 +18,53 @@ public interface OMTDShareModelMapper {
     String MISSING = "MISSING";
     String ONTOLOGY = "ontology";
     String DEFAULT_LANG = "en";
+    String LEXICAL_CONCEPTUAL_RESOURCE_TYPE_VALUE = "lexicalConceptualResource";
 
     /**
      * Sets the resource type as lexicalConceptualResource, given that all ontologies in bioportal are such
-     * @param outputModel The output model
-     * @param lexicalConceptualResourceInfoType The lexical conceptual resource information complex type JAXB binding
+     *
+     * @param outputModel                   The output model
+     * @param lexicalConceptualResourceInfo The lexical conceptual resource information complex type JAXB binding
      */
-    default void rootResourceProperties(final LexicalConceptualResourceInfoType lexicalConceptualResourceInfoType, final NCBOOutputModel outputModel) {
+    default void rootResourceProperties(final LexicalConceptualResourceInfo lexicalConceptualResourceInfo, final NCBOOutputModel outputModel) {
         //Resource type is fixed as all resources in Bioportal are of this type
-        lexicalConceptualResourceInfoType.setResourceType("lexicalConceptualResource");
-        lexicalConceptualResourceInfoType.setLexicalConceptualResourceType("ontology");
+        lexicalConceptualResourceInfo.setResourceType(LEXICAL_CONCEPTUAL_RESOURCE_TYPE_VALUE);
+        lexicalConceptualResourceInfo.setLexicalConceptualResourceType(LexicalConceptualResourceTypeEnum.ONTOLOGY);
     }
 
-    void resourceCreation(ResourceCreationInfoType resourceCreationInfoType, NCBOOutputModel outputModel);
+    void resourceCreation(ResourceCreationInfo resourceCreationInfo, NCBOOutputModel outputModel);
 
-    void textInformation(final LexicalConceptualResourceTextInfoType lexicalConceptualResourceTextInfoType, final NCBOOutputModel outputModel, boolean downloadable);
+    void textInformation(final LexicalConceptualResourceTextInfo lexicalConceptualResourceTextInfo, final NCBOOutputModel outputModel, boolean downloadable);
 
-    void relations(LexicalConceptualResourceInfoType.Relations relations, NCBOOutputModel outputModel);
+    void relations(final LexicalConceptualResourceInfo lexicalConceptualResourceInfos,
+                   final NCBOOutputModel outputModel);
 
-    void identificationInformation(final IdentificationInfoType identificationInfo,
+    void identificationInformation(final IdentificationInfo identificationInfo,
                                    final NCBOOutputModel outputModel);
 
     /**
      * Set the version of the resource based on the version property from the Bioportal JSONLD output. The resource revisions and revision
      * dates from the OMTDShare specification correspond to different concepts than submissions in bioportal and thus cannot be encoded here.
      *
-     * @param versionInfoType The version info complex type JAXB binding
-     * @param outputModel     The NCBO Output Model for the ontology submission
+     * @param versionInfo The version info complex type JAXB binding
+     * @param outputModel The NCBO Output Model for the ontology submission
      */
-    void version(final VersionInfoType versionInfoType, final NCBOOutputModel outputModel);
+    void version(final VersionInfo versionInfo, final NCBOOutputModel outputModel);
 
     /**
      * Set the contact information metadata setting the contactInfo complex type that contains
      * the contact point and the list of contact for the resource. In bioportal there is no way of differentiating between
      * contact persons and contact organizations, therefore, by default, all contacts are treated as contact persons.
      *
-     * @param contactInfoType The contact information JAXB complex type
+     * @param contactInfo     The contact information JAXB complex type
      * @param ncboOutputModel The NCBO Output Model for the ontology submission
      */
-    void contactInformation(final ContactInfoType contactInfoType, final NCBOOutputModel ncboOutputModel);
+    void contactInformation(final ContactInfo contactInfo, final NCBOOutputModel ncboOutputModel);
 
-    void distribution(LexicalConceptualResourceInfoType.DistributionInfos distributionInfos, NCBOOutputModel outputModel, boolean downloadable, String apikey);
+    void distribution(final LexicalConceptualResourceInfo lexicalConceptualResourceInfo,
+                      final NCBOOutputModel outputModel, final boolean downloadable, final String apikey);
 
-    void documentationInformation(final LexicalConceptualResourceInfoType.ResourceDocumentations resourceDocumentations, final NCBOOutputModel outputModel);
+    void documentationInformation(final LexicalConceptualResourceInfo lexicalConceptualResourceInfo, final NCBOOutputModel outputModel);
 
     void rights(final RightsInfo rightsInfo, final NCBOOutputModel outputModel, boolean downloadable);
 
@@ -192,19 +196,19 @@ public interface OMTDShareModelMapper {
         OMTDShareModelMapper mapper = null;
         switch (portalType) {
             case AGROPORTAL:
-                mapper = new AgroPortalModelMapper(objectFactory,apiKey, "en");
+                mapper = new AgroPortalModelMapper(objectFactory, apiKey, "en");
                 break;
             case SIFR_BIOPORTAL:
-                mapper = new AgroPortalModelMapper(objectFactory,apiKey, "fr");
+                mapper = new AgroPortalModelMapper(objectFactory, apiKey, "fr");
                 break;
             case STAGEPORTAL:
-                mapper = new AgroPortalModelMapper(objectFactory,apiKey, "en");
+                mapper = new AgroPortalModelMapper(objectFactory, apiKey, "en");
                 break;
             case NCBO_BIOPORTAL:
-                mapper = new AgroPortalModelMapper(objectFactory,apiKey, "en");
+                mapper = new AgroPortalModelMapper(objectFactory, apiKey, "en");
                 break;
             case BIBLIOPORTAL:
-                mapper = new AgroPortalModelMapper(objectFactory,apiKey, "en");
+                mapper = new AgroPortalModelMapper(objectFactory, apiKey, "en");
                 break;
             default:
                 break;

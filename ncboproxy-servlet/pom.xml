@@ -42,7 +42,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <plugin>
+            <!--plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
                 <version>0.8.1</version>
@@ -95,7 +95,7 @@
                         </plugin>
                     </plugins>
                 </configuration>
-            </plugin>
+            </plugin-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -110,7 +110,9 @@
                 <configuration>
                     <excludePackageNames>*.xsdmodel</excludePackageNames>
                     <sourceFileExcludes>
-                        <sourceFileExclude>**/target/generated-sources/xjc/io/github/agroportal/ncboproxy/handlers/omtdsharemeta/xsdmodel/*.java</sourceFileExclude>
+                        <sourceFileExclude>
+                            **/target/generated-sources/xjc/io/github/agroportal/ncboproxy/handlers/omtdsharemeta/xsdmodel/*.java
+                        </sourceFileExclude>
                     </sourceFileExcludes>
                     <reportOutputDirectory>${project.parent.basedir}/docs</reportOutputDirectory>
                     <destDir>ncboproxy-servlet</destDir>
@@ -150,6 +152,12 @@
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
             <version>2.2.4-1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>eu.openminted</groupId>
+            <artifactId>omtd-model</artifactId>
+            <version>3.0.2</version>
         </dependency>
     </dependencies>
 </project>

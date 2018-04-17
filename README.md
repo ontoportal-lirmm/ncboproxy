@@ -85,7 +85,7 @@ Each of the interfaces features a `.create()` method that instanciates the defau
 
    - Selects the ServletHandler best matching the current query or falls back to the default handler 
    ```Java
-     ServletHandlerDispatcher.findMatchingHandler(queryPath)
+     ServletHandlerDispatcher.findMatchingHandler(queryPath, queryParameters)
      .orElse(ServletHandler::default)
    ```
    - Applies the parameter handlers (`ParameterHandlerRegistry.processParameters`)
@@ -104,7 +104,11 @@ The following diagram illustrates the full process graphically:
 
 The OMTD-Share adapter for the ontology metadata is implemented as a custom `ServletHandler`. Support is included to export the metadata of single ontologies or for all the ontologies on a given portal (SIFR BioPortal, AgroPortal, NCBO BioPortal, BiblioPortal).
 
-The single ontology adapter is implemented in `OmTDShareSingleServletHandler` and registers  the `OMTDShareOutputGenerator` to generate OMTDShare XML from the `NCBOOutputModel`. We use JAXB to bind the XSD specification of OMTD-Share to a Java object model so as to be able to generate an object model from our metadata and unmarshall it as valid OMTD-Share XML. This imoplementation is based on the 3.0.2 version of the OMTD-Share implementation. The XSD specification files are included as a resource of the project and the object model is generated on the fly through the JAXB maven plugin on the install target. 
+The single ontology adapter is implemented in `OmTDShareSingleServletHandler` and registers  the `OMTDShareOutputGenerator` to generate OMTDShare XML from the `NCBOOutputModel`.
+
+ We use JAXB to bind the XSD specification of OMTD-Share to a Java object model so as to be able to generate an object model from our metadata and unmarshall it as valid OMTD-Share XML.
+
+ This implementation is based on the 3.0.2 version of the OMTD-Share implementation. The XSD specification files are included as a resource of the project and the object model is generated on the fly through the JAXB maven plugin on the install target. 
 
 `OMTDShareOutputGenerator` delegates the actual population of the object model from metadata properties to the `OMTDShareModelMapper`, which retrieves the metadata properties from out NCBOOutputModel. The interface provides a method for each of the categories of metadata required by the OpenMinted call. 
 
@@ -134,13 +138,13 @@ The only implementation of `OMTDShareModelMapper` is `AgroportalModelMapper`. `A
 
 For each portal (including AgroPortal), a special service will be deployed and will be accessible at thefollowing URL:
 
-**AgroPortal**: http://services.agroportal.lirmm.fr/ontologies?format=omtd-share&apikey=xxx 
+**AgroPortal**: http://services.agroportal.lirmm.fr/ontologies/?format=omtd-share&apikey=xxx 
 
-**SIFR BioPortal**: http://services.bioportal.lirmm.fr/ontologies?format=omtd-share&apikey=xxx
+**SIFR BioPortal**: http://services.bioportal.lirmm.fr/ontologies/?format=omtd-share&apikey=xxx
 
-**NCBO BioPortal:** http://services.agroportal.lirmm.fr/ncbobioportal/ontologies?format=omtd-share&apikey=xxx that will be routed from an address in the biolontology.org name hold by Stanford.
+**NCBO BioPortal:** http://services.agroportal.lirmm.fr/ncbobioportal/ontologies/?format=omtd-share&apikey=xxx that will be routed from an address in the biolontology.org name hold by Stanford.
 
-**BiblioPortal:** http://services.agroportal.lirmm.fr/biblioportal/ontologies?format=omtd-share&apikey=xxx that will be routed from an address in the ontoportal.org name hold by Stanford.
+**BiblioPortal:** http://services.agroportal.lirmm.fr/biblioportal/ontologies/?format=omtd-share&apikey=xxx that will be routed from an address in the ontoportal.org name hold by Stanford.
 
 As seen in the previous example, adding the following parameters in the API call will return only the XML for a given ontology:
 
