@@ -1,6 +1,6 @@
 # ncboproxy
 
-General REST proxy architecture for the seamless extension of APIs based on the NCBO BioPortal technology. The original NCBO API described at http://data.bioontology.org/documentation and corresponding project is https://github.com/ncbo). The description of the NCBO Virtual Appliance is available here: https://www.bioontology.org/wiki/index.php/Category:NCBO_Virtual_Appliance
+General REST proxy architecture for the seamless extension of APIs based on the NCBO BioPortal technology. The original NCBO API is described at http://data.bioontology.org/documentation and the  corresponding project is https://github.com/ncbo). The description of the NCBO Virtual Appliance is available here: https://www.bioontology.org/wiki/index.php/Category:NCBO_Virtual_Appliance.
 
 This document explains the general software architecture of the proxy and illustrates how extentions can be added (servlet handlers, parameter pre-processors, output post-processors, output generators). 
 
