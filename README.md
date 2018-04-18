@@ -22,7 +22,7 @@ Eventually, these two projects will be merged into one unique proxy.
     + [II.1. API Usage](#api-usage)
   * [III. Deployment](#deployment)
     + [III.1 Building the war file and configuring the proxy](#building-the-war-file-and-configuring-the-proxy)
-  * [IV. Ack](#acknowledgement)
+  * [IV. Acknowledgement](#acknowledgement)
 
 ## I. General architecture
 
