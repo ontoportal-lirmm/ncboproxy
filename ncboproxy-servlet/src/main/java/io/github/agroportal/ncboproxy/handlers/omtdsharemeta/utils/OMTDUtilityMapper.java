@@ -12,8 +12,6 @@ import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import static io.github.agroportal.ncboproxy.handlers.omtdsharemeta.utils.OMTDLicenceMapper.HTTPS_URL_PATTERN;
-
 public final class OMTDUtilityMapper {
 
     private static final Pattern LANG_CODE_SEPARATOR = Pattern.compile("[-_]+");
@@ -60,9 +58,7 @@ public final class OMTDUtilityMapper {
 
     public static String mapLanguage(final String value) {
         final String result;
-        if (HTTPS_URL_PATTERN
-                .matcher(value)
-                .matches() && value.contains("lexvo")) {
+        if (value.contains("http") && value.contains("lexvo")) {
             final String finalValue = value.contains("/page/") ? LEXVO_WWW_PATTERN
                     .matcher(LEXVO_PAGE_URL_PATTERN
                             .matcher(value)
@@ -105,18 +101,18 @@ public final class OMTDUtilityMapper {
     }
 
     private static Map<String, String> initCountryCodeMapping() {
-        final Map<String,String> urlCodeMap = new HashMap<>();
+        final Map<String, String> urlCodeMap = new HashMap<>();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(OMTDLicenceMapper.class.getResourceAsStream("/lexvo-iso639-1.tsv")))) {
             reader
                     .lines()
                     .forEach(line -> {
                         final String[] fields = line.split("\t");
-                        urlCodeMap.put(fields[1],fields[0]);
+                        urlCodeMap.put(fields[1], fields[0]);
                     });
         } catch (final IOException e) {
             logger.error("Cannot read language mappings in classpath:/lexvo-iso639-1.tsv");
         }
-        return  urlCodeMap;
+        return urlCodeMap;
     }
 
     private static final class LocaleMapHolder {
@@ -128,10 +124,12 @@ public final class OMTDUtilityMapper {
         return localeStrings[0];
     }
 
-    public static List<String> getDisplayPropertyValue(){
+    public static List<String> getDisplayPropertyValue() {
         List<String> value = Collections.singletonList("all");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(OMTDLicenceMapper.class.getResourceAsStream("/omtdshareschema/portalpropertylist.txt")))) {
-            value = reader.lines().collect(Collectors.toList());
+            value = reader
+                    .lines()
+                    .collect(Collectors.toList());
         } catch (final IOException e) {
             logger.error("Cannot read display parameter values file classpath:/omtdshareschema/portalpropertylist.txt");
         }

@@ -23,7 +23,7 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
 
     private static final Pattern LESSER_THAN = Pattern.compile("<");
     private static final Pattern GREATER_THAN = Pattern.compile(">");
-    private static final Pattern VALID_EMAIL = Pattern.compile("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)])");
+//    private static final Pattern VALID_EMAIL = Pattern.compile("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)])");
 
     private static final String DESCRIPTION_FIELD_NAME = "description";
     private static final String DOCUMENTATION_FIELD_NAME = "documentation";
@@ -431,6 +431,7 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
     @SuppressWarnings("FeatureEnvy")
     public void contactInformation(final ContactInfo contactInfo, final NCBOOutputModel ncboOutputModel) {
         final String contactPoint = OMTDShareModelMapper.getSubmissionPropertyValue(ncboOutputModel, HOMEPAGE_FIELD_NAME, DOCUMENTATION_FIELD_NAME);
+        final String ontologyId = OMTDShareModelMapper.getOntologyPropertyValue(ncboOutputModel, OBJECT_ID_FIELD_NAME);
         if (!contactPoint.equals(MISSING)) {
             contactInfo.setContactPoint(contactPoint);
             contactInfo.setContactType(ContactTypeEnum.LANDING_PAGE);
@@ -441,7 +442,7 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
             final Optional<NCBOCollection> contactCollection = rootObject
                     .get()
                     .getCollection(CONTACT_FIELD_NAME);
-            contactCollection.ifPresent(new ContactConsumer(contactPoint, contactInfo));
+            contactCollection.ifPresent(new ContactConsumer(contactPoint, contactInfo,ontologyId));
 
             final String publisher = OMTDShareModelMapper.getSubmissionPropertyValue(ncboOutputModel, PUBLISHER_FIELD_NAME);
             if (!publisher.equals(MISSING)) {
@@ -453,6 +454,10 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
                 groupName.setValue(publisher);
                 groupName.setLang(DEFAULT_LANG);
             }
+            if(publisher.equals(MISSING) && (!contactCollection.isPresent() || (contactCollection.get().isEmpty()))){
+                contactInfo.setContactPoint(ontologyId);
+                contactInfo.setContactType(ContactTypeEnum.LANDING_PAGE);
+            }
         }
     }
 
@@ -460,11 +465,13 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
         private final String contactPoint;
         private final ContactInfo contactInfo;
         private final List<PersonInfo> personInfos;
+        private final String ontologyPortalURL;
 
-        ContactConsumer(final String contactPoint, final ContactInfo contactInfo) {
+        ContactConsumer(final String contactPoint, final ContactInfo contactInfo, final String ontologyPortalURL) {
             this.contactPoint = contactPoint;
             this.contactInfo = contactInfo;
             personInfos = new ArrayList<>();
+            this.ontologyPortalURL = ontologyPortalURL;
         }
 
         @Override
@@ -479,21 +486,20 @@ public class AgroPortalModelMapper implements OMTDShareModelMapper {
                     final String name = contact
                             .getStringValue(NAME_FIELD_NAME)
                             .orElse(MISSING);
-                    if (contactPoint.equals(MISSING) && VALID_EMAIL
-                            .matcher(email)
-                            .matches()) {
+                    if (contactPoint.equals(MISSING) && email.contains("@")) {
                         contactInfo.setContactPoint(email);
                         contactInfo.setContactType(ContactTypeEnum.CONTACT_EMAIL);
+                    } else {
+                        contactInfo.setContactPoint(ontologyPortalURL);
+                        contactInfo.setContactType(ContactTypeEnum.LANDING_PAGE);
                     }
-                    if (!email.isEmpty() && !name.isEmpty() && VALID_EMAIL
-                            .matcher(email)
-                            .matches()) {
+                    if (!email.isEmpty() && !name.isEmpty() && email.contains("@")) {
                         final PersonInfo personInfo = objectFactory.createPersonInfo();
                         personInfo.setSurname(name);
                         final CommunicationInfo communicationInfo = objectFactory.createCommunicationInfo();
                         communicationInfo.setEmails(Collections.singletonList(email));
-
                         personInfo.setCommunicationInfo(communicationInfo);
+                        personInfos.add(personInfo);
                     }
                 }
             }
