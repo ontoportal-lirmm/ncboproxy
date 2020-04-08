@@ -22,6 +22,7 @@ Eventually, these two projects will be merged into one unique proxy.
     + [II.1. API Usage](#api-usage)
   * [III. Deployment](#deployment)
     + [III.1 Building the war file and configuring the proxy](#building-the-war-file-and-configuring-the-proxy)
+  * [IV. Acknowledgement](#acknowledgement)
 
 ## I. General architecture
 
@@ -205,3 +206,7 @@ mvn clean install
 __If you use the second deployment option, please remember to uncomment the deploymentRoot configuration property and to set it to subpath, where subpath is the subpath where you want to deploy and to rename ROOT.war to subpath.war (as far as Tomcat is concerned).__
 
 __If you are using Tomcat 8, it is preferable that you set the URIEncoding attribute of the connector to "UTF-8" and the server.encoding configuration property of the proxy to utf-8.__
+
+## Acknowledgement
+
+This project is supported by the VisaTM project (Vers une Infrastructure de Services Avancés de Text-Mining), funded by the French CoSO (http://www.bibliothequescientifiquenumerique.fr) and the H2020 OpenMinTed project (http://openminted.eu) funded by the EC.
