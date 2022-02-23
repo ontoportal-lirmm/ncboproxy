@@ -37,9 +37,9 @@ public class OmTDShareSingleServletHandler extends AbstractServletHandler {
                 ResponsePostProcessorRegistry.create(),
                 OutputGeneratorDispatcher.create());
         queryPathPattern = new ArrayList<>();
-        queryPathPattern.add(String.format("/?[a-z]*/ontologies/%s/submissions/%s", ACRONYM_PATTERN, SUBMISSION_ID_PATTERN));
-        queryPathPattern.add(String.format("/?[a-z]*/ontologies/%s/(latest_submission)", ACRONYM_PATTERN));
-        queryPathPattern.add(String.format("/?[a-z]*/ontologies/%s", ACRONYM_PATTERN));
+        queryPathPattern.add(String.format("/?[a-z_]*/ontologies/%s/submissions/%s", ACRONYM_PATTERN, SUBMISSION_ID_PATTERN));
+        queryPathPattern.add(String.format("/?[a-z_]*/ontologies/%s/(latest_submission)", ACRONYM_PATTERN));
+        queryPathPattern.add(String.format("/?[a-z_]*/ontologies/%s", ACRONYM_PATTERN));
 
         OutputGenerator outputGenerator = new OMTDShareOutputGenerator(portalType);
 
@@ -68,6 +68,7 @@ public class OmTDShareSingleServletHandler extends AbstractServletHandler {
                 .compile(matchingPathPattern + ".*")
                 .matcher(queryPath);
         NCBOOutputModel model;
+
         if (matcher.find()) {
             final String acronym = matcher.group(1);
 
